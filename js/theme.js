@@ -11,11 +11,13 @@ $(function () {
         
         var dH = $(document).height() + $footer.height();
         var wH = $(window).height();
-        
-        if (dH > wH && $footer.hasClass(_fixed)) {
+
+        if (dH > wH) {
+            if (!$footer.hasClass(_fixed)) {
+                $footer.addClass(_fixed);
+            }
+        } else if ($footer.hasClass(_fixed)) {
             $footer.removeClass(_fixed);
-        } else if (!$footer.hasClass(_fixed)) {
-            $footer.addClass(_fixed);
         }
 
     }
