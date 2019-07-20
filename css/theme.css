@@ -19,13 +19,21 @@ body {
     font-size: 18px;
 }
 
-.navbar-brand {
-    width: 213.5px;
+.navbar-brand,
+.navbar-nav {
     margin: 0 15px;
 }
 
-.navbar-nav {
-    margin: 0 15px;
+@media (min-width: 1200px) {
+    .navbar-brand {
+        width: 262.5px;
+    }
+}
+
+@media (min-width: 992px) {
+    .navbar-brand {
+        width: 213.5px;
+    }
 }
 
 .footer {
@@ -76,4 +84,8 @@ body {
 
 .author a {
     color: #ee4444;
+}
+
+.icon-bar {
+    border: 1px solid #717171;
 }
