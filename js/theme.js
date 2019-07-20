@@ -8,14 +8,14 @@ $(function () {
         var $footer = $('.footer');
         var _fixed = 'navbar-fixed-bottom';
         
-        if ($(window).height() > getBottom($footer)) {
+        if (Math.round($(window).height()) > Math.round(getBottom($footer))) {
             $footer.addClass(_fixed);
         } else {
             $footer.removeClass(_fixed);
         }
     
         function getBottom($el) {
-            return $el.offset().top + $el.outerHeight(true);
+            return parseInt($el.offset().top + $el.outerHeight());
         }
     }
 
