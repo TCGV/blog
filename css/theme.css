@@ -24,15 +24,15 @@ body {
     margin: 0 15px;
 }
 
-@media (min-width: 1200px) {
-    .navbar-brand {
-        width: 262.5px;
-    }
-}
-
 @media (min-width: 992px) {
     .navbar-brand {
         width: 213.5px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .navbar-brand {
+        width: 262.5px;
     }
 }
 
@@ -87,5 +87,5 @@ body {
 }
 
 .icon-bar {
-    border: 1px solid #717171;
+    border: 1.2px solid #717171;
 }
