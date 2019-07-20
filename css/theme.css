@@ -58,7 +58,7 @@ body {
     margin: 0;
 }
 
-well {
+.well {
     border: none;
     background-color: white;
     box-shadow: none;
