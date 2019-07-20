@@ -1,6 +1,6 @@
 body {
-    padding-top: 60px;
-    padding-bottom: 60px;
+    padding-top: 70px;
+    padding-bottom: 70px;
     background: #f3f5f7;
     font-family: "proxima-nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
@@ -38,6 +38,12 @@ body {
 
 .footer {
     text-align: center;
+    margin: 20px -15px 0;
+}
+
+.footer p {
+    margin: 0;
+    padding: 10px;
 }
 
 .footer a {
