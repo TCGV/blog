@@ -9,15 +9,15 @@ $(function () {
         var $footer = $('.footer');
         var _fixed = 'navbar-fixed-bottom';
         
-        var dH = $(document).height() + $footer.height();
+        var dH = $(document).height();
         var wH = $(window).height();
 
         if (dH > wH) {
-            if (!$footer.hasClass(_fixed)) {
-                $footer.addClass(_fixed);
+            if ($footer.hasClass(_fixed)) {
+                $footer.removeClass(_fixed);
             }
-        } else if ($footer.hasClass(_fixed)) {
-            $footer.removeClass(_fixed);
+        } else if (!$footer.hasClass(_fixed)) {
+            $footer.addClass(_fixed);
         }
 
     }
