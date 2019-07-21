@@ -3,6 +3,7 @@ layout: post
 title: "Cum sociis natoque penatibus"
 date: 2013-06-22 16:25:06 -0700
 comments: true
+tags: design-patterns system-design
 ---
 
 Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Phasellus fermentum facilisis velit eu auctor. Maecenas tincidunt, leo tempor bibendum auctor, ligula lorem ultricies tellus, ac auctor lorem libero a sapien. Donec ac suscipit tellus. Quisque vitae placerat lorem. In ullamcorper malesuada risus, eget fringilla lacus dignissim at. Proin faucibus, nibh vel molestie scelerisque, lorem urna tempus lacus, id viverra odio dolor sit amet odio. In hendrerit, orci vel scelerisque luctus, arcu purus aliquet turpis, a bibendum nulla est et dui.

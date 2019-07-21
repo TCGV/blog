@@ -95,3 +95,7 @@ body {
 .icon-bar {
     border: 1.2px solid #717171;
 }
+
+.sidebar ul {
+    padding-left: 20px;
+}
