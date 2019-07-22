@@ -1,7 +1,7 @@
 FROM alpine:latest
 # Docker image for Jekyll to build github-pages
 #
-# docker build -t "jekyll" .
+# docker build -t "jekyll-github-pages" .
 # docker run -v "$(pwd):/home/mypage".ToLower() -w /home/mypage -p 4000:4000 jekyll-github-pages bundle exec jekyll serve --host 0.0.0.0
 # 
 
@@ -11,7 +11,7 @@ RUN apk upgrade
 RUN apk add curl wget bash cmake
 RUN apk add ruby ruby-bundler ruby-dev ruby-irb ruby-rdoc libatomic readline readline-dev \
 libxml2 libxml2-dev libxslt libxslt-dev zlib-dev zlib \
-libffi-dev build-base git nodejs
+libffi-dev build-base ruby-bigdecimal ruby-webrick git nodejs
 RUN export PATH="/root/.rbenv/bin:$PATH"
 RUN rm -rf /var/cache/apk/*
 # Install Jekyll and required gems

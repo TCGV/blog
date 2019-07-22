@@ -1,12 +1,12 @@
 <h1>Tags</h1>
-<p>
-  <a href="{{ site.baseurl }}/tags/api-design.html">API design</a>&nbsp;·
-  <a href="{{ site.baseurl }}/tags/agile.html">agile</a>&nbsp;·
-  <a href="{{ site.baseurl }}/tags/productivity.html">productivity</a>&nbsp;·
-  <a href="{{ site.baseurl }}/tags/design-patterns.html">design patterns</a>&nbsp;·
-  <a href="{{ site.baseurl }}/tags/system-architecture.html">system architecture</a>&nbsp;·
-  <a href="{{ site.baseurl }}/tags/application-integration.html">application integration</a>&nbsp;·  
-  <a href="{{ site.baseurl }}/tags/leadership.html">leadership</a>&nbsp;· 
-  <a href="{{ site.baseurl }}/tags/clean-code.html">clean code</a>&nbsp;· 
-</p>
-
+{% capture temptags %}
+  {% for tag in site.tags %}
+    {{ tag[1].size | plus: 1000 }}#{{ tag[0] }}#{{ tag[1].size }}
+  {% endfor %}
+{% endcapture %}
+{% assign sortedtemptags = temptags | split:' ' | sort | reverse %}
+{% for temptag in sortedtemptags %}
+  {% assign tagitems = temptag | split: '#' %}
+  {% capture tagname %}{{ tagitems[1] }}{% endcapture %}
+  <a href="{{ site.baseurl }}/tag/{{ tagname }}"><code class="highligher-rouge"><nobr>{{ tagname }}</nobr></code></a>
+{% endfor %}
