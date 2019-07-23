@@ -120,7 +120,7 @@ public class USABankAccountFactory : BankAccountFactory
 Now the dependency inversion principle kicks in. The interfaces concrete implementations are injected into the application with the help of a dependency injection (DI) framework. The DI framework will incorporate all dependencies into itself, using them to construct application services, and it will be the only external dependency of the application:
 
 <p align="center">
-  <img style="max-height: 500px; margin: 10px" src="{{ site.baseurl }}/images/p1/uml-injection.jpg" alt="uml-injection"/>
+  <img style="max-height: 500px; margin: 10px" src="{{ site.baseurl }}/images/p1/uml-injection.JPG" alt="uml-injection"/>
 </p>
 
 Each color in the above class diagram indicates a different section of the whole system. In blue the application's business logic. In dark yellow the interfaces concrete implementations which are dependent on third-party modules. Finally in gray the DI framework and it's configuration classes, omitted for brevity.
