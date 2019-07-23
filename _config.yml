@@ -1,6 +1,6 @@
 # Jekyll configuration
 
-name: TCGV's Blog
+name: thomas vilhena
 description: Thoughts on Software Development
 
 # url is currently only used only for the RSS feed in feed.xml
@@ -38,3 +38,5 @@ markdown: kramdown
 gems: ['jekyll-paginate']
 
 exclude: ['README.md', 'LICENSE']
+
+# future: true

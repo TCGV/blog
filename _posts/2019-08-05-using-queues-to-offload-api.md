@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "Lorem ipsum dolor sit amet"
-date: 2014-07-22 16:25:06 -0700
+title: "Using queues to offload API"
+date: 2019-08-05 10:00:00 -0300
 comments: true
-tags: application-integration frameworks
+tags: system-design queuing
 ---
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quam metus, commodo sit amet ante a, finibus efficitur lorem. Maecenas egestas purus in tempor volutpat. Sed dapibus tortor nec sem suscipit ullamcorper. Nulla nec lorem lacus. Phasellus condimentum massa quis dolor consequat viverra ut ac magna. Ut a consequat nisi. Vivamus at leo ut turpis convallis lacinia. Curabitur eu placerat quam. Donec ultricies faucibus dui, a tincidunt lorem lobortis condimentum.
