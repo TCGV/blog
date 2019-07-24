@@ -24,12 +24,12 @@ A web-based API (Application Programming Interface) provides a set of functional
   <img style="max-height: 200px; max-width: 100%; margin: 10px" src="{{ site.baseurl }}/images/p1/web-api.png" alt="web-api"/>
 </p>
 
-The next section will cover the dependency management challenge that arises when integrating third-party modules into applications. 
+The next section covers the dependency management challenge that arises when integrating third-party modules into applications. 
 
 Dependency Management
 ============
 
-Integrating with external modules can be treacherous, since it's easy to fall into the trap of referencing it's classes (or APIs) directly  producing tightly coupled code. One property of coupled code is that it's resistant to change, making it difficult to deal with change requirements, package updates or replacing third-party modules altogether.
+Integrating with external modules can be treacherous, since it's easy to fall into the trap of referencing it's classes (or APIs) directly from business logic classes, producing tightly coupled code. One property of coupled code is that it's resistant to change, making it difficult to deal with change requirements, package updates or replacing third-party modules altogether.
 
 Hence, there's a need for a module dependency management approach that protects the application from coupling with external code, improving it's flexibility and overall architecture. This is achieved by applying the Dependency Inversion principle, which dictates that <i>"the application should depend on abstractions, not concretions"</i>.
 
@@ -117,15 +117,15 @@ public class USABankAccountFactory : BankAccountFactory
 
 <b>How does the application consume concrete implementations?</b>
 
-Now the dependency inversion principle kicks in. The interfaces concrete implementations are injected into the application with the help of a dependency injection (DI) framework. The DI framework will incorporate all dependencies into itself, using them to construct application services, and it will be the only external dependency of the application:
+Now the dependency inversion principle kicks in. The interfaces concrete implementations are injected into the application with the help of a dependency injection (DI) framework. The DI framework will incorporate all dependencies into itself, using them to construct application services, which won't be dependent on any external module:
 
 <p align="center">
   <img style="max-height: 500px; max-width: 100%; margin: 10px" src="{{ site.baseurl }}/images/p1/uml-injection.JPG" alt="uml-injection"/>
 </p>
 
-Each color in the above class diagram indicates a different section of the whole system. In blue the application's business logic. In dark yellow the interfaces concrete implementations which are dependent on third-party modules. Finally in grey the DI related classes, one from the DI framework (`Injector`) and the other responsible for configuring the application dependency graph (`DependencyConfig`).
+Each color in the class diagram above represents a different section of the whole system. In blue the application's business logic. In dark yellow the interfaces concrete implementations which are dependent on third-party modules. Finally in grey the DI related classes, one from the DI framework (`Injector`) and the other responsible for configuring the application dependency graph (`DependencyConfig`).
 
-Notice that the application business logic is isolated from external modules, with the single exception of the DI framework. Some may say that the dependency on the DI framework defeats it's very own purpose, but for large applications the benefits largely outweighs this drawback. If one is careful enough to avoid complex DI frameworks and use only what's is strictly required for isolating the application from third-party modules then this self-inflicted dependency should not be a problem at all.
+Notice that application business logic is completely isolated from external modules. However, the application is dependent on the DI framework, and it won't be able to instantiate service classes (such as the `BankingService`) without it. Some may say that the dependency on the DI framework defeats it's very own purpose, but for large applications the benefits largely outweighs this drawback. If one is careful enough to avoid complex DI frameworks and use only what's strictly required for isolating the application from third-party modules then this self-inflicted dependency should not be a problem at all.
 
 DI Framework Configuration
 ============
@@ -146,7 +146,7 @@ public class DependencyConfig
 ```
 The "Transient" suffix means whenever a dependency is resolved a different object is instantiated. Other commonly supported life-cycle models are "Singleton" for resolving a dependency always with the same object and "Scoped" for associating the lifetime of the object with the duration of a web request or network session.
 
-This configuration method is then called when the application starts, allowing subsequent calls for creating services:
+This configuration method is then called in the application's uppermost layer (ex: presentation layer) initialization, allowing subsequent calls for creating services during runtime:
 
 ```csharp
 using (var injector = new Injector())
