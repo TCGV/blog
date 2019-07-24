@@ -15,13 +15,13 @@ Usually it comes in two forms:
 A third-party software package is composed of library files and data files which are executed by applications locally, and become part of the application's deployable image:
 
 <p align="center">
-  <img style="max-height: 200px; margin: 10px" src="{{ site.baseurl }}/images/p1/application-image.png" alt="application-image"/>
+  <img style="max-height: 200px; max-width: 100%; margin: 10px" src="{{ site.baseurl }}/images/p1/application-image.png" alt="application-image"/>
 </p>
 
 A web-based API (Application Programming Interface) provides a set of functionalities which, when consumed, are executed externally from the application, in another process or in a remote server. The application can consume the web API directly with the assistance of network libraries (A), but more often client side software packages are provided for handling communications between the two parties (B):
 
 <p align="center">
-  <img style="max-height: 200px; margin: 10px" src="{{ site.baseurl }}/images/p1/web-api.png" alt="web-api"/>
+  <img style="max-height: 200px; max-width: 100%; margin: 10px" src="{{ site.baseurl }}/images/p1/web-api.png" alt="web-api"/>
 </p>
 
 The next section will cover the dependency management challenge that arises when integrating third-party modules into applications. 
@@ -120,10 +120,10 @@ public class USABankAccountFactory : BankAccountFactory
 Now the dependency inversion principle kicks in. The interfaces concrete implementations are injected into the application with the help of a dependency injection (DI) framework. The DI framework will incorporate all dependencies into itself, using them to construct application services, and it will be the only external dependency of the application:
 
 <p align="center">
-  <img style="max-height: 500px; margin: 10px" src="{{ site.baseurl }}/images/p1/uml-injection.JPG" alt="uml-injection"/>
+  <img style="max-height: 500px; max-width: 100%; margin: 10px" src="{{ site.baseurl }}/images/p1/uml-injection.JPG" alt="uml-injection"/>
 </p>
 
-Each color in the above class diagram indicates a different section of the whole system. In blue the application's business logic. In dark yellow the interfaces concrete implementations which are dependent on third-party modules. Finally in gray the DI framework and it's configuration classes, omitted for brevity.
+Each color in the above class diagram indicates a different section of the whole system. In blue the application's business logic. In dark yellow the interfaces concrete implementations which are dependent on third-party modules. Finally in grey the DI related classes, one from the DI framework (`Injector`) and the other responsible for configuring the application dependency graph (`DependencyConfig`).
 
 Notice that the application business logic is isolated from external modules, with the single exception of the DI framework. Some may say that the dependency on the DI framework defeats it's very own purpose, but for large applications the benefits largely outweighs this drawback. If one is careful enough to avoid complex DI frameworks and use only what's is strictly required for isolating the application from third-party modules then this self-inflicted dependency should not be a problem at all.
 
