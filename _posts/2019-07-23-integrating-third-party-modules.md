@@ -31,7 +31,7 @@ Dependency Management
 
 Integrating with external modules can be treacherous, since it's easy to fall into the trap of referencing it's classes (or APIs) directly from business logic classes, producing tightly coupled code. One property of coupled code is that it's resistant to change, making it difficult to deal with change requirements, package updates or replacing third-party modules altogether.
 
-Hence, there's a need for a module dependency management approach that protects the application from coupling with external code, improving it's flexibility and overall architecture. This is achieved by applying the Dependency Inversion principle, which dictates that <i>"the application should depend on abstractions, not concretions"</i>.
+Hence, there's a need for a module dependency management approach that protects business logic from coupling with external code, improving application's flexibility and overall architecture. This is achieved by applying the Dependency Inversion principle, which dictates that <i>"one should depend on abstractions, not concretions"</i>.
 
 <b>What's an abstraction?</b>
 
@@ -48,9 +48,9 @@ public interface BankAccount
 
     double GetBalance();
 
-    Statement GetStatements(DateTime start, DateTime end);
+    Statement[] GetStatements(DateTime start, DateTime end);
 
-    void TransferFunds(double amount, AccountNumber destinationAccount);
+    void TransferFunds(AccountNumber destinationAccount, double amount);
 }
 ```
 
@@ -69,7 +69,7 @@ It may seem counter intuitive now how a factory class can create an objetc whose
 
 <b>What's a concrete implementation?</b>
 
-In this context a concrete implementation is the defacto class implementation of an interface. From the example above it's reasonable to imagine implementations for the `BankAccount` interface for various banks:
+In this context a concrete implementation is the defacto class implementation of an interface. From the example above it's reasonable to imagine `BankAccount` implementations for various banks:
 
 ```csharp
 public class BankOfAmericaAccount : BankAccount
@@ -88,9 +88,9 @@ public class WellsFargoAccount : BankAccount
 }
 ```
 
-Each one of these illustrative classes would be dependent on a third-party module from the underlying bank for implementing the interface behaviors.
+Each one of these illustrative classes would be dependent on a third-party module from the underlying bank for implementing interface behaviors.
 
-Then, the factory interface implementation would be responsible for instantiating the appropriate bank account object according to the bank it belongs, for instance:
+Then, the factory interface implementation would be responsible for instantiating the appropriate bank account object from an `AccountNumber`, according to the bank it belongs, for instance:
 
 ```csharp
 public class USABankAccountFactory : BankAccountFactory
@@ -115,9 +115,9 @@ public class USABankAccountFactory : BankAccountFactory
 }
 ```
 
-<b>How does the application consume concrete implementations?</b>
+<b>How to resolve business logic abstract dependencies?</b>
 
-Now the dependency inversion principle kicks in. The interfaces concrete implementations are injected into the application with the help of a dependency injection (DI) framework. The DI framework will incorporate all dependencies into itself, using them to construct application services, which won't be dependent on any external module:
+Now the dependency inversion principle kicks in. The interfaces concrete implementations are injected into business logic objects with the help of a dependency injection (DI) framework. The DI framework will incorporate all dependencies into itself, using them to construct application services, which aren't dependent on any external module:
 
 <p align="center">
   <img style="max-height: 500px; max-width: 100%; margin: 10px" src="{{ site.baseurl }}/images/p1/uml-injection.JPG" alt="uml-injection"/>
@@ -125,7 +125,7 @@ Now the dependency inversion principle kicks in. The interfaces concrete impleme
 
 Each color in the class diagram above represents a different section of the whole system. In blue the application's business logic. In dark yellow the interfaces concrete implementations which are dependent on third-party modules. Finally in grey the DI related classes, one from the DI framework (`Injector`) and the other responsible for configuring the application dependency graph (`DependencyConfig`).
 
-Notice that application business logic is completely isolated from external modules. However, the application is dependent on the DI framework, and it won't be able to instantiate service classes (such as the `BankingService`) without it. Some may say that the dependency on the DI framework defeats it's very own purpose, but for large applications the benefits largely outweighs this drawback. If one is careful enough to avoid complex DI frameworks and use only what's strictly required for isolating the application from third-party modules then this self-inflicted dependency should not be a problem at all.
+Notice that application business logic is completely isolated from external modules. However, the application is dependent on the DI framework, and it won't be able to instantiate service classes (such as the `BankingService`) without it. Some may say that the dependency on the DI framework defeats it's very own purpose, but for large applications the benefits largely outweighs this drawback. If one is careful enough to avoid complex DI frameworks and use only what's strictly required for isolating business logic from third-party modules then this self-inflicted dependency should not be a problem at all.
 
 DI Framework Configuration
 ============
@@ -144,7 +144,7 @@ public class DependencyConfig
     }
 }
 ```
-The "Transient" suffix means whenever a dependency is resolved a different object is instantiated. Other commonly supported life-cycle models are "Singleton" for resolving a dependency always with the same object and "Scoped" for associating the lifetime of the object with the duration of a web request or network session.
+The "Transient" suffix means whenever a dependency is resolved a different object is instantiated. Other commonly supported life-cycle models are "Singleton" for always resolving a dependency with the same object and "Scoped" for associating the lifetime of the object with the duration of a web request or network session.
 
 This configuration method is then called in the application's uppermost layer (ex: presentation layer) initialization, allowing subsequent calls for creating services during runtime:
 
