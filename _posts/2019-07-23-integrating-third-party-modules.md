@@ -115,7 +115,7 @@ public class USABankAccountFactory : BankAccountFactory
 }
 ```
 
-<b>How does the application consumes concrete implementations?</b>
+<b>How does the application consume concrete implementations?</b>
 
 Now the dependency inversion principle kicks in. The interfaces concrete implementations are injected into the application with the help of a dependency injection (DI) framework. The DI framework will incorporate all dependencies into itself, using them to construct application services, and it will be the only external dependency of the application:
 
