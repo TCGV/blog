@@ -16,12 +16,14 @@ A third-party software package is composed of library files and data files which
 
 <p align="center">
   <img style="max-height: 200px; max-width: 100%; margin: 10px" src="{{ site.baseurl }}/images/p1/application-image.png" alt="application-image"/>
+  <br><label style="font-size: 12px;">figure 1</label>
 </p>
 
 A web-based API (Application Programming Interface) provides a set of functionalities which, when consumed, are executed externally from the application, in another process or in a remote server. The application can consume the web API directly with the assistance of network libraries (A), but more often client side software packages are provided for handling communications between the two parties (B):
 
 <p align="center">
   <img style="max-height: 200px; max-width: 100%; margin: 10px" src="{{ site.baseurl }}/images/p1/web-api.png" alt="web-api"/>
+  <br><label style="font-size: 12px;">figure 2</label>
 </p>
 
 The next section covers the dependency management challenge that arises when integrating third-party modules into applications. 
@@ -121,6 +123,7 @@ Now the dependency inversion principle kicks in. The interfaces concrete impleme
 
 <p align="center">
   <img style="max-height: 500px; max-width: 100%; margin: 10px" src="{{ site.baseurl }}/images/p1/uml-injection.JPG" alt="uml-injection"/>
+  <br><label style="font-size: 12px;">figure 3</label>
 </p>
 
 Each color in the class diagram above represents a different section of the whole system. In blue the application's business logic. In dark yellow the interfaces concrete implementations which are dependent on third-party modules. Finally in grey the DI related classes, one from the DI framework (`Injector`) and the other responsible for configuring the application dependency graph (`DependencyConfig`).
