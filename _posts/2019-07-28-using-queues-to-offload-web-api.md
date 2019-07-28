@@ -1,16 +1,16 @@
 ---
 layout: post
 title: "Using queues to offload Web API"
-date: 2019-08-01 10:00:00 -0300
+date: 2019-07-28 11:45:00 -0300
 comments: true
 tags: system-design queuing
 ---
 
 With the ubiquitous of smartphones and mobile devices a great number of people are getting more and more accustomed to accessing all kinds of digital services remotely, anywhere they feel convenient to do so. The adoption of web APIs to back these digital services is now even more customary, and the performance of web APIs will have a direct impact on user experience (UX).
 
-This article presents a technique for optimizing web APIs by offloading part of its operations to asynchronous queues, resulting in faster response times and improved UX. First we analyze the anatomy of a web request, then we introduce the structure of a queuing system, and finally we combine both for achieving more efficient execution flows.
+This article presents a technique for optimizing web APIs by offloading part of its operations to asynchronous queues, resulting in faster response times and improved UX. First we analyze the anatomy of a web API request, then we introduce the structure of a queuing system, and finally we combine both for achieving more efficient execution flows.
 
-Anatomy of a Web Request
+Anatomy of a Web API Request
 ============
 
 A great deal of backend services are composed of a web API module on top of a database. In this model code is only executed on demand, i.e., whenever the API gets called. There are no background processes executing behind the scenes. It is simple to develop and operations are predictable, easy to follow.
@@ -22,7 +22,7 @@ This model can be pushed really far, as long as the API constraints itself to li
   <br><label style="font-size: 12px;">figure 1</label>
 </p>
 
-In a light weight web API requests arrive at the endpoint, are routed to the application, business logic is executed, perhaps fetching or persisting some data, and finally a response is produced and returned to the client. Operations are mostly short in duration and everything runs within the application boundaries.
+In light weight web API requests calls arrive at the endpoint, are routed to the application, business logic is executed, perhaps fetching or persisting some data, and finally a response is produced and returned to the client. Operations are mostly short in duration and everything runs within the application boundaries.
 
 <p align="center">
   <img style="max-height: 385px; max-width: 100%; margin: 10px" src="{{ site.baseurl }}/images/p2/heavy-web-request.JPG" alt="heavy-web-request"/>
