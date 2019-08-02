@@ -60,11 +60,11 @@ The main goal of monitoring is to automatically detect problems as soon as possi
 Then, as a fourth rule you should:
 > Set up and rely on automatic monitoring for early problem detection
 
-There are at least two lines of monitoring which are effective for closing the feedback loop in the deployment process: health monitoring and incident monitoring.
+There are at least two lines of monitoring which are effective for closing the feedback loop in the deployment process: health monitoring and error monitoring.
 
 **Health Monitoring**
 
-In this line of monitoring we are interested in assuring that our application is performing as expected. First we define a set of system and business metrics that adequately represents the application behaviors. Then we start tracking these metrics, triggering an alert whenever one of them falls outside of the expected operational range.
+In this line of monitoring we are interested in assuring that our application is performing as expected. First we define a set of system and business metrics that adequately represents the application behaviors. Then we start tracking these metrics, triggering an alert whenever one of them falls outside of its expected operational range.
 
 A few examples of system metrics are:
 * Number of active database connections
@@ -78,9 +78,9 @@ As for business metrics, a few examples are:
 * Image upload rate (for media sharing application)
 * Content like rate (for a social application)
 
-**Incident Monitoring**
+**Error  Monitoring**
 
-Errors are continuously occurring in applications, but most of them are known and expected errors, such as authentication token expiration errors, or database query timeout errors. In incident monitoring we are interested in discovering deviations, or anomalies, from the expected occurrence of application errors, triggering an alert when that happens. An anomaly can be identified as:
+Errors are continuously occurring in applications, but most of them are known and expected errors, such as authentication token expiration errors, or database query timeout errors. In this line of monitoring we are interested in discovering deviations, or anomalies, from the expected occurrence of application errors, triggering an alert when that happens. An anomaly can be identified as:
 * A significant and unexpected increase (or decrease) in the rate of a known error
 * A consistent manifestation of a new, unexpected, type of error
 
