@@ -99,3 +99,18 @@ body {
 .sidebar ul {
     padding-left: 20px;
 }
+
+table.cheat-sheet {
+    margin-bottom: 15px;
+}
+
+table.cheat-sheet td,
+table.cheat-sheet th {
+    padding: 8px;
+    border: 1px solid;
+    text-align: center;
+}
+
+table.cheat-sheet tr td:first {
+    text-align: right;
+}
