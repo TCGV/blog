@@ -5,6 +5,14 @@ body {
     font-family: "proxima-nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
+.centered {
+    margin: 0 auto;
+}
+
+.text-center {
+    text-align: center;
+}
+
 .copyright {
     color: #ffffff;
 }
@@ -100,17 +108,22 @@ body {
     padding-left: 20px;
 }
 
-table.cheat-sheet {
+table.basic-table {
     margin-bottom: 15px;
 }
 
-table.cheat-sheet td,
-table.cheat-sheet th {
+table.basic-table td,
+table.basic-table th {
     padding: 8px;
     border: 1px solid;
     text-align: center;
 }
 
-table.cheat-sheet tr td:first {
+table.basic-table tr td:first {
     text-align: right;
+}
+
+table.w60 th {
+    width: 60px;
+    max-width: 100%;
 }
