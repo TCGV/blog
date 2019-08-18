@@ -52,7 +52,9 @@ public interface BankAccount
 
     Statement[] GetStatements(DateTime start, DateTime end);
 
-    void TransferFunds(AccountNumber destinationAccount, double amount);
+    void Withdraw(double amount);
+
+    void Deposit(double amount);
 }
 ```
 
