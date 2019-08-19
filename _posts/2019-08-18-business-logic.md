@@ -6,7 +6,7 @@ comments: true
 tags: system-design
 ---
 
-In software architecture, the business logic layer contains classes that implement application specific business rules, typically in the form of high level operations, also known as use cases. The use cases encapsulate interactions between entities, which are reusable lower level logical models of the real-world business domain.
+In software architecture, the business logic layer contains classes that implement application specific business rules, typically made available in the form of high level operations, also known as **use cases**. The use cases encapsulate interactions between **entities**, which are reusable lower level logical models of the real-world business domain.
 
 Code Examples
 ============
