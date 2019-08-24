@@ -59,7 +59,7 @@ Let's exercise this algorithm with data from **figure 1**, starting from "Willia
 {:.centered .w60 .basic-table}
 |     | sourceIds | targetId | visitedIds | steps | followersIds    | contains? |
 | --- | --------- | -------- | ---------- | ----- | --------------- | --------- |
-| #1  | [2]       | 5        | []         | 3     | [1, 4]          | false     |
+| #1  | [2]       | 5        | [ ]        | 3     | [1, 4]          | false     |
 | #2  | [1, 4]    | 5        | [2]        | 2     | [1, 2, 3, 4, 5] | true      |
 
 Notice that "Mary Miller" (ID = 2) was found at the second level, and the function will return **true** in this case.
