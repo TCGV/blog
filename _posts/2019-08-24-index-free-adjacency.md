@@ -91,6 +91,6 @@ The resulting time complexity for the query will be simply `O(V + E + log(n))`, 
 
 ---
 
-A lot of factors that affect database performance were left out of the analysis for brevity, such as file system caching, data storage sparsity, memory requirements, and so forth.
+A lot of factors that affect database performance were left out of the analysis for simplicity, such as file system caching, data storage sparsity, memory requirements, schema and query optimizations.
 
 There's no single universal database that performs greatly in all scenarios. Different kinds of problems may be better solved using different kinds of databases, if you can afford the additional operational burden. As with most decisions in software development, a reasonable approach is to lay down your requirements and analyze whether or not tools available to you meet them before jumping to a new ship.
