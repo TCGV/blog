@@ -54,7 +54,7 @@ bool CanReachTarget(int[] sourceIds, int targetId, HashSet<int> visitedIds, int 
 
 At each level of the recursion the function will fetch all followers IDs at that level, check whether or not the target ID is present, return **true** in case it's present or go one level deeper in case it's not, keeping track of aready visited elements. If the function runs out of steps during the recursion it will return **false**, since it failed to reach the target ID.
 
-Let's exercise this algorithm with data from **figure 1**, starting from "Willian Johnson" and trying to reach "Mary Miller" with at most 3 steps:
+Let's exercise this algorithm with data from **figure 1**, starting from "Willian Johnson" (ID = 2) and trying to reach "Mary Miller" (ID = 5) with at most 3 steps:
 
 {:.centered .w60 .basic-table}
 |     | sourceIds | targetId | visitedIds | steps | followersIds    | contains? |
@@ -62,11 +62,11 @@ Let's exercise this algorithm with data from **figure 1**, starting from "Willia
 | #1  | [2]       | 5        | [ ]        | 3     | [1, 4]          | false     |
 | #2  | [1, 4]    | 5        | [2]        | 2     | [1, 2, 3, 4, 5] | true      |
 
-Notice that "Mary Miller" (ID = 2) was found at the second level, and the function will return **true** in this case.
+Notice that "Mary Miller" was found at the second level, and the function will return **true** in this case.
 
-Now, let's analyze the time complexity of this algorithm. You may have already realized that it's performing a Breadth First Search (BFS), offloading most of the work to the database query engine. The BFS part executes `O(V + E)` operations, where `V` is the number of users whose followers are fetched from the database and `E` the aggregated number of followers from this group of users. The cost to fetch followers for each user considering a [B-Tree](https://en.wikipedia.org/wiki/B-tree) index is `O(log(n))`, where `n` is the length of the followers table. Hence, the resulting time complexity will be `O((V + E) * log(n))`.
+Now, let's analyze the time complexity of this algorithm. You may have already realized that it's performing a Breadth First Search (BFS), offloading most of the work to the database query engine. The BFS part executes `O(V + E)` operations, where `V` is the number of users whose followers are fetched from the database and `E` the aggregated number of followers from this group of users. The cost to fetch followers for each user considering a [B-Tree](https://en.wikipedia.org/wiki/B-tree) index is `O(log(n))`, where `n` is the length of the followers table. Hence, the resulting time complexity will be `O(V * log(n) + E)`.
 
-Without the index things would be much worse, since a full table scan would be necessary to fetch followers, yielding `O((V + E) * n)` time complexity in the worst case.
+Without the index things would be much worse, since a full table scan would be necessary to fetch followers, yielding `O(V * n + E)` time complexity in the worst case.
 
 Graph Databases
 ============
@@ -78,14 +78,16 @@ As I've said at the beginning of this article graph databases take advantage of 
   <br><label style="font-size: 12px;">figure 2</label>
 </p>
 
-Instead of relying on a global index for accessing connected nodes, each node directly references its adjacent nodes. Even though the lack of a global index for nodes relationships is what gives the index-free adjacency property its name, you can think that each node actually holds a mini-index to all nearby nodes, making traverse operations extremely cheap.
+Instead of relying on a global index for accessing connected nodes, each node directly references its adjacent nodes. Even though the lack of a global index for nodes relationships is what gives the index-free adjacency property its name, you can think that each node actually holds a mini-index to all nearby nodes, making traversal operations extremely cheap.
 
-As to leverage this structure, graph databases perform traversal queries natively, being able to execute the BFS algorithm from the previous section entirely whithin the database query engine. The BFS part will still execute `O(V + E)` operations, however the cost to fetch a user node followers will go down to `O(1)`, running in constant time, since all followers are directly referenced at the node level. The resulting time complexity for the query will be simply `O(V + E)`.
+As to leverage this structure, graph databases perform traversal queries natively, being able to execute the BFS algorithm from the previous section entirely whithin the database query engine. The BFS part will still execute `O(V + E)` operations, however the cost to fetch a user node followers will go down to `O(1)`, running in constant time, since all followers are directly referenced at the node level.
 
 You may be thinking:
-> What about accessing the starting node in the first place, wouldn't that require a global index?
+> What about accessing the query starting node in the first place, wouldn't that require a global index?
 
 And you're completely right, in order to get to the starting point of the traversal efficiently we will have to rely on an index lookup. Again, considering a B-Tree index, this will run in `O(log(n))` time in addition to the traversal.
+
+The resulting time complexity for the query will be simply `O(V + E + log(n))`, much better than for relational databases, specially when the number of users (`n`) gets larger.
 
 ---
 
