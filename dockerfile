@@ -15,7 +15,13 @@ libffi-dev build-base ruby-bigdecimal ruby-webrick git nodejs
 RUN export PATH="/root/.rbenv/bin:$PATH"
 RUN rm -rf /var/cache/apk/*
 # Install Jekyll and required gems
-RUN gem install bundler
+RUN gem install addressable --version=2.6.0
+RUN gem install dnsruby --version=1.61.2
+RUN gem install nokogiri --version=1.10.3
+RUN gem install html-pipeline --version=2.11.1
+RUN gem install bundler --version=2.0.2
+RUN gem install rubyzip --version=1.2.3
+RUN gem install github-pages --version=198
 RUN gem install jekyll
-RUN gem install github-pages
+RUN gem install jekyll-remote-theme --version=0.3.1
 RUN mkdir /home/mypage
