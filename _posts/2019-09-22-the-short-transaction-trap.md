@@ -63,7 +63,7 @@ The (wrong) Solution
 
 A straight forward approach that I tried was to breakdown the task submission into smaller batches, instead of submitting the task to all users at once, after all, several short transactions are better than one long running transaction, right?
 
-Wrong! Even though staging tests showed that there was no significant change in the overall duration of tasks submission to mobile users, on the production environment this solution backfired:
+Wrong! Well, at least for my specific use case 🧐. Even though staging tests showed that there was no significant change in the overall duration of tasks submission to mobile users, on the production environment this solution backfired:
 
 <p align="center">
   <label style="font-size: 12px;">Active Database Connections</label><br>
