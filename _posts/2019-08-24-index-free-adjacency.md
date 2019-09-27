@@ -56,11 +56,41 @@ At each level of the recursion the function will fetch all followers IDs at that
 
 Let's exercise this algorithm with data from **figure 1**, starting from "Willian Johnson" (ID = 2) and trying to reach "Mary Miller" (ID = 5) with at most 3 steps:
 
-{:.centered .w60 .basic-table}
-|     | sourceIds | targetId | visitedIds | steps | followersIds    | contains? |
-| --- | --------- | -------- | ---------- | ----- | --------------- | --------- |
-| #1  | [2]       | 5        | [ ]        | 3     | [1, 4]          | false     |
-| #2  | [1, 4]    | 5        | [2]        | 2     | [1, 2, 3, 4, 5] | true      |
+<div class="table-wrapper">
+	<table class="centered w60 basic-table">
+	  <thead>
+		<tr>
+		  <th>&nbsp;</th>
+		  <th>sourceIds</th>
+		  <th>targetId</th>
+		  <th>visitedIds</th>
+		  <th>steps</th>
+		  <th>followersIds</th>
+		  <th>contains?</th>
+		</tr>
+	  </thead>
+	  <tbody>
+		<tr>
+		  <td>#1</td>
+		  <td>[2]</td>
+		  <td>5</td>
+		  <td>[ ]</td>
+		  <td>3</td>
+		  <td>[1, 4]</td>
+		  <td>false</td>
+		</tr>
+		<tr>
+		  <td>#2</td>
+		  <td>[1, 4]</td>
+		  <td>5</td>
+		  <td>[2]</td>
+		  <td>2</td>
+		  <td>[1, 2, 3, 4, 5]</td>
+		  <td>true</td>
+		</tr>
+	  </tbody>
+	</table>
+</div>
 
 Notice that "Mary Miller" was found at the second level, and the function will return **true** in this case.
 

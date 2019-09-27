@@ -14,10 +14,12 @@ Array
 Time Complexity:
 
 {:.basic-table}
-|             | Indexing | Search | Insert | Delete |
-| ----------- | -------- | ------ | ------ | ------ |
-| **Average** | O(1)     | O(n)   | O(n)   | O(n)   |
-| **Worst**   | O(1)     | O(n)   | O(n)   | O(n)   |
+|              | Average | Worst |
+| ------------ | ------- | ------|
+| **Indexing** | O(1)    | O(1)  |
+| **Search**   | O(n)    | O(n)  |
+| **Insert**   | O(n)    | O(n)  |
+| **Delete**   | O(n)    | O(n)  |
 
 Space Complexity: `O(n)`
 
@@ -28,10 +30,12 @@ Linked List
 Time Complexity:
 
 {:.basic-table}
-|             | Indexing | Search | Insert | Delete |
-| ----------- | -------- | ------ | ------ | ------ |
-| **Average** | O(n)     | O(n)   | O(1)   | O(1)   |
-| **Worst**   | O(n)     | O(n)   | O(1)   | O(1)   |
+|              | Average | Worst |
+| ------------ | ------- | ------|
+| **Indexing** | O(n)    | O(n)  |
+| **Search**   | O(n)    | O(n)  |
+| **Insert**   | O(1)    | O(1)  |
+| **Delete**   | O(1)    | O(1)  |
 
 Space Complexity: `O(n)`
 
@@ -44,10 +48,10 @@ Stack
 Time Complexity:
 
 {:.basic-table}
-|             | Push    | Pop     |
-| ----------- | ------- | ------- |
-| **Average** | O(1)    | O(1)    |
-| **Worst**   | O(1)    | O(1)    |
+|          | Average | Worst |
+| -------- | ------- | ------|
+| **Push** | O(1)    | O(1)  |
+| **Pop**  | O(1)    | O(1)  |
 
 Space Complexity: `O(n)`
 
@@ -58,10 +62,10 @@ Queue
 Time Complexity:
 
 {:.basic-table}
-|             | Enqueue | Dequeue |
-| ----------- | ------- | ------- |
-| **Average** | O(1)    | O(1)    |
-| **Worst**   | O(1)    | O(1)    |
+|              | Average | Worst |
+| ------------ | ------- | ------|
+| **Enqueue**  | O(1)    | O(1)  |
+| **Dequeue**  | O(1)    | O(1)  |
 
 Space Complexity: `O(n)`
 
@@ -72,10 +76,11 @@ Hash Table
 Time Complexity:
 
 {:.basic-table}
-|             | Search | Insert | Delete |
-| ----------- | ------ | ------ | ------ |
-| **Average** | O(1)   | O(1)   | O(1)   |
-| **Worst**   | O(n)   | O(n)   | O(n)   |
+|              | Average | Worst |
+| ------------ | ------- | ------|
+| **Search**   | O(1)    | O(n)  |
+| **Insert**   | O(1)    | O(n)  |
+| **Delete**   | O(1)    | O(n)  |
 
 Space Complexity: `O(n)`
 
@@ -86,10 +91,12 @@ Heap
 Time Complexity:
 
 {:.basic-table}
-|             | Heapify  | Find Max | Insert    | Delete    |
-| ----------- | -------- | -------- | --------- | --------- |
-| **Average** | O(n)     | O(1)     | O(log(n)) | O(log(n)) |
-| **Worst**   | O(n)     | O(1)     | O(log(n)) | O(log(n)) |
+|              | Average   | Worst     |
+| ------------ | --------- | --------- |
+| **Heapify**  | O(n)      | O(n)      |
+| **Find Max** | O(1)      | O(1)      |
+| **Insert**   | O(log(n)) | O(log(n)) |
+| **Delete**   | O(log(n)) | O(log(n)) |
 
 Space Complexity: `O(n)`
 
@@ -100,10 +107,12 @@ Binary Search Tree
 Time Complexity:
 
 {:.basic-table}
-|             | Indexing  | Search    | Insert    | Delete    |
-| ----------- | --------- | --------- | --------- | --------- |
-| **Average** | O(log(n)) | O(log(n)) | O(log(n)) | O(log(n)) |
-| **Worst**   | O(n)      | O(n)      | O(n)      | O(n)      |
+|              | Average   | Worst     |
+| ------------ | --------- | --------- |
+| **Indexing** | O(log(n)) | O(n)      |
+| **Search**   | O(log(n)) | O(n)      |
+| **Insert**   | O(log(n)) | O(n)      |
+| **Delete**   | O(log(n)) | O(n)      |
 
 Space Complexity: `O(n)`
 
@@ -114,10 +123,12 @@ Self-balancing Binary Search Tree
 Time Complexity:
 
 {:.basic-table}
-|             | Indexing  | Search    | Insert    | Delete    |
-| ----------- | --------- | --------- | --------- | --------- |
-| **Average** | O(log(n)) | O(log(n)) | O(log(n)) | O(log(n)) |
-| **Worst**   | O(log(n)) | O(log(n)) | O(log(n)) | O(log(n)) |
+|              | Average   | Worst     |
+| ------------ | --------- | --------- |
+| **Indexing** | O(log(n)) | O(log(n)) |
+| **Search**   | O(log(n)) | O(log(n)) |
+| **Insert**   | O(log(n)) | O(log(n)) |
+| **Delete**   | O(log(n)) | O(log(n)) |
 
 Space Complexity: `O(n)`
 
@@ -130,10 +141,11 @@ Trie
 Time Complexity:
 
 {:.basic-table}
-|             | Search    | Insert  | Delete |
-| ----------- | --------- | ------- | ------ |
-| **Average** | O(m)      | O(m)    | O(m)   |
-| **Worst**   | O(m)      | O(m)    | O(m)   |
+|              | Average   | Worst     |
+| ------------ | --------- | --------- |
+| **Search**   | O(m)      | O(m)      |
+| **Insert**   | O(m)      | O(m)      |
+| **Delete**   | O(m)      | O(m)      |
 
 Space Complexity: `O(m * l)`
 

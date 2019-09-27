@@ -22,10 +22,10 @@ body {
     background: white;
 }
 
-.navbar-fixed-top a {
-    color: #717171;
-    font-size: 18px;
-}
+    .navbar-fixed-top a {
+        color: #717171;
+        font-size: 18px;
+    }
 
 .navbar-brand,
 .navbar-nav {
@@ -49,14 +49,14 @@ body {
     margin: 20px -15px 0;
 }
 
-.footer p {
-    margin: 0;
-    padding: 10px;
-}
+    .footer p {
+        margin: 0;
+        padding: 10px;
+    }
 
-.footer a {
-    color: #ee4444;
-}
+    .footer a {
+        color: #ee4444;
+    }
 
 .sidebar h1 {
     color: #ee4444;
@@ -87,18 +87,18 @@ body {
     -webkit-box-shadow: none;
 }
 
-.well h1 {
-    color: #ee4444;
-    font-size: 1.3em;
-}
+    .well h1 {
+        color: #ee4444;
+        font-size: 1.3em;
+    }
 
 .author {
     color: #ee4444;
 }
 
-.author a {
-    color: #ee4444;
-}
+    .author a {
+        color: #ee4444;
+    }
 
 .icon-bar {
     border: 1.2px solid #717171;
@@ -108,8 +108,18 @@ body {
     padding-left: 20px;
 }
 
+.table-wrapper {
+    max-width: 100%;
+    overflow: auto;
+    margin-bottom: 15px;
+}
+
 table.basic-table {
     margin-bottom: 15px;
+}
+
+.table-wrapper table.basic-table {
+    margin-bottom: 0;
 }
 
 table.basic-table td,
