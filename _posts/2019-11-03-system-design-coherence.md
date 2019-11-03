@@ -133,4 +133,4 @@ The challenge here is being open to improve your system design knowing that it c
 
 ---
 
-These five guidelines have served me well over the past years, helping to keep productivity high, optimize resources and deliver up to the standards. It's more a mindset then an actual process. Like all mindsets it should be constantly challenged and subject to improvement.
+These five guidelines have served me well over the past years, helping to keep productivity high, optimize resources and deliver up to the standards. It's more a mindset than an actual process. Like all mindsets it should be constantly challenged and subject to improvement.
