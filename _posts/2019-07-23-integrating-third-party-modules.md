@@ -2,7 +2,6 @@
 layout: post
 title: "Integrating third-party modules"
 date: 2019-07-23 20:30:00 -0300
-comments: false
 tags: system-design dependency-injection
 ---
 

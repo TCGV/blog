@@ -2,7 +2,6 @@
 layout: post
 title: "Why is it hard to name classes?"
 date: 2019-10-02 09:00:00 -0300
-comments: true
 tags: oop
 ---
 

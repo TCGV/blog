@@ -2,7 +2,6 @@
 layout: post
 title: "Index-free adjacency"
 date: 2019-08-24 14:25:00 -0300
-comments: true
 tags: data-structures database
 ---
 

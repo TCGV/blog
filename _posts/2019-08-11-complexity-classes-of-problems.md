@@ -2,7 +2,6 @@
 layout: post
 title: "Complexity classes of problems"
 date: 2019-08-11 11:30:00 -0300
-comments: true
 tags: complexity-theory
 ---
 

@@ -2,7 +2,6 @@
 layout: post
 title: "A successful deployment model"
 date: 2019-08-02 11:45:00 -0300
-comments: true
 tags: continuous-delivery
 ---
 

@@ -2,7 +2,6 @@
 layout: post
 title: "Data structures complexity reference"
 date: 2019-08-05 07:45:00 -0300
-comments: true
 tags: data-structures complexity-theory
 ---
 

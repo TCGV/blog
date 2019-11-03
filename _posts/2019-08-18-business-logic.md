@@ -2,7 +2,6 @@
 layout: post
 title: "Business logic"
 date: 2019-08-18 17:50:00 -0300
-comments: true
 tags: system-design
 ---
 

@@ -2,7 +2,6 @@
 layout: post
 title: "Using queues to offload Web API"
 date: 2019-07-28 11:45:00 -0300
-comments: true
 tags: system-design queuing
 ---
 

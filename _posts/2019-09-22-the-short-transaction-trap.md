@@ -2,7 +2,6 @@
 layout: post
 title: "The short transaction trap"
 date: 2019-09-22 14:00:00 -0300
-comments: true
 tags: database refactoring
 ---
 
