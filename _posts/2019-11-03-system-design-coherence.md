@@ -13,7 +13,7 @@ Coherence is defined as the quality of being logical, consistent and forming a u
 * <b>Consistent</b>: System design decisions should be compatible, in agreement, with its current state.
 * <b>Unified whole</b>: System components should fit together, seamlessly working alongside each other.
 
-Below are listed five major practical guidelines on how to achieve system design coherence in software projects.
+Below are listed five major practical guidelines on how to manage system design coherence in software projects.
 
 1 - Create and follow codebase conventions
 ============
