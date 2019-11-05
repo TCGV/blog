@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "System design coherence"
-date: 2019-11-03 16:05:00 -0300
+date: 2019-11-03 16:10:00 -0300
 tags: system-design
 ---
 
