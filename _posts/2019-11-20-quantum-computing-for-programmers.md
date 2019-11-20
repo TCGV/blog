@@ -38,7 +38,7 @@ Assert.IsFalse(q.Measure());
 
 ```
 
-Now things get more interesting, the quibit's value, or state, can also be in a coherent superposition, being both true and false at the same time, with 50% ~ 50% probability (or any pair that sums to 100%). To achieve that we apply an "H gate" ([Hadamard gate](https://en.wikipedia.org/wiki/Quantum_logic_gate#Hadamard_(H)_gate)) to it:
+Now things get more interesting, the quibit's value, or state, can also be in a coherent superposition, being both true and false at the same time, with 50% ~ 50% probability (adding up to 100%). To achieve that we apply an "H gate" ([Hadamard gate](https://en.wikipedia.org/wiki/Quantum_logic_gate#Hadamard_(H)_gate)) to it:
 
 ```csharp
 
@@ -210,7 +210,7 @@ bool m = BinaryUtility.HasBit(val, pos);
 Collapse(pos, m);
 ```
 
-Initially it samples the quantum system state vector in full, without changing it, getting an outcome for the 2<sup>n</sup> system. If we wanted to measure all system qubits at once, we could simply collapse the entire state vector from this sample, however we are only interested in measuring one qubit, leaving others untouched.
+Initially it samples the quantum system state vector in full, without changing it, getting an outcome for the 2<sup>n</sup> system. If we wanted to measure all system qubits at once, we could simply collapse the entire state vector from this sample, however we are only interested in measuring one qubit, leaving others unmeasured.
 
 So after getting a full sample we test for the bit being measured. It could be present in the sample, in which case it will collapse to true, or not present, collapsing to false. Once we get its value we propagate it to the state vector:
 
@@ -241,7 +241,7 @@ Saving the best for last, I will now introduce the [Deutsch Oracle algorithm](ht
 Its quantum circuit diagram is presented below:
 
 <p align="center">
-  <img style="max-height: 250px; max-width: 100%; margin: 10px" src="{{ site.baseurl }}/images/p11/deutsch_circuit.PNG" alt="Deutsch circuit"/>
+  <img style="max-height: 250px; max-width: 100%; margin: 10px" src="{{ site.baseurl }}/images/p11/deutsch_circuit.png" alt="Deutsch circuit"/>
   <br>
   <label style="font-size: 12px;">figure 1. Deutsch algorithm circuit diagram</label>
 </p>
