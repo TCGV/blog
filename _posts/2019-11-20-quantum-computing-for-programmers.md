@@ -164,7 +164,7 @@ To derive the four position state vector from the two qubits, simply perform the
 
 * `[1, 0] ⦻ [0, 1] = [0, 1, 0, 0]`
 
-Which is equivalent to `0 ⦻ 1 = 01`.
+Which is equivalent to `|0⟩ ⦻ |1⟩ = |01⟩` using Dirac notation.
 
 Now supose that, before applying the "CXGate", we apply the "HGate" to the control bit, what would happen?
 
@@ -193,9 +193,9 @@ If you measure one qubit (control or target - you choose), you have 50% of chanc
 
 Algebraically this entangled state is describe as:
 
-* `[1/sqrt(2), 0, 0, 1/sqrt(2)]` → 50% chance of being measured **0** (00) and 50% chance of being measured **3** (11)
+* `[1/sqrt(2), 0, 0, 1/sqrt(2)]` → 50% chance of being measured **0** (\|00⟩) and 50% chance of being measured **3** (\|11⟩)
 
-There is no possible outcome where values **1** (01) or **2** (10) are measured.
+There is no possible outcome where values **1** (\|01⟩) or **2** (\|10⟩) are measured.
 
 Quantum Collapse
 ============
