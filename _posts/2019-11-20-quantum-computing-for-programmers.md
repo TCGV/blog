@@ -292,6 +292,6 @@ To see the math behind it open the link provided at the start of this section. Y
 
 ---
 
-It was really fun learning more about quantum computing and implementing a simple quantum simulator. This was a brief introduction into the subject, and I tried to keep it short and simple, and haven't covered quantum operations involving imaginary numbers.
+It was really fun learning more about quantum computing and implementing a basic quantum simulator. This was a brief introduction into the subject, which I tried to keep simple, and haven't covered quantum operations involving imaginary numbers or gone too deep into the math.
 
 If you find any problem in my quantum simulator code feel free to [open an issue on github](https://github.com/TCGV/QuantumSim/issues).
