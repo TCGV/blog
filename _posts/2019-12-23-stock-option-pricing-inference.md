@@ -64,12 +64,12 @@ Under the Monte Carlo method, in order to calculate the price of a stock option,
 
 ```r
 
-x = read.table("PETR4_Returns.txt")[["V1"]]
+x <- read.table("PETR4_Returns.txt")[["V1"]]
 
-d_real = density(x)
-df = data.frame(x = d_real[["x"]], y = d_real[["y"]])
+d_real <- density(x)
+df <- data.frame(x = d_real[["x"]], y = d_real[["y"]])
 
-p = ggplot() +
+p <- ggplot() +
   ggtitle("PETR4 daily returns density estimate") +
   geom_line(data = df, aes(x=x, y=y), colour="black") 
 ggplotly(p)
@@ -92,32 +92,31 @@ Let's try to fit a Gaussian density function to our market data, and see what it
 ```r
 
 # generates a truncated gaussian density
-dnorm2 <- function(std, mean, min, max) {
-  d.x = (0:511) * (max - min) / 511 + min
-  d.y = dnorm(d.x, mean, sd = std)
-  d.y = d.y / integrate.xy(d.x, d.y)
-  f = data.frame(x = d.x, y = d.y)
+dgauss <- function(std, mean, min, max) {
+  d.x <- (0:511) * (max - min) / 511 + min
+  d.y <- dnorm(d.x, mean, sd = std)
+  d.y <- d.y / integrate.xy(d.x, d.y)
+  f <- data.frame(x = d.x, y = d.y)
   return (f)
 }
 
 # interpolates data frame
-ipol <- function(df, min, max, n) {
-  step = (max - min) / n
-  pol = data.frame(
+interpolate <- function(df, min, max, n) {
+  step <- (max - min) / n
+  pol <- data.frame(
     with(df, 
          approx(x, y, xout = seq(min, max, by = step))
-    ),
-    method = "approx()"
+    )
   )
   return (pol)
 }
 
 # measures the difference between two density functions
-distDiff <- function(dist1, dist2) {
-  start = max(min(dist1[["x"]]), min(dist2[["x"]]))
-  end = min(max(dist1[["x"]]), max(dist2[["x"]]))
-  pol1 = ipol(dist1, start, end, 511)
-  pol2 = ipol(dist2, start, end, 511)
+dist_diff <- function(dist1, dist2) {
+  start <- max(min(dist1[["x"]]), min(dist2[["x"]]))
+  end <- min(max(dist1[["x"]]), max(dist2[["x"]]))
+  pol1 <- interpolate(dist1, start, end, 511)
+  pol2 <- interpolate(dist2, start, end, 511)
   return (sqrt(sum((pol1[["y"]] - pol2[["y"]]) ^ 2) / length(pol1[["y"]])))
 }
 
@@ -127,22 +126,22 @@ With these functions I developed a simple brute force script to find the Gaussia
 
 ```r
 
-minErr = Inf
-d_norm = c()
+minErr <- Inf
+d_norm <- c()
 
 for(k in seq(0.001, 0.1, by = 0.0001)) {
-  dist = dnorm2(k, mean(x), -6 * sd(x), 6 * sd(x))
-  err = distDiff(dist, d_real)
+  dist <- dgauss(k, mean(x), -6 * sd(x), 6 * sd(x))
+  err <- dist_diff(dist, d_real)
   if (err < minErr) {
-    d_norm = dist
-    minErr = err
+    d_norm <- dist
+    minErr <- err
   }
 }
 
-df1 = data.frame(x = d_real[["x"]], y = d_real[["y"]])
-df2 = data.frame(x = d_norm[["x"]], y = d_norm[["y"]])
+df1 <- data.frame(x = d_real[["x"]], y = d_real[["y"]])
+df2 <- data.frame(x = d_norm[["x"]], y = d_norm[["y"]])
 
-p =  ggplot() +
+p <-  ggplot() +
   ggtitle("Probability densities") +
   scale_colour_manual("", values = c("red", "blue")) +
   geom_line(data = df1, aes(x=x, y=y, colour="Observed")) +
@@ -170,35 +169,35 @@ So let's see how it performs. Initially, I defined the following auxiliary funct
 
 # generates a truncated cauchy density
 dcauchy <- function(s, t, min, max) {
-  d.x = (0:511) * (max - min) / 511 + min
-  d.y = 1 / (s * pi * (1 + ((d.x - t) / s) ^ 2))
-  d.y = d.y / integrate.xy(d.x, d.y)
-  f = data.frame(x = d.x, y = d.y)
+  d.x <- (0:511) * (max - min) / 511 + min
+  d.y <- 1 / (s * pi * (1 + ((d.x - t) / s) ^ 2))
+  d.y <- d.y / integrate.xy(d.x, d.y)
+  f <- data.frame(x = d.x, y = d.y)
   return (f)
 }
 
 ```
 
-The brute force fitting script is the same as the previous one, replacing the call to `dnorm2` with `dcauchy`:
+The brute force fitting script is the same as the previous one, replacing the call to `dgauss` with `dcauchy`:
 
 ```r
 
-minErr = Inf
-d_cauchy = c()
+minErr <- Inf
+d_cauchy <- c()
 
 for(k in seq(0.001, 0.1, by = 0.0001)) {
-  dist = dcauchy(k * (sqrt(2/pi)), mean(x), -6*sd(x), 6*sd(x))
-  err = distDiff(dist, d_real)
+  dist <- dcauchy(k * (sqrt(2/pi)), mean(x), -6*sd(x), 6*sd(x))
+  err <- dist_diff(dist, d_real)
   if (err < minErr) {
-    d_cauchy = dist
-    minErr = err
+    d_cauchy <- dist
+    minErr <- err
   }
 }
 
-df1 = data.frame(x = d_real[["x"]], y = d_real[["y"]])
-df2 = data.frame(x = d_cauchy[["x"]], y = d_cauchy[["y"]])
+df1 <- data.frame(x = d_real[["x"]], y = d_real[["y"]])
+df2 <- data.frame(x = d_cauchy[["x"]], y = d_cauchy[["y"]])
 
-p =  ggplot() +
+p <-  ggplot() +
   ggtitle("Probability densities") +
   scale_colour_manual("", values = c("red", "blue")) +
   geom_line(data = df1, aes(x=x, y=y, colour="Observed")) +
@@ -230,7 +229,7 @@ To accomplish that I defined, yet again, more auxiliary functions:
 ```r
 
 # generates random samples for a probability density
-distSamples <- function(dist, n) {
+dist_samples <- function(dist, n) {
   return (approx(
     cumsum(dist$y)/sum(dist$y),
     dist$x,
@@ -239,23 +238,23 @@ distSamples <- function(dist, n) {
 }
 
 # calculates the expected value of a probability density
-expVal <- function(dist) {
-  v =  dist[["x"]] * dist[["y"]]
+exp_val <- function(dist) {
+  v <-  dist[["x"]] * dist[["y"]]
   return (sum(v) / sum(dist[["y"]]))
 }
 
 # converts a single day probability density to a n-day period
 # (removes any drift from the input density)
-distConv <- function(dist, n) {
-  dd = data.frame(x = dist$x - expVal(dist), y = dist$y)
-  dn = density(sapply(1:100000, function(x) (sum(distSamples(dd, n)))))
+dist_convert <- function(dist, n) {
+  dd <- data.frame(x = dist$x - exp_val(dist), y = dist$y)
+  dn <- density(sapply(1:100000, function(x) (sum(dist_samples(dd, n)))))
   return (dn)
 }
 
 # calculates the price of a call option from a probability density
-callPrice <- function(dist, strike, quote) {
-  v = (((exp(1) ^ dist[["x"]]) * quote) - strike) * dist[["y"]]
-  v = pmax(v, 0)
+call_price <- function(dist, strike, quote) {
+  v <- (((exp(1) ^ dist[["x"]]) * quote) - strike) * dist[["y"]]
+  v <- pmax(v, 0)
   return (sum(v) / sum(dist[["y"]]))
 }
 
@@ -265,21 +264,21 @@ And here's the final script for calculating option prices based on the fitted Ga
 
 ```r
 
-stockQuote = 29.71
-daysToMaturity = 20
+stock_quote <- 29.71
+days_to_maturity <- 20
 
-df1 = read.csv("PETR4_Calls.txt", header = TRUE, sep = ";")
-strikes = df1[["Strike"]]
+df1 <- read.csv("PETR4_Calls.txt", header = TRUE, sep = ";")
+strikes <- df1[["Strike"]]
 
-dn = distConv(d_norm, daysToMaturity)
-y2 = sapply(strikes, function(x) callPrice(dn, x, stockQuote))
-df2 = data.frame(x = strikes, y = y2)
+dn <- dist_convert(d_norm, days_to_maturity)
+y2 <- sapply(strikes, function(x) call_price(dn, x, stock_quote))
+df2 <- data.frame(x = strikes, y = y2)
 
-dn = distConv(d_cauchy, daysToMaturity)
-y3 = sapply(strikes, function(x) callPrice(dn, x, stockQuote))
-df3 = data.frame(x = strikes, y = y3)
+dn <- dist_convert(d_cauchy, days_to_maturity)
+y3 <- sapply(strikes, function(x) call_price(dn, x, stock_quote))
+df3 <- data.frame(x = strikes, y = y3)
 
-p = ggplot() +
+p <- ggplot() +
   ggtitle("Option Prices") +
   xlab("Strike Price") +
   ylab("Option Price") +
@@ -302,17 +301,17 @@ So after analysing this plot I had an idea, since this final script can take any
 
 ```r
 
-stockQuote = 29.71
-daysToMaturity = 20
+stock_quote <- 29.71
+days_to_maturity <- 20
 
-df1 = read.csv("PETR4_Calls.txt", header = TRUE, sep = ";")
-strikes = df1[["Strike"]]
+df1 <- read.csv("PETR4_Calls.txt", header = TRUE, sep = ";")
+strikes <- df1[["Strike"]]
 
-dn = distConv(d_real, daysToMaturity)
-y2 = sapply(strikes, function(x) callPrice(dn, x, stockQuote))
-df2 = data.frame(x = strikes, y = y2)
+dn <- dist_convert(d_real, days_to_maturity)
+y2 <- sapply(strikes, function(x) call_price(dn, x, stock_quote))
+df2 <- data.frame(x = strikes, y = y2)
 
-p = ggplot() +
+p <- ggplot() +
   ggtitle("Option Prices") +
   xlab("Strike Price") +
   ylab("Option Price") +
