@@ -141,7 +141,7 @@ for(k in seq(0.001, 0.1, by = 0.0001)) {
 df1 <- data.frame(x = d_real[["x"]], y = d_real[["y"]])
 df2 <- data.frame(x = d_norm[["x"]], y = d_norm[["y"]])
 
-p <-  ggplot() +
+p <- ggplot() +
   ggtitle("Probability densities") +
   scale_colour_manual("", values = c("red", "blue")) +
   geom_line(data = df1, aes(x=x, y=y, colour="Observed")) +
@@ -197,7 +197,7 @@ for(k in seq(0.001, 0.1, by = 0.0001)) {
 df1 <- data.frame(x = d_real[["x"]], y = d_real[["y"]])
 df2 <- data.frame(x = d_cauchy[["x"]], y = d_cauchy[["y"]])
 
-p <-  ggplot() +
+p <- ggplot() +
   ggtitle("Probability densities") +
   scale_colour_manual("", values = c("red", "blue")) +
   geom_line(data = df1, aes(x=x, y=y, colour="Observed")) +
@@ -239,7 +239,7 @@ dist_samples <- function(dist, n) {
 
 # calculates the expected value of a probability density
 exp_val <- function(dist) {
-  v <-  dist[["x"]] * dist[["y"]]
+  v <- dist[["x"]] * dist[["y"]]
   return (sum(v) / sum(dist[["y"]]))
 }
 
