@@ -1,5 +1,5 @@
 ---
 layout: tagpage
-title: "Tag: Object Oriented Programming"
+title: "Tag: object-oriented-programming"
 tag: oop
 ---
