@@ -55,7 +55,7 @@ On December 17, 2019, while PETR4 was priced at R$ 29.71, I spoted the following
 
 The maturity of these options is the same, January 20, 2020, i.e., 20 business days from the recorded prices date. I saved this data into a CSV formatted file that you can find [here]({{ site.baseurl }}/resources/p12/PETR4_Calls.txt).
 
-Besides that I also used six months worth of log-normalized daily PETR4 returns from 17/Jun/2019 to 16/Dec/2019 (126 samples), which you can find [here]({{ site.baseurl }}/resources/p12/PETR4_Returns.txt).
+Besides that I also used six months worth of daily PETR4 log returns from 17/Jun/2019 to 16/Dec/2019 (126 samples), which you can find [here]({{ site.baseurl }}/resources/p12/PETR4_Returns.txt).
 
 Distribution of Stock Returns
 ============
