@@ -5,11 +5,11 @@ date: 2019-12-23 14:00:00 -0300
 tags: statistical-computing finance
 ---
 
-I have been investing in the Brazilian stock market 📈 for a few years now, mainly through a selection of low-volatility dividend stocks and more recently through index funds. Even though I like to play on the safe side, I'm also very interested in the dynamics of financial markets, particularly in the development and application of automated statistical tools for optimizing investment decisions.
+I'm a stock market enthusiast 📈, so lately I have spent my spare time on the topic of stock option pricing, and I was curious to find out whether or not I could build a script that accurately reflected real market option prices. It turns out I came close, and learned a lot along the way, which I share in this article.
 
-So lately I have spent my spare time on the topic of stock option pricing, and I was curious to find out whether or not I could build a script that accurately reflected real market option prices. It turns out I came pretty close, and learned a lot along the way, which I share in this article.
+My analysis uses the Monte Carlo method for pricing options, which from all available pricing models in the literature is the most straight forward, practical one for a software developer to start working with, when compared to closed form, analytic models, such as the [Black–Scholes model](https://en.wikipedia.org/wiki/Black%E2%80%93Scholes_model).
 
-My analysis uses a Monte Carlo method for pricing options, and the code I share in this article is written in the R programming language, using the following packages: `sfsmisc`, `plotly`, `ggplot2`.
+The code I share in this article is written in the R programming language, using the following packages: `sfsmisc`, `plotly`, `ggplot2`.
 
 Data Set
 ============
