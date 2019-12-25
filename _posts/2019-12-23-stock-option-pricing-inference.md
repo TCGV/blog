@@ -157,7 +157,7 @@ ggplotly(p)
 
 Both densities display a similar shape, but it's apparent that the Gaussian density decreases faster than the observed density.
 
-Despite the fact that the Gaussian distribution is widely used in fianacial models, it has some well known pitfalls, namely its inability to encompass fat tails observed in historical market data. As a result it will fail accurately describe extreme volatilty events, which can lead to possibly underpriced options.
+Despite the fact that the Gaussian distribution is widely used in fianacial models, it has some well known pitfalls, namely its inability to encompass fat tails observed in historical market data. As a result it will fail accurately describe extreme volatility events, which can lead to possibly underpriced options.
 
 <h3>Cauchy Model</h3>
 
@@ -340,6 +340,18 @@ Conclusion
 ============
 
 The "empirical" model turned out to be the one that best approximates market prices, for this particular stock (PETR4) in the B3 stock exchange. Market option prices are determined by automated trading systems, usually employing much more sophisticated techniques than the one presented here, in real-time, almost instantaneously reflecting price shifts of the underlying stock. Even so, this simplified approach yielded great results, worth exploring more deeply.
+
+<b>Addendum</b>
+
+I submitted my blog post on Hacker News and it received a lot of attention [there](https://news.ycombinator.com/item?id=21872222). One comment correctly pointed out that a more standard technique for fitting probability distributions is to use [maximum likelihood estimation (MLE)](https://en.wikipedia.org/wiki/Maximum_likelihood_estimation), instead of the least squares regression approach that I used. So I ran the analysis again and indeed, using MLE, both models improved significantly:
+
+{:.centered .w60 .basic-table}
+| Model     | σ      |
+| --------- | ------ |
+| Gaussian  | 0.0473 |
+| Cauchy    | 0.1443 |
+
+Even so, the main conclusions of this article holds, the Gaussian model yielded underpriced options, and the Cauchy model overpriced options, when compared to actual market prices.
 
 ---
 
