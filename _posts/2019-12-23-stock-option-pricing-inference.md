@@ -350,7 +350,7 @@ The "empirical" model turned out to be the one that best approximates market pri
 
 <b>Notes</b>
 
-* I submitted this article on Hacker News and it received a lot of attention [there](https://news.ycombinator.com/item?id=21872222). One comment correctly pointed out that the standard technique for fitting probability distributions is to use [maximum likelihood estimation (MLE)](https://en.wikipedia.org/wiki/Maximum_likelihood_estimation), instead of the least squares regression approach that I originally employed. So I ran the analysis again using MLE, observed improved results for both models, and update the code and plots.
+* I submitted this article on Hacker News and it received a lot of attention [there](https://news.ycombinator.com/item?id=21872222). One comment correctly pointed out that the standard technique for fitting probability distributions is to use [maximum likelihood estimation (MLE)](https://en.wikipedia.org/wiki/Maximum_likelihood_estimation), instead of the least squares regression approach that I originally employed. So I ran the analysis again using MLE, observed improved results for both models, and updated the code and plots.
 * I also fixed a minor issue in the function that generates random samples for probability densities, and recalculated the "empirical" model standard deviation.
 * For reference you can find the original article [here](https://github.com/TCGV/blog/blob/dd050b00cfcfd5b487daa4ee2438c099c5164eee/_posts/2019-12-23-stock-option-pricing-inference.md).
 
