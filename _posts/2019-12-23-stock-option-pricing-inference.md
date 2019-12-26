@@ -111,13 +111,16 @@ interpolate <- function(df, min, max, n) {
   return (pol)
 }
 
-# measures the difference between two density functions
-dist_diff <- function(dist1, dist2) {
-  start <- max(min(dist1[["x"]]), min(dist2[["x"]]))
-  end <- min(max(dist1[["x"]]), max(dist2[["x"]]))
-  pol1 <- interpolate(dist1, start, end, 511)
-  pol2 <- interpolate(dist2, start, end, 511)
-  return (sqrt(sum((pol1[["y"]] - pol2[["y"]]) ^ 2) / length(pol1[["y"]])))
+# simple numeric maximum likelihood estimation
+# (resolution reffers to that of daily log returns)
+mle <- function(dist, x) {
+  min_x <- min(x)
+  max_x <- max(x)
+  resolution <- 10000
+  n = (max_x - min_x) * resolution
+  rev <- interpolate(data.frame(x = dist$x, y = dist$y), min_x, max_x, n)
+  indexes = sapply(x, function (x) { return ((x - min_x) * resolution + 1) })
+  return (log(prod(rev$y[indexes])))
 }
 
 ```
@@ -126,15 +129,15 @@ With these functions I developed a simple brute force script to find the Gaussia
 
 ```r
 
-minErr <- Inf
+max_mle <- -Inf
 d_norm <- c()
 
 for(k in seq(0.001, 0.1, by = 0.0001)) {
   dist <- dgauss(k, mean(x), -6 * sd(x), 6 * sd(x))
-  err <- dist_diff(dist, d_real)
-  if (err < minErr) {
+  val <- mle(dist, x)
+  if (val > max_mle) {
     d_norm <- dist
-    minErr <- err
+    max_mle <- val
   }
 }
 
@@ -155,7 +158,7 @@ ggplotly(p)
   <br>
 </p>
 
-Both densities display a similar shape, but it's apparent that the Gaussian density decreases faster than the observed density.
+Both densities display a similar shape, but it's perceptible that the Gaussian density decreases marginally faster than the observed density.
 
 Despite the fact that the Gaussian distribution is widely used in fianacial models, it has some well known pitfalls, namely its inability to encompass fat tails observed in historical market data. As a result it will fail accurately describe extreme volatility events, which can lead to possibly underpriced options.
 
@@ -182,15 +185,15 @@ The brute force fitting script is the same as the previous one, replacing the ca
 
 ```r
 
-minErr <- Inf
+max_mle <- -Inf
 d_cauchy <- c()
 
 for(k in seq(0.001, 0.1, by = 0.0001)) {
   dist <- dcauchy(k * (sqrt(2/pi)), mean(x), -6*sd(x), 6*sd(x))
-  err <- dist_diff(dist, d_real)
-  if (err < minErr) {
+  val <- mle(dist, x)
+  if (val > max_mle) {
     d_cauchy <- dist
-    minErr <- err
+    max_mle <- val
   }
 }
 
@@ -211,7 +214,7 @@ ggplotly(p)
   <br>
 </p>
 
-Intuitively, by looking at this plot, it feels that the Cauchy density isn't as much as a good fit as the Gaussian density. Indeed, it has a fitting error 1.461 times higher than the Gaussian density.
+Intuitively, by looking at this plot, it feels that the Cauchy density isn't as much as a good fit as the Gaussian density. Indeed, the log-likelihood ratio of the Gaussian Model to the Cauchy Model is 7.5107, quite significant.
 
 The general consensus for the Cauchy distribution is that it has too fat tails, which in our case may lead to overpriced options. Nevertheless, it can be very useful for defining a high volatility scenario for risk analysis.
 
@@ -230,11 +233,13 @@ To accomplish that I defined, yet again, more auxiliary functions:
 
 # generates random samples for a probability density
 dist_samples <- function(dist, n) {
-  return (approx(
+  samples <- (approx(
     cumsum(dist$y)/sum(dist$y),
     dist$x,
-    runif(n, min=min(dist$y)/sum(dist$y))
+    runif(n)
   )$y)
+  samples[is.na(samples)] <- dist$x[1]
+  return (samples)
 }
 
 # calculates the expected value of a probability density
@@ -295,7 +300,7 @@ ggplotly(p)
   <br>
 </p>
 
-As speculated, actual market prices are above the Gaussian model prices (underpriced), and below the Cauchy model prices (overpriced). The Gaussian model came really close to the actual option prices, which makes sense, since it's fitting error to the observed density was much lower.
+As speculated, actual market prices are slightly above the Gaussian model prices (underpriced), and below the Cauchy model prices (overpriced). The Gaussian model came really close to the actual option prices, which makes sense, since it's likelihhod to the observed density was much higher.
 
 So after analysing this plot I had an idea, since this final script can take any probability density to calculate option prices, what if I used the observed density estimate instead, would it yield better, more accurate option prices?
 
@@ -332,28 +337,22 @@ In fact, to my surprise, it did. Visually the lines appear to be on top of each 
 {:.centered .w60 .basic-table}
 | Model     | σ      |
 | --------- | ------ |
-| Gaussian  | 0.0620 |
-| Cauchy    | 0.1939 |
-| Empirical | 0.0346 |
+| Gaussian  | 0.0463 |
+| Cauchy    | 0.1369 |
+| Empirical | 0.0290 |
 
 Conclusion
 ============
 
 The "empirical" model turned out to be the one that best approximates market prices, for this particular stock (PETR4) in the B3 stock exchange. Market option prices are determined by automated trading systems, usually employing much more sophisticated techniques than the one presented here, in real-time, almost instantaneously reflecting price shifts of the underlying stock. Even so, this simplified approach yielded great results, worth exploring more deeply.
 
-<b>Addendum</b>
-
-I submitted my blog post on Hacker News and it received a lot of attention [there](https://news.ycombinator.com/item?id=21872222). One comment correctly pointed out that a more standard technique for fitting probability distributions is to use [maximum likelihood estimation (MLE)](https://en.wikipedia.org/wiki/Maximum_likelihood_estimation), instead of the least squares regression approach that I used. So I ran the analysis again and indeed, using MLE, both models improved significantly:
-
-{:.centered .w60 .basic-table}
-| Model     | σ      |
-| --------- | ------ |
-| Gaussian  | 0.0473 |
-| Cauchy    | 0.1443 |
-
-Even so, the main conclusions of this article holds, the Gaussian model yielded underpriced options, and the Cauchy model overpriced options, when compared to actual market prices.
-
 ---
+
+<b>Notes</b>
+
+* I submitted this article on Hacker News and it received a lot of attention [there](https://news.ycombinator.com/item?id=21872222). One comment correctly pointed out that the standard technique for fitting probability distributions is to use [maximum likelihood estimation (MLE)](https://en.wikipedia.org/wiki/Maximum_likelihood_estimation), instead of the least squares regression approach that I originally employed. So I ran the analysis again using MLE, observed improved results for both models, and update the code and plots.
+* I also fixed a minor issue in the function that generates random samples for probability densities, and recalculated the "empirical" model standard deviation.
+* For reference you can find the original article [here](https://github.com/TCGV/blog/blob/dd050b00cfcfd5b487daa4ee2438c099c5164eee/_posts/2019-12-23-stock-option-pricing-inference.md).
 
 <b>Sources</b>
 
