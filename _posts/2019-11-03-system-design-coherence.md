@@ -107,7 +107,7 @@ Well, I believe that a system that is designed to avoid redundant technologies, 
 
 As I've stated in the beginning of this article system design is a collective, shared responsibility. Individual, local actions have the potential to affect the system globally, so it's essential that the development team is on the same page regarding the codebase conventions, employed architectures and the technology stack.
 
-The most effective way to build this <u>shared knowledge environment</u> is to involve the team in all system design decisions. The benefits are plenty:
+The most effective way to build this <u>shared knowledge environment</u> is to involve the team in system design decisions. The benefits are plenty:
 
 * Individuals feel valued and part of the team
 * Important decisions are challenged by the entire team before being made
@@ -115,6 +115,8 @@ The most effective way to build this <u>shared knowledge environment</u> is to i
 * Creates a sense of collective accountability and trust
 
 This doesn't mean that every developer on the team should have equal decision power. Senior roles should certainly have more influence in decision making then junior roles. But it's vital that everyone has the opportunity to give his opinion and participate. Less experienced developers will definitely grow from these proceedings.
+
+At the same time the team must be aware of the productivity costs that arise when time is needlessly spent arguing about minor, trivial decisions. Optimize for speed, and focus on moving forward and delivering results rather than overcaring for details.
 
 5 - The All-in rule
 ============
