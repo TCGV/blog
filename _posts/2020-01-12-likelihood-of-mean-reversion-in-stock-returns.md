@@ -12,7 +12,7 @@ The standard rule for calculating a stock returns monthly volatility is to multi
   <br>
 </p>
 
-This rule is derived from an independent log-normal daily returns model. However, if a stochastic process is considered under the influence of mean reversion then this rule is likely to give us exaggerated volatilities.
+This rule is derived from an independent log-normal daily returns model. However, if the stochastic process is considered under the influence of mean reversion then this rule is likely to give us exaggerated volatilities.
 
 Most papers on the subject tend to analyze the effects of mean reversion in larger periods of time (years), but I was curious on whether or not it's also important to take it into account for shorter, intra-month, trading periods.
 
@@ -63,7 +63,7 @@ likelihood <- function(k, n, x) {
   lke <- 0
   offset <- 21
   for(i in offset:length(x)) {
-    m <- if (n == 0) 0 else mean(x[(i - 1 - n):(i - 1)])
+    m <- if (n == 0) 0 else mean(x[(i - n):(i - 1)])
     p <- dnorm(x[i], sd=k[1], mean=(k[2] * m))
     lke <- lke + log(p)
   }
@@ -90,11 +90,11 @@ The resulting `res` list will hold, for each moving average period analyzed, all
 
 ```r
 
-df_factor = data.frame(
+df_factor <- data.frame(
   x = seq(0, max_period), y = sapply(res, function(e) (e[[1]][2]))
 )
 
-p =  ggplot() +
+p <- ggplot() +
   ggtitle("Mean Multiplier Analysis") +
   xlab("Period length") +
   ylab("Multiplier") + 
@@ -135,7 +135,7 @@ ggplotly(p)
 So the best performing model was found to have the following set of parameters:
 * <b>k</b> → -0.518
 * <b>σ</b> → 0.0182
-* <b>N</b> → 6 days
+* <b>N</b> → 7 days
 * <b>Log-likelihood ratio</b> → 3.051
 
 Which raises the question:
@@ -147,16 +147,16 @@ Well, we will find that out in the next section.
 Probability Value
 ============
 
-In statistical hypothesis testing, the probability value or [p-value](https://en.wikipedia.org/wiki/P-value) is the probability of obtaining test results at least as extreme as the results actually observed during the test, assuming, in our case, that there is no autoregressive effect in place. If the p-value is low enough, we can determine, with resonable confidence, that the assumption of "no autoregressive effect" is false.
+In statistical hypothesis testing, the probability value or [p-value](https://en.wikipedia.org/wiki/P-value) is the probability of obtaining test results at least as extreme as the results actually observed during the test, assuming, in our case, that there is no autoregressive effect in place. If the p-value is low enough, we can determine, with resonable confidence, that the non autoregressive model hypothesis, as it stands, is false.
 
-In order to calculate the p-value initially we need to estimate the observed log-likelihood ratio probability distribution under the hypothesis that our process follows a non-autoregressive Gaussian model (control process). So let's replicate the analysis above under this assumption:
+In order to calculate the p-value initially we need to estimate the observed log-likelihood ratio probability distribution under the hypothesis that our process follows a non autoregressive Gaussian model (control process). So let's replicate the analysis above under this assumption:
 
 ```r
 
-iterations = 1000   # number of analysis per period
-max_period = 20     # same number of periods as before
-num_samples = 247   # replicating observed data length (1 year)
-wiener_std = 0.018  # Control model standard deviation
+iterations <- 1000   # number of analysis per period
+max_period <- 20     # same number of periods as before
+num_samples <- 247   # replicating observed data length (1 year)
+wiener_std <- 0.018  # Control model standard deviation
 
 res <- lapply(1:iterations, function(z) {
   
@@ -172,7 +172,7 @@ res <- lapply(1:iterations, function(z) {
 
 ```
 
-Beware that this code may take 30 minutes to complete, or more, dependeding on your notebook configuration. It generates 1000 log-likelihood ratio samples for each period length. The box plot below gives us a qualitative understanding of this output:
+Beware that this code may take 30 minutes to complete running, or more, dependeding on your notebook configuration. It generates 1000 log-likelihood ratio samples for each period length. The box plot below gives us a qualitative understanding of this output:
 
 ```r
 
@@ -225,9 +225,11 @@ p_value <- function (res, n, lke){
 
 ```
 
-Thus, calling this function like so `p_value(res, 6, 3.051)` yields a p-value of 1.665%. Considering the margin of error the p-value is slightly below a typical 5% threshold, which would allow us to assert, with statistical significance, that the best fitted parameter set rejects the non autoregressive model.
+Thus, calling this function like so `p_value(res, 7, 3.051)` yields a p-value of 1.665%. Considering the margin of error the p-value is slightly below a typical 5% threshold, which would allow us to assert, with statistical significance, that the best fitted parameter set rejects the non autoregressive model as it stands.
 
-Nevertheless, the best fitted parameters for all other period lengths fail to pass this significance test when the margin of error is taken into account. Reducing the assertivity of this analysis.
+Nevertheless, the best fitted parameters for all other period lengths fail to pass this significance test when the margin of error is taken into account. This is, at a minimum, intuitively odd, as how can a seven days period pass the significance test and a six (or eight) days period don't, was it a fluke?
+
+To clear this doubt I ran the analysis again for the remaining data sets, unfortunately with weaker results, as none of the moving average periods analyzed passed the significance test, which I discuss in the conclusion below.
 
 Conclusion
 ============
