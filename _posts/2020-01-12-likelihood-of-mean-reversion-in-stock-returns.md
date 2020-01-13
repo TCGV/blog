@@ -5,7 +5,7 @@ date: 2020-01-12 23:15:00 -0300
 tags: statistical-computing finance
 ---
 
-The standard rule for calculating a stock returns monthly volatility is to multiply the calculated daily volatility by the square root of the number of business days in that month, for instance:
+The standard rule for calculating a stock returns monthly volatility is to multiply the daily volatility by the square root of the number of business days in that month, for instance:
 
 <p align="center">
   <img style="max-height: 40px; max-width: 100%; margin: 10px" src="{{ site.baseurl }}/images/p13/monthly_vol.PNG" alt="Monlthly volatility"/>
@@ -16,7 +16,9 @@ This rule is derived from an independent log-normal daily returns model. However
 
 Most papers on the subject tend to analyze the effects of mean reversion in larger periods of time (years), but I was curious on whether or not it's also important to take it into account for shorter, intra-month, trading periods.
 
-In this article I evaluate if a Gaussian mean reversion model better describes the behavior of observed stock returns. The code shared here is written in the R programming language using the following packages: `plotly`, `ggplot2`, `sfsmisc`.
+In this post I evaluate if an autoregressive Gaussian model capable of incorporating a mean reversion effect better describes the behavior of observed stock returns, when compared to a non autogressive control model.
+
+The code I share in this article is written in the R programming language, using the following packages: `plotly`, `ggplot2`, `sfsmisc`.
 
 Data Set
 ============
@@ -145,7 +147,7 @@ Well, we will find that out in the next section.
 Probability Value
 ============
 
-In statistical hypothesis testing, the probability value or [p-value](https://en.wikipedia.org/wiki/P-value) is the probability of obtaining test results at least as extreme as the results actually observed during the test, assuming, in our case, that the there is no autoregressive effect in place. If the p-value is low enough, we can determine, with resonable confidence, that the assumption of "no autoregressive effect" is false.
+In statistical hypothesis testing, the probability value or [p-value](https://en.wikipedia.org/wiki/P-value) is the probability of obtaining test results at least as extreme as the results actually observed during the test, assuming, in our case, that there is no autoregressive effect in place. If the p-value is low enough, we can determine, with resonable confidence, that the assumption of "no autoregressive effect" is false.
 
 In order to calculate the p-value initially we need to estimate the observed log-likelihood ratio probability distribution under the hypothesis that our process follows a non-autoregressive Gaussian model (control process). So let's replicate the analysis above under this assumption:
 
