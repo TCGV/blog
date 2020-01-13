@@ -225,11 +225,11 @@ p_value <- function (res, n, lke){
 
 ```
 
-Thus, calling this function like so `p_value(res, 7, 3.051)` yields a p-value of 1.665%. Considering the margin of error the p-value is slightly below a typical 5% threshold, which would allow us to assert, with statistical significance, that the best fitted parameter set rejects the non autoregressive model as it stands.
+Thus, calling this function like so `p_value(res, 7, 3.051)` yields a p-value of 1.306%. Considering the margin of error the p-value is slightly below a typical 5% threshold, which would allow us to assert, with statistical significance, that the best fitted parameter set rejects the non autoregressive model as it stands.
 
 Nevertheless, the best fitted parameters for all other period lengths fail to pass this significance test when the margin of error is taken into account. This is, at a minimum, intuitively odd, as how can a seven days period pass the significance test and a six (or eight) days period don't, was it a fluke?
 
-To clear this doubt I ran the analysis again for the remaining data sets, unfortunately with weaker results, as none of the moving average periods analyzed passed the significance test, which I discuss in the conclusion below.
+To clear this doubt I ran the analysis again for the remaining data sets, unfortunately with weaker results, as (with a single exception for <b>N</b>=1 for the 2017 data set) none of the moving average periods analyzed passed the significance test, which I discuss in the conclusion below.
 
 Conclusion
 ============
