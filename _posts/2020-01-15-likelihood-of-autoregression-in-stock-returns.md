@@ -23,7 +23,7 @@ The code I share in this article is written in the R programming language, using
 Data Set
 ============
 
-Just like int the previous article, I picked three years worth of [PETR4](https://en.wikipedia.org/wiki/Petrobras) historical log returns to work on, which is the most actively traded stock in [B3](https://en.wikipedia.org/wiki/B3_(stock_exchange)), the largest stock exchange in Brazil. You can find the source data in the links below:
+Just like in the previous article, I picked three years worth of [PETR4](https://en.wikipedia.org/wiki/Petrobras) historical log returns to work on, which is the most actively traded stock in [B3](https://en.wikipedia.org/wiki/B3_(stock_exchange)), the largest stock exchange in Brazil. You can find the source data in the links below:
 
 * [PETR4 2017 returns]({{ site.baseurl }}/resources/p13/PETR4_2017.txt)
 * [PETR4 2018 returns]({{ site.baseurl }}/resources/p13/PETR4_2018.txt)
@@ -43,7 +43,7 @@ Our AR model is defined as:
 
 Where:
 * <b>μ</b> → is the Gaussian distribution mean
-* <b>σ</b> → is the distribution standard deviation
+* <b>σ</b> → is the Gaussian distribution standard deviation
 * <b>k<sub>i</sub></b> → is the AR parameter of order "i"
 * <b>p</b> → is the AR model order
 
@@ -57,7 +57,7 @@ Since my last post I have sharpened my R skills a bit 🤓, and learned how to u
 ```r
 
 # calculates likelihood for the AR model, and inverts its signal
-# k: model parameters ([σ, μ, k1, k2, ... , kp ])
+# k: model parameters ([σ, μ, kp, kp-1, ... , k1 ])
 # x: stock returns samples
 likelihood <- function(k, x) {
   lke <- 0
