@@ -242,4 +242,4 @@ Despite of the weak results for 2019, after taking the margin of error into acco
 Conclusion
 ============
 
-I've got mixed results in this analysis. If I were to look to the stock's daily returns in the year of 2019 alone I might conclude that the control model hypothesis couldn't be rejected in favor of the AR model. However, the results for the years of 2017 and 2018 seem strong enough to conclude otherwise. This may indicate an intermittent characteristic of the AR behavior. Further investigation is required.
+I've got mixed results in this analysis. If I were to look to the stock's daily returns in the year of 2019 alone I might conclude that the control model hypothesis couldn't be rejected in favor of the AR model. However, the results for the years of 2017 and 2018 seem strong enough to conclude otherwise. This may indicate an intermittent characteristic of the AR behavior intensity. Further investigation is required.
