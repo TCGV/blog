@@ -117,7 +117,7 @@ Interestingly enough it seems that AR models of higher orders yielded much highe
 So the best performing model was found to have <b>p</b>=20, log-likelihood ratio of 7.0685184 and the following set of parameters:
 * <b>σ</b> → 0.0178999192
 * <b>μ</b> → 0.0010709814
-* <b>k<sub>i</sub></b> → [-0.0210373765,  0.0038455320, -0.0233608796, 0.0329653224, -0.0824597966,  0.0177617412,  0.0142196315,  0.0313809394, 0.0519001996, -0.0562944497,  0.0034231849,  0.0255535975,  0.0824235508, -0.0832489175, -0.0863261198, -0.0008716017, -0.0996273827, -0.0920698729, -0.0613492897, -0.0640396245]
+* <b>[k<sub>p</sub>, k<sub>p-1</sub>, ... , k<sub>1</sub>]</b> → [-0.0210373765,  0.0038455320, -0.0233608796, 0.0329653224, -0.0824597966,  0.0177617412,  0.0142196315,  0.0313809394, 0.0519001996, -0.0562944497,  0.0034231849,  0.0255535975,  0.0824235508, -0.0832489175, -0.0863261198, -0.0008716017, -0.0996273827, -0.0920698729, -0.0613492897, -0.0640396245]
 
 Which raises the question:
 
@@ -237,7 +237,7 @@ Also notice that the log-likelihood ratio alone is not sufficient for determinin
 | 19           | 0.016 | 0.005 | 0.775 |
 | 20           | 0.007 | 0.005 | 0.814 |
 
-Despite of the weak results for 2019, 17 out of 20 orders passed the significance test for the year of 2017 and 18 out of 20 passed the significance test for the year of 2018.
+Despite of the weak results for 2019, after taking the margin of error into account 17 out of 20 model orders passed the significance test for the year of 2017 and 18 out of 20 model orders passed the significance test for the year of 2018.
 
 Conclusion
 ============
