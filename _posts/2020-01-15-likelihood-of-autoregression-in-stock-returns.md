@@ -211,7 +211,7 @@ p_value <- function (res, n, lke) {
 
 Thus, calling this function like so `p_value(res, 20, 7.0685184)` for our original "best fit" yields a p-value of `0.814`. This figure is nowhere near the typical `0.05` threshold required for rejecting the non AR model hypothesis.
 
-Also notice that the log-likelihood ratio alone is not sufficient for determining the AR model order that best outperforms the control model, as we need to look at the p-value instead. I ran the analysis for the previous years as well and the complete results (2017, 2018, 2019) are displayed below:
+Also notice that the log-likelihood ratio alone is not sufficient for determining the AR model order that best outperforms the control model, as we need to look at the p-value instead. I ran the analysis for the previous years as well and the complete p-value results (2017, 2018, 2019) are displayed below:
 
 {:.centered .w60 .basic-table}
 | Order (p)    | 2017  | 2018  | 2019  |
