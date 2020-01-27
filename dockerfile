@@ -24,4 +24,11 @@ RUN gem install rubyzip --version=1.2.3
 RUN gem install github-pages --version=198
 RUN gem install jekyll
 RUN gem install jekyll-remote-theme --version=0.3.1
+RUN gem install minitest --version=5.11.3
+RUN gem install tzinfo --version=1.2.5
+RUN gem install ffi --version=1.11.1
+RUN gem install faraday --version=0.15.4
+RUN gem install octokit --version=4.14.0
+RUN gem install rb-inotify --version=0.10.0
+RUN gem install unicode-display_width --version=1.6.0
 RUN mkdir /home/mypage
