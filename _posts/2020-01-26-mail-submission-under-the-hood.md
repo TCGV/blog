@@ -99,13 +99,13 @@ else
 
 ```
 
-This piece is executed for each destination email address (To, Cc, Bcc). First it resolves [mail exchanger records (MX record)](https://en.wikipedia.org/wiki/MX_record) for the destination address domain, as to find out where to connect for submitting the message. If a MX domain is not found the code marks delivery for this recipient as failed. However, if the MX domain is found it proceeds by beginning a SMTP session with this external mail server.
+This piece is executed for each destination email address (To, Cc, Bcc). First it resolves [mail exchanger records (MX record)](https://en.wikipedia.org/wiki/MX_record) for destination addresses grouped by domain, as to find out where to connect for submitting the message. If a MX domain is not found the code marks delivery for this recipient as failed. However, if the MX domain is found it proceeds by beginning an SMTP session with this external mail server.
 
 The Mail Broker will connect to the SMTP server on port 25, receive a "ServiceReady" status code, and start the conversation by sending a `HELO` command. Then it tries to upgrade this plain text connection to an encrypted connection by issuing a `STARTTLS` command. If that's not supported by the mail server it falls back to the plain text connection for delivering the message, which is really bad security wise, but is the only option for delivering the message in this case 😕
 
 We all know that communication on the internet should always be encrypted, but I was amazed to find out how many SMTP servers still don't support it and communicate in plain text, just hoping that no one is watching! [Google's Transparency Report](https://transparencyreport.google.com/safer-email/overview) indicates that today more than 10% of all e-mail messages sent by Gmail are still unencrypted, usually because the receiving end doesn't support TLS.
 
-Moving forward, after upgrading the connection, the code will issue SMTP commands for sending the message, and after that `QUIT` the session. The sequence for sending the message is contained in the method showed bellow:
+Moving forward, after upgrading the connection, the code will issue SMTP commands for individually sending the message to each destination address in this domain group, and after that `QUIT` the session. The sequence for sending the message is contained in the method showed bellow:
 
 ```csharp
 
@@ -163,7 +163,7 @@ Lines 7 through 9 perform the transmission of the <u>encoded</u> mail message pa
 Encoding the Message
 ============
 
-Preparing the message for transmission is tough, more than I anticipated. It can be broken down into two parts, the header and the content. Let's start with the header, the code bellow was extracted from the `MailPayload` class, and is responsible for generating the encoded message headers for transmission:
+Preparing the message for transmission is tiresome, with lots of minor details to consider. It can be broken down into two parts, the header and the content. Let's start with the header, the code bellow was extracted from the `MailPayload` class, and is responsible for generating the encoded message headers for transmission:
 
 ```csharp
 
@@ -204,7 +204,7 @@ Notice that I'm not using the `Bcc` header, as [RFC 822](https://tools.ietf.org/
 
 > Some  systems  may choose to include the text of the "Bcc" field only in the author(s)'s  copy,  while  others  may also include it in the text sent to all those indicated in the "Bcc" list
 
-There dozens of other headers available providing more elaborate functionality. The initial IANA registration for permanent mail and MIME message header fields can be found in [RFC4021](https://tools.ietf.org/html/rfc4021), and is overwhelming. You can see I only covered the most basic headers in this experiment.
+There are dozens of other headers available providing more elaborate functionality. The initial IANA registration for permanent mail and MIME message header fields can be found in [RFC4021](https://tools.ietf.org/html/rfc4021), and is overwhelming. You can see I only covered the most basic headers in this experiment.
 
 Now let's look at how the message content is being handled:
 
@@ -254,7 +254,7 @@ The code for writing headers and content related to alternative views was omitte
 Securing the Message
 ============
 
-Suppose the message was encoded and transmitted as described above, how can we trust the destination mail server not to tamper with the message's headers and contents? The answer is we can't! There's nothing prevent it from changing the message before delivering it to the end user so far.
+Suppose the message was encoded and transmitted as described above, how can we trust the destination mail server not to tamper with the message's headers and contents? The answer is we can't! There's nothing preventing it from changing the message before delivering it to the end user so far.
 
 Fortunately, to address this issue we can employ the [DomainKeys Identified Mail (DKIM)](https://en.wikipedia.org/wiki/DomainKeys_Identified_Mail) authentication method:
 
@@ -315,7 +315,7 @@ Making this DKIM signing component work was the most difficult task in this proj
 Authenticating Senders
 ============
 
-At the beginning of this post I wrote that the Mail Broker can send messages without any kind of authentication, just like Mailchimp can send messages on your behalf without you ever giving it your e-mail password. How's that possible? you may ask, and the answer is because e-mail delivery is a reputation based system.
+At the beginning of this post I wrote that the Mail Broker can send messages without needing to perform mailbox authentication, just like Mailchimp can send messages on your behalf without you ever giving it your e-mail password. How's that possible? you may ask, and the answer is because e-mail delivery is a reputation based system.
 
 But keep this in mind, sending the message doesn't mean it will be accepted. Here's what happens if I try to send a message from `no-reply@thomasvilhena.com` to a Gmail mailbox from a rogue server (IP obfuscated):
 
@@ -348,7 +348,7 @@ This time the response from Gmail server was much more friendly:
 Nevertheless, since my domain has no mailing reputation yet, Gmail directed the message to the Spam folder:
 
 <p align="center">
-  <img style="max-height: 340px; max-width: 100%; margin: 10px" src="{{ site.baseurl }}/images/p14/gmail_Spam.PNG" alt="Gmail Spam"/>
+  <img style="max-height: 340px; max-width: 100%; margin: 10px" src="{{ site.baseurl }}/images/p14/gmail_spam.PNG" alt="Gmail Spam"/>
   <br>
 </p>
 
