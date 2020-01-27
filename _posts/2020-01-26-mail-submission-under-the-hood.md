@@ -17,7 +17,7 @@ I originally used to call this component "Mail Submission Agent (MSA)" until I r
 
 Since my implementation is not conforming to this specification (e.g. it isn't intended to communicate with a MUA) I decided to change its name to "Mail Broker" instead, and prevent any misunderstanding.
 
-So what does my component do? Let's take a look at some sample usage code (C#) to clear it out:
+So what does this component do? Let's take a look at some sample usage code (C#) to clear it out:
 
 ```csharp
 
