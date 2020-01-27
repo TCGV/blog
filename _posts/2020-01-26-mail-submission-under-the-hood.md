@@ -7,7 +7,7 @@ tags: system-design security
 
 A couple of years ago I implemented a mail submission component capable of interacting with [SMTP](https://en.wikipedia.org/wiki/Simple_Mail_Transfer_Protocol) servers over the internet for delivering e-mail messages. Developing it helped me better understand the inner workings of e-mail transmission, which I share in this article.
 
-I originally used to call this component "Mail Submission Agent (MSA)" until I read [RFC 6409](https://tools.ietf.org/html/rfc6409) which defines the participating agents of electronic mail infrastructure as:
+I named this component "Mail Broker" as not to be confused with "Message Submission Agent" already defined in [RFC 6409](https://tools.ietf.org/html/rfc6409) along with other participating agents of electronic mail infrastructure:
 
 <b>Message User Agent (MUA)</b>: A process that acts (often on behalf of a user and with a user interface) to compose and submit new messages, and to process delivered messages.
 
@@ -15,9 +15,7 @@ I originally used to call this component "Mail Submission Agent (MSA)" until I r
 
 <b>Message Transfer Agent (MTA)</b>: A process that conforms to SMTP-MTA. An MTA acts as an SMTP server to accept messages from an MSA or another MTA, and it either delivers them or acts as an SMTP client to relay them to another MTA.
 
-Since my implementation is not conforming to this specification (e.g. it isn't intended to communicate with a MUA) I decided to change its name to "Mail Broker" instead, and prevent any misunderstanding.
-
-So what does this component do? Let's take a look at some sample usage code (C#) to clear it out:
+This Mail Broker is intended for sending e-mail messages directly from within .NET applications supporting alternate views and file attachments. Let's take a look at some sample usage code (C#) to clear it out:
 
 ```csharp
 
@@ -52,7 +50,7 @@ using (var msg = new MailMessage())
 
 ```
 
-As you can see it's a component for sending e-mail messages directly from within .NET applications supporting alternate views and file attachments. The key difference about it is that messages can be sent from any source e-mail address without requiring individual mailbox authentication, as long as you perform required domain and sender IP address authentication steps to prevent being blacklisted for misuse (more on that bellow).
+The key difference about it is that messages can be sent from any source e-mail address directly to destination SMTP servers, as long as you perform required sender domain and IP address authentication steps to prevent being blacklisted for misuse (more on that bellow).
 
 I've put it together integrating a couple of GitHub projects, fixing bugs, and implementing my own code as well. You can access its repository on GitHub [here](https://github.com/TCGV/ModernMail).
 
@@ -315,11 +313,13 @@ Making this DKIM signing component work was the most difficult task in this proj
 Authenticating Senders
 ============
 
-At the beginning of this post I wrote that the Mail Broker can send messages without needing to perform mailbox authentication, just like Mailchimp can send messages on your behalf without you ever giving it your e-mail password. How's that possible? you may ask, and the answer is because e-mail delivery is a reputation based system.
+At the beginning of this post I wrote that the Mail Broker can send messages from any source e-mail address, just like Mailchimp can send messages on your behalf without you ever giving it your e-mail password. How's that possible? you may ask, and the answer is because e-mail delivery is a reputation based system.
 
-But keep this in mind, sending the message doesn't mean it will be accepted. Here's what happens if I try to send a message from `no-reply@thomasvilhena.com` to a Gmail mailbox from a rogue server (IP obfuscated):
+But keep this in mind, sending the message doesn't mean it will be accepted, specially if the sender doesn't have a good reputation. Here's what happens when I try to send a message from `no-reply@thomasvilhena.com` to a Gmail mailbox from a rogue server (IP obfuscated):
 
 > 421-4.7.0 [XX.XXX.XXX.XXX      XX] Our system has detected that this message is<br>421-4.7.0 suspicious due to the very low reputation of the sending IP address.<br>421-4.7.0 To protect our users from Spam, mail sent from your IP address has<br>421-4.7.0 been temporarily rate limited. Please visit<br>421 4.7.0  https://support.google.com/mail/answer/188131 for more information. e6si8481552qkg.297 - gsmtp
+
+You see, Gmail found the message suspicious, and as I checked it didn't even reach the destination mailbox spam folder, the sender reputation was so low the message wasn't even spam worthy!
 
 Here's what Gmail suggests to prevent messages from being marked as Spam, or not being delivered to the end user at all:
 
@@ -328,12 +328,14 @@ Here's what Gmail suggests to prevent messages from being marked as Spam, or not
 * Turn on DKIM signing for your messages. Receiving servers use DKIM to verify that the domain owner actually sent the message. Important: Gmail requires a DKIM key of 1024 bits or longer.
 * Publish a [DMARC record](https://en.wikipedia.org/wiki/DMARC) for your domain. DMARC helps senders protect their domain against email spoofing.
 
-Besides the DKIM authentication method already discussed, there are more three authentication methods specifically designed for IP and domain validation on the receiving end, which increase the likelihood that the destination SMTP server trusts you are who you say you are, and not a Spammer / scammer.
+Besides the DKIM authentication method already discussed, there are more three DNS based authentication methods specifically designed for IP address and domain validation on the receiving end, which increase the likelihood that the destination SMTP server trusts you are who you say you are, and not a spammer / scammer.
+
+These authentication methods along with strictly following mailing best practices (ex: sticking to a consistent send schedule / frequency, implementing mailing lists opt-in / unsubscribe, constantly checking blacklists, carefully building messages, etc) will help, bit by bit, to build a good sender reputation and having e-mail messages accepted and delivered to the destination users inbox.
 
 Delivery Test
 ============
 
-This article wouldn't be completed without a successful delivery test, so I followed the steps presented in the previous sections and:
+This article wouldn't be complete without a successful delivery test, so I followed the steps presented in the previous sections and:
 
 1. Created an EC2 instance running on AWS
 1. Created a SPF record for that instance's public IP Address
@@ -374,6 +376,6 @@ Success! Both SPF and DKIM verifications passed the test ✔️
 
 Building a mail delivery system from scratch is no simple feat. There are tons of specifications to follow, edge cases to implement and different external SMTP servers that your system will need to handle. In this experiment I only implemented the basic cases, and interacted mainly with Gmail's server which is outstanding, giving great feedback even in failure cases. Most SMTP servers out there wont do that.
 
-Security has improved a lot over the years, but still has a long way to go to reach acceptable standards.
+Mail transmission security has improved a lot over the years, but still has a long way to go to reach acceptable standards.
 
 It was really fun running this experiment, but I must emphasize it's not intended to production use. I guess I will just stick to a managed mail sending API for now 😉
