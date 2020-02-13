@@ -23,7 +23,7 @@ In this illustrative schema a **Users** table stores application users profiles,
 
 Suppose we want to know whether or not it's possible to reach an specific "Target User" starting from "Source User" with at most "N" steps, how do we implement this in SQL?
 
-Since SQL by itself doesn't support control structures and recursion, we need help of a procedural programming language for implementing this traversal algorithm, and fortunately most database systems do support structured programming out of the box for writing functions and stored procedures.
+Since SQL is designed as a declarative programming language for querying data contained in a relational database we need help of an imperative programming language for implementing this traversal algorithm, and fortunately most database systems do support structured programming out of the box for writing functions and stored procedures.
 
 Regardless of the specific database and programming language used, the traversal code should look similar to the code example provided below:
 
