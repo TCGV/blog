@@ -62,7 +62,7 @@ Internal Structure
 The diagram bellow illustrates the Mail Broker internal structure:
 
 <p align="center">
-  <img style="max-height: 340px; max-width: 100%; margin: 10px" src="{{ site.baseurl }}/images/p14/mail_broker.PNG" alt="AR model"/>
+  <img style="max-height: 340px; max-width: 100%; margin: 10px" src="{{ site.baseurl }}/images/p14/mail_broker.PNG" alt="mail broker"/>
   <br>
 </p>
 
