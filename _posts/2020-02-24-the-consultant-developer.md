@@ -5,7 +5,7 @@ date: 2020-02-23 12:00:00 -0300
 tags: collaboration
 ---
 
-Software developers are responsible for carrying out tasks from a product backlog for delivering increments of value in a regular manner. The mindset we adopt towards work can have a direct impact in the quality and speed of our output. In this article I propose the simple mindset of a "consultant developer" as an approach for dealing with common shortcomings in our industry, and improving the work culture within our organization. 
+Software developers are responsible for carrying out tasks from a product backlog for delivering increments of value in a regular manner. The mindset we adopt towards work can have a direct impact in the quality and speed of our output. In this article I propose the simple mindset of a "consultant developer" and explain how enforcing it can help improve the product development workflow. 
 
 Backlog Refinement
 ============
