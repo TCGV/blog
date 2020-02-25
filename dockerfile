@@ -31,4 +31,5 @@ RUN gem install faraday --version=0.15.4
 RUN gem install octokit --version=4.14.0
 RUN gem install rb-inotify --version=0.10.0
 RUN gem install unicode-display_width --version=1.6.0
+RUN gem install jekyll-redirect-from --version=0.16.0
 RUN mkdir /home/mypage
