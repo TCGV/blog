@@ -82,7 +82,7 @@ To apply this principle we start with the system requirements and extrapolate th
 
 Hopefully most of them will make sense, but it's always a good idea to involve a colleague to validate them before making a design decision that might be expensive to change later on.
 
-Now the challenge is to define a system structure that isolatse these possible changes to individual modules. Here's a proposition:
+Now the challenge is to define a system structure that isolates these possible changes to individual modules. Here's a proposition:
 
 <p align="center">
   <img style="max-height: 367px; max-width: 100%; margin: 10px" src="{{ site.baseurl }}/images/p16/information-hiding-modules.PNG" alt="Information Hiding Modularization"/>
