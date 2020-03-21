@@ -115,6 +115,8 @@ In closing I would like to add another quote from D.L. Parnas own conclusion per
 
 For me this quote captures the main paradigm shift from procedural to object oriented programming.
 
+---
+
 <b>Sources</b>
 
 [1] Parnas, D.L. (December 1972). ["On the Criteria To Be Used in Decomposing Systems into Modules" (PDF)](https://www.win.tue.nl/~wstomv/edu/2ip30/references/criteria_for_modularization.pdf)
