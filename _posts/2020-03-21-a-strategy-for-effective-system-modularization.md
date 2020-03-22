@@ -7,7 +7,7 @@ tags: system-design oop
 
 Back in 1972, almost half a century ago, David Lorge Parnas published an iconic paper entitled <i>"On the Criteria to Be Used in Decomposing Systems into Modules"</i> <sup>1</sup>. In it he discusses modularization as a mechanism for improving the flexibility and comprehensibility of a system while allowing the shortening of its development time, and also presents a criterion for effectively carrying out the decomposition of a system into modules.
 
-When I first read this paper I was impressed by how relevant and practical it is. I stumbled on it while reading through an online discussion on the topic of object oriented programming. Yet again someone published a post criticizing the fundamental concepts of OOP and in the discussion there was a comment pointing out to the author that he had misinterpreted the concept of encapsulation in his critique, linking to the paper.
+When I first read this paper I was impressed by how relevant and practical it is. I stumbled on it while reading through an online discussion on the topic of object oriented programming. Yet again someone had published a post criticizing the fundamental concepts of OOP and in the discussion there was a comment pointing out to the author that he had misinterpreted the concept of encapsulation in his critique, linking to the paper.
 
 It was in this paper that the concept of information hiding, closely related to encapsulation, was first described. This concept plays a central role in the strategy for effective system modularization, as I'll describe in the following sections.
 
