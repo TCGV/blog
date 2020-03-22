@@ -40,7 +40,7 @@ Consider a Scheduling Calendar system that implements the following features:
 * As an organizer, I want to be informed of conflicting guests schedules so that I'm able to propose a valid event date
 * As a participant, I want automatic reminders to notify me of upcoming events I should attend so that I don't miss them
 
-Let's exercise both criteria for sketching this system's modularized structure. Notice that I will not be using class diagrams as not to introduce an OOP bias in this exercise.
+Let's exercise both criteria for sketching this system's modularized structure. Notice that I will not be using class diagrams as not to induce an OOP bias in this exercise.
 
 <b>Using the procedural criterion</b>
 
@@ -57,6 +57,8 @@ We also need to define a procedure for implementing the automatic notification f
 1. Select all `user_schedules` whose `notification_date` column is due and `notified` column is `false`
 1. For each resulting entry, send an e-mail reminder message to the corresponding event participant
 1. Then, for each resulting entry, set the `notified` column value with `true`
+
+The database schema is being loosely defined since it's not the central point here to discuss it. It's sufficient to say that, considering a relational database and the third normal form, three tables would suffice the storage necessities of this exercise: `events`, `users` and `user_schedules`.
 
 Based on these two procedures, we might define the following modules for the Scheduling Calendar:
 
@@ -101,12 +103,16 @@ With the extraction of these specialized modules the original `Scheduler` and `N
 Conclusion
 ============
 
-From this example we can lay down a strategy for effective system modularization:
+In this exercise I tried to demonstrate how using the information hiding criterion naturally leads to an improved system structure when compared to using the procedural criterion. The latter results in less modules that aggregate many responsibilities, while the former promotes the segregation of responsibilities into several specialized modules. These specialized modules become the foundation of a hierarchical system structure that not only improves comprehension of the system but also it's flexibility.
+
+The proposed strategy for effective system modularization is then to:
 
 1. Enlist all operations the system is required to implement
 1. Anticipate possible improvement/change requests for these operations
 1. Extract specialized modules that encapsulate design decisions likely to change
 1. Establish and maintain a clear hierarchical structure within the system
+
+The first two steps will help visualize what are the system design decisions, upon which the information hiding criterion (third step) is applied.
 
 In closing I would like to add another quote from D.L. Parnas own conclusion pertaining this strategy's third step, in which specialized modules are extracted from the system:
 
