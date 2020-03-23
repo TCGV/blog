@@ -109,10 +109,16 @@ The proposed strategy for effective system modularization is then to:
 
 1. Enlist all operations the system is required to implement
 1. Anticipate possible improvement/change requests for these operations
-1. Extract specialized modules that encapsulate design decisions likely to change
+1. Identify design decisions likely to change, prioritizing them if necessary 
+1. Extract specialized modules that encapsulate these design decisions
 1. Establish and maintain a clear hierarchical structure within the system
 
-The first two steps will help visualize what are the system design decisions, upon which the information hiding criterion (third step) is applied.
+The first two steps will help visualize what the system design decisions are, upon which the information hiding criterion (third and fourth steps) is applied. Depending on the scale of enlisted design decisions susceptible to change a prioritization step may come in handy for directing development efforts and maximizing value:
+
+<p align="center">
+  <img style="max-height: 240px; max-width: 100%; margin: 10px" src="{{ site.baseurl }}/images/p16/prioritization-matrix.PNG" alt="Prioritization matrix"/>
+  <br>
+</p>
 
 In closing I would like to add another quote from D.L. Parnas own conclusion pertaining this strategy's third step, in which specialized modules are extracted from the system:
 
