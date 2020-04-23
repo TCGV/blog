@@ -50,7 +50,7 @@ using (var msg = new MailMessage())
 
 ```
 
-The key difference about it is that messages can be sent from any source e-mail address directly to destination SMTP servers, as long as you perform required sender domain and IP address authentication steps to prevent being blacklisted for misuse (more on that bellow).
+The key difference about it is that messages can be sent from any source e-mail address directly to destination SMTP servers, as long as you perform required sender domain and IP address authentication steps to prevent being blacklisted for misuse (more on that below).
 
 I've put it together integrating a couple of GitHub projects, fixing bugs, and implementing my own code as well. You can access its repository on GitHub [here](https://github.com/TCGV/ModernMail).
 
@@ -59,7 +59,7 @@ A lot of networking, encoding and security concepts were involved in this experi
 Internal Structure
 ============
 
-The diagram bellow illustrates the Mail Broker internal structure:
+The diagram below illustrates the Mail Broker internal structure:
 
 <p align="center">
   <img style="max-height: 340px; max-width: 100%; margin: 10px" src="{{ site.baseurl }}/images/p14/mail_broker.PNG" alt="mail broker"/>
@@ -103,7 +103,7 @@ The Mail Broker will connect to the SMTP server on port 25, receive a "ServiceRe
 
 We all know that communication on the internet should always be encrypted, but I was amazed to find out how many SMTP servers still don't support it and communicate in plain text, just hoping that no one is watching! [Google's Transparency Report](https://transparencyreport.google.com/safer-email/overview) indicates that today more than 10% of all e-mail messages sent by Gmail are still unencrypted, usually because the receiving end doesn't support TLS.
 
-Moving forward, after upgrading the connection, the code will issue SMTP commands for individually sending the message to each destination address in this domain group, and after that `QUIT` the session. The sequence for sending the message is contained in the method showed bellow:
+Moving forward, after upgrading the connection, the code will issue SMTP commands for individually sending the message to each destination address in this domain group, and after that `QUIT` the session. The sequence for sending the message is contained in the method showed below:
 
 ```csharp
 
@@ -161,7 +161,7 @@ Lines 7 through 9 perform the transmission of the <u>encoded</u> mail message pa
 Encoding the Message
 ============
 
-Preparing the message for transmission is tiresome, with lots of minor details to consider. It can be broken down into two parts, the header and the content. Let's start with the header, the code bellow was extracted from the `MailPayload` class, and is responsible for generating the encoded message headers for transmission:
+Preparing the message for transmission is tiresome, with lots of minor details to consider. It can be broken down into two parts, the header and the content. Let's start with the header, the code below was extracted from the `MailPayload` class, and is responsible for generating the encoded message headers for transmission:
 
 ```csharp
 

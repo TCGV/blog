@@ -15,7 +15,7 @@ The Problem
 
 In our mobile application users recurrently receive tasks, mostly surveys, which they participate sending us back their answers. On average tasks range from 500 to 1000 users, but it's not unusual for us to submit a task to 10k or more users at a time.
 
-Tasks are delivered to mobile users in a single batch, causing spikes in the number of active users throughout the day. The chart bellow displays the number of online users at one of our servers on a day when the problem occurred:
+Tasks are delivered to mobile users in a single batch, causing spikes in the number of active users throughout the day. The chart below displays the number of online users at one of our servers on a day when the problem occurred:
 
 <p align="center">
   <label style="font-size: 12px;">Online Users</label><br>
@@ -36,7 +36,7 @@ While the number of active users grew 2x, the number of active database connecti
 Investigation
 ============
 
-From the database adminstration logs it was easy to spot that this was a locking escalation problem. There are at least three database tables relevant for delivering tasks to our mobile users. A simplified representation is provided bellow:
+From the database adminstration logs it was easy to spot that this was a locking escalation problem. There are at least three database tables relevant for delivering tasks to our mobile users. A simplified representation is provided below:
 
 <p align="center">
   <img style="max-height: 300px; max-width: 100%; margin: 10px" src="{{ site.baseurl }}/images/p8/tasks-schema.PNG" alt="tasks-schema"/>
@@ -94,7 +94,7 @@ The (effective) Solution
 
 To solve this problem and prevent blocking of the "TaskStatuses" table I implemented a mechanism in which a single agent is responsible for updating the "TaskStatuses" table, more specifically a [queue worker]({{ site.baseurl }}/2019/07/using-queues-to-offload-web-api), and everyone else is only allowed to perform insertions in this table.
 
-Additionaly, I had to drop the TaskID-Status unique constraint and add an "ID" primary key column to the "TaskStatuses" table, whose purpose I explain bellow.
+Additionaly, I had to drop the TaskID-Status unique constraint and add an "ID" primary key column to the "TaskStatuses" table, whose purpose I explain below.
 
 When submitting a new task, or resubmitting an existent task, one row with PENDING status and "1" count is inserted for each user that received this task. Then a queue message is sent to the updating agent to aggregate rows for this task.
 
