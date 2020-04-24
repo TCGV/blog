@@ -62,7 +62,7 @@ By their very definition unit tests are intended to test individual system compo
 The dependency inversion pattern (DIP) states that both high-level and low-level objects should depend on abstractions (e.g. interfaces) instead of specific concrete implementations. Once a system component is decoupled from its dependencies we can easily replace them in the context of a unit test by simplified, test targeted concrete implementations. The class diagram below illustrates the resulting structure:
 
 <p align="center">
-  <img style="max-height: 340px; max-width: 100%; margin: 10px" src="{{ site.baseurl }}/images/p17/isolated-dependencies.PNG" alt="Isolated Dependencies"/>
+  <img style="max-height: 340px; max-width: 100%; margin: 10px" src="{{ site.baseurl }}/images/p17/isolated-dependencies.png" alt="Isolated Dependencies"/>
   <br><label style="font-size: 12px;">figure 2</label>
 </p>
 
