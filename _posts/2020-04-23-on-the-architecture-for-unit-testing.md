@@ -52,6 +52,24 @@ Lastly, if tests aren't standardized, before too long your test suite will start
 
 Once we agree on what constitutes effective unit tests we can start defining system architecture guidelines that promote their properties, as described in the following sections.
 
+Software complexity
+============
+
+Software complexity arises, among other factors, from the growing number of interactions between components within a system, and the evolution of their internal states. As complexity gets higher the risk of unintentionally interfering in intricated webs of components interactions increases, potentially leading to the introduction of defects when making code changes.
+
+Furthermore, it's common sense that the higher the complexity of a system, the harder it is to maintain and test it, which leads to a first (general) guideline:
+
+> Keep an eye for software complexity and follow design practices to contain it
+
+A practice worth mentioning for managing complexity while improving testability is to employ <b>Pure Functions</b> and <b>Immutability</b> whenever possible in your system design. A pure function is a function that has the following properties:<sup>1</sup>
+
+* Its return value is the same for the same arguments (no variation with local static variables, non-local variables, mutable reference arguments or input streams from I/O devices).
+* Its evaluation has no side effects (no mutation of local static variables, non-local variables, mutable reference arguments or I/O streams).
+
+From its properties it's clear that pure functions are well suited to unit testing. Their usage also removes the need for much of the complementary practices which are discussed in the following sections for handling, mostly, stateful components.
+
+Immutability plays an equally important role. An immutable object is an object whose state cannot be modified after it is created. They are more simple to interact with and more predictable, contributing for lowering the system complexity, disentangling global state.
+
 Isolating dependencies
 ============
 
@@ -244,8 +262,18 @@ It's visible that the amount of code dedicated to setting up the test context in
 Conclusion
 ============
 
-In this post I have covered the topic of unit testing providing four major guidelines for addressing the challenge of mantaining effectiveness in an ever growing base of test cases. These guidelines have important ramifications in system architecture, which should, from the begining of a software project, take unit testing requirements into account in order to promote an environment in which developers see value in and are motivated to write unit tests.
+In this post I have covered the topic of unit testing providing five major guidelines for addressing the challenge of mantaining effectiveness in an ever growing base of test cases. These guidelines have important ramifications in system architecture, which should, from the begining of a software project, take unit testing requirements into account in order to promote an environment in which developers see value in and are motivated to write unit tests.
 
 Unit tests should be regarded as a constituent part of your system architecture, as vital as the components they test, and not as second class citizens that the development team merely writes for the purpose of filling up managerial reports check boxes or feeding up metrics.
 
 In closing, if you're working in a legacy project with few or none unit tests, that doesn't employ the DIP, this post may not contain the best strategy for you, since I intentionally avoided talking about sophisticated mocking frameworks that, in the context of legacy projects, become a viable option for introducing unit tests to extremely coupled code.
+
+---
+
+<b>Notes</b>
+
+* I have decided to incorporate the "Software complexity" section into the article only after receiving a feedback in a [reddit comment](https://www.reddit.com/r/programming/comments/g8g79x/on_the_architecture_for_unit_testing/foo2y8l/). For reference you can find the original article [here](https://github.com/TCGV/blog/blob/eef9e8aff27e753355410fa4cd07964b019fefb3/_posts/2020-04-23-on-the-architecture-for-unit-testing.md).
+
+<b>Sources</b>
+
+[1] Bartosz Milewski (2013). ["Basics of Haskell"](https://www.schoolofhaskell.com/school/starting-with-haskell/basics-of-haskell/3-pure-functions-laziness-io). School of Haskell. FP Complete. Retrieved 2018-07-13.
