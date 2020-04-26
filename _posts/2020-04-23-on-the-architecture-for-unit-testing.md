@@ -135,11 +135,11 @@ It is important to highlight that when it comes to coding style, there's no sing
 Managing test contexts
 ============
 
-Unit test context management is a topic that doesn't get as much attention as it should. By "test context" I mean the entire dependency injection and initial state setup required for successfully running unit tests.
+Unit test context management is a topic that is not discussed often enough. By "test context" I mean the entire dependency injection and initial state setup required for successfully running unit tests.
 
 As noted before unit testing is more effective when developers spend less time worrying about setting up test contexts and more time writing test cases. We derive our last guideline from the observation that a few test contexts can be shared by a much larger number of test cases:
 
-> Adopt the builder pattern to separate the construction of test contexts from the implementation of unit test classes
+> Make use of builder classes to separate the construction of test contexts from the implementation of unit test cases
 
 The idea is to encapsulate the construction logic of test contexts in builder classes, referencing them in unit test classes. Each context builder is then responsible for creating a specific test scenario, optionally defining methods for particularizing it.
 
@@ -246,6 +246,6 @@ Conclusion
 
 In this post I have covered the topic of unit testing providing four major guidelines for addressing the challenge of mantaining effectiveness in an ever growing base of test cases. These guidelines have important ramifications in system architecture, which should, from the begining of a software project, take unit testing requirements into account in order to promote an environment in which developers see value in and are motivated to write unit tests.
 
-Unit tests should be regarded as a constituent part of your system architecture, as vital as the components they test, and not as second class citizens that the developer team merely writes for the purpose of filling up managerial reports check boxes or feeding up metrics.
+Unit tests should be regarded as a constituent part of your system architecture, as vital as the components they test, and not as second class citizens that the development team merely writes for the purpose of filling up managerial reports check boxes or feeding up metrics.
 
 In closing, if you're working in a legacy project with few or none unit tests, that doesn't employ the DIP, this post may not contain the best strategy for you, since I intentionally avoided talking about sophisticated mocking frameworks that, in the context of legacy projects, become a viable option for introducing unit tests to extremely coupled code.
