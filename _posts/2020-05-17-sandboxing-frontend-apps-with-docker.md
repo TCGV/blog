@@ -7,7 +7,7 @@ tags: recruiting automation security
 
 I'm often required to evaluate simple take home projects from candidates applying to front-end developer positions at our company. In these projects candidates are asked to implement a few UI components that take user input and produce an output, nothing fancy, but enough to get a grasp on the candidate's familiarity with modern front-end frameworks and to ask follow up questions about his design decisions in the interview that follows.
 
-It's open to the candidate to choose the front-end framework that he's most comfortable with (eg: React, Angular, Vue) for this exercise, and we also ask him to share his solution in a GitHub repository as to facilitate the reviewing process.
+It's open to the candidate to choose the front-end framework that he/she is most comfortable with (eg: React, Angular, Vue) for this exercise, and we also ask him to share his solution in a GitHub repository as to facilitate the reviewing process.
 
 So after reviewing a few dozens of these projects I started using a simple sandboxing approach that I'm sharing in this article in order to quickly an easily build and run these apps and assess them in a controlled manner.
 
@@ -19,7 +19,7 @@ In short, these were the implicit system requirements I took into account:
 * The reviewer (myself!) shall be able to spin up the front-end app with a single command
 * The system shall provide access to app compilation/runtime errors in case of failure
 * The system shall isolate the untrusted front-end app execution for security reasons
-* The system shall support different front-end development environments transparently
+* The system shall support different front-end development environments/configurations
 
 Implementation
 ============
