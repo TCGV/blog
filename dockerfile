@@ -17,7 +17,7 @@ RUN rm -rf /var/cache/apk/*
 # Install Jekyll and required gems
 RUN gem install addressable --version=2.6.0
 RUN gem install dnsruby --version=1.61.2
-RUN gem install nokogiri --version=1.10.3
+RUN gem install nokogiri --version=1.10.8
 RUN gem install html-pipeline --version=2.11.1
 RUN gem install bundler --version=2.0.2
 RUN gem install rubyzip --version=1.2.3
