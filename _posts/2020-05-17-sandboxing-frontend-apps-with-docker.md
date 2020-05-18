@@ -29,8 +29,8 @@ The solution was implemented with Docker and is available on GitHub: [GitRunner]
 <b>1)</b> First, build the base Alpine Linux image:
 
 ```bash
-cd /images/apline-git-node
-docker build . -t apline-git-node
+cd /images/alpine-git-node
+docker build . -t alpine-git-node
 ```
 
 <b>2)</b> Then, build the target platform image, for instance:
