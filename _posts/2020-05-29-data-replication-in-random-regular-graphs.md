@@ -17,7 +17,7 @@ Definition
 A regular graph is a graph where each vertex has the same number of neighbors; i.e. every vertex has the same degree or valency. The image below shows a few examples:
 
 <p align="center">
-  <img style="max-width: 100%; max-height: 250px; margin: 10px" src="{{ site.baseurl }}/images/p19/regular-graphs.PNG" alt="regular-graphs"/>
+  <img style="max-width: 100%; max-height: 250px; margin: 10px" src="{{ site.baseurl }}/images/p19/regular-graphs.png" alt="regular-graphs"/>
 </p>
 
 These sample graphs are regular since we can confirm that every vertex has exactly the same number of edges. The first one is 2-regular (two edges per vertex) and the following two are 3-regular (three edges per vertex).
