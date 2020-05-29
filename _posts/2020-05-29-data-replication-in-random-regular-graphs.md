@@ -24,7 +24,7 @@ These sample graphs are regular since we can confirm that every vertex has exact
 
 Even though 0-regular (disconnected), 1-regular (two vertices connected by single edge) and 2-regular (circular) graphs take only one form each, r-regular graphs of the third degree and upwards take multiple distinct forms by combining their vertices in a variety of different ways.
 
-More broadly we can denote <i>G<sub>n,r</sub></i> as the probability space of all r-regular graphs on <b>n</b> vertices, where <i>3 ≤ r < n</i>. Then, we define a r-random regular graph as the result of randomly sampling <i>G<sub>n,r</sub></i>.
+More broadly we can denote <i>G<sub>n,r</sub></i> as the probability space of all r-regular graphs on <b>n</b> vertices, where <i>3 ≤ r < n</i>. Then, we define a random r-regular graph as the result of randomly sampling <i>G<sub>n,r</sub></i>.
 
 <b>Properties of random regular graphs</b>
 
