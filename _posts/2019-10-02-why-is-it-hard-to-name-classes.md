@@ -7,7 +7,7 @@ tags: oop
 
 When following the Single Responsibility Principle (SRP) we are frequently required to encapsulate code into new classes, segregating responsibility from one "bigger" class into smaller, granular classes. Clean code guidelines state that classes names should be meaningful and describe the intent of the class, i.e., by reading a class name one should have a close idea of what it does.
 
-As much as we're constantly encouraged for writing meaningful code and being thoughtful when naming things, reducing the use of loosely generic suffixes in classes names such as `Helper` and `Manager`, we often can't figure out a great name for a class and end up making use of them. So the question hangs, why is it hard to name classes?
+As much as we're constantly encouraged to write meaningful code and being thoughtful when naming things we often can't figure out a great name for a class and end up making use of loosely generic suffixes such as `Helper` and `Manager`. So the question hangs, why is it hard to name classes?
 
 > Here's one unusual answer: Vocabulary.
 
@@ -53,14 +53,16 @@ The first one is straight forward: `Wallet`. The second one less so, leading us 
 So, are all class name suffixes evil?
 ============
 
-Not at all. Well defined behavioral / contextual suffixes are a great tool for producing more intuitive code, reducing the cognitive effort for reading and navigating though the codebase, and that's why it's widely used in architectural patterns and frameworks. Here are just a few examples that come to mind: Builder, Factory, Repository, View, Controller, and so forth. The list is endless.
+Not at all. Well defined behavioral / contextual suffixes are a great tool for producing more intuitive code, reducing the cognitive effort for reading and navigating though the codebase, and that's why it's widely used in architectural patterns and frameworks. Here are just a few examples that come to mind: Builder, Factory, Repository, View, Controller, and so forth, the list is endless.
+
+What we need to avoid are just suffixes (and prefixes also) that are too broad to transmit any meaningful intent about the class we're designing, and narrow it down to a better, more significant term.
 
 Conclusion
 ============
 
-Naming classes is part of our daily tasks as software developers. When components relate to already existing tangible things or clear concepts within our vocabulary class names may come up more naturally, and the opposite might occur when we are dealing with highly specific constructs.
+Naming classes is part of our daily tasks as software developers. When components relate to already existing tangible things or clear concepts within our vocabulary class names may come up more naturally, and the opposite might occur when dealing with highly specific constructs.
 
-Expanding our vocabulary to use domain specific nouns can be useful for enriching both our system design as well as our knowledge in the field we are working in. Even so, sometimes it's not possible to find simple, relatable terms to adopt for naming classes. In such cases relying on prefix/suffix naming conventions is a good option, or falling back to a neologism strategy for creating descriptive composed nouns.
+Expanding our vocabulary to use domain specific nouns can be useful for enriching both our system design as well as our knowledge in the field we are working in. Even so, sometimes it's not possible to find simple, relatable terms to adopt for naming classes. In such cases relying on well defined prefix/suffix naming conventions is a good option, or falling back to a neologism strategy for creating descriptive composed nouns.
 
 ---
 
