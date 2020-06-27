@@ -31,7 +31,7 @@ From the application user's perspective deployment should happen seamlessly, wit
 If you're adopting container images in your deployment process this becomes a lot easier, since it's possible to allocate application services containers without much effort, having the new version and old version available side by side, and then switch networking traffic to the new version:
 
 <p align="center">
-  <img style="max-height: 300px; max-width: 100%; margin: 10px" src="{{ site.baseurl }}/images/p3/containers-bridge.png" alt="containers-bridge"/>
+  <img style="max-height: 300px; max-width: 100%; margin: 10px 0" src="{{ site.baseurl }}/images/p3/containers-bridge.png" alt="containers-bridge"/>
   <br><label style="font-size: 12px;">figure 1</label>
 </p>
 

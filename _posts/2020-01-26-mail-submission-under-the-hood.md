@@ -62,7 +62,7 @@ Internal Structure
 The diagram below illustrates the Mail Broker internal structure:
 
 <p align="center">
-  <img style="max-height: 340px; max-width: 100%; margin: 10px" src="{{ site.baseurl }}/images/p14/mail_broker.PNG" alt="mail broker"/>
+  <img style="max-height: 340px; max-width: 100%; margin: 10px 0" src="{{ site.baseurl }}/images/p14/mail_broker.PNG" alt="mail broker"/>
   <br>
 </p>
 
@@ -350,14 +350,14 @@ This time the response from Gmail server was much more friendly:
 Nevertheless, since my domain has no mailing reputation yet, Gmail directed the message to the Spam folder:
 
 <p align="center">
-  <img style="max-height: 340px; max-width: 100%; margin: 10px" src="{{ site.baseurl }}/images/p14/gmail_spam.PNG" alt="Gmail Spam"/>
+  <img style="max-height: 340px; max-width: 100%; margin: 10px 0" src="{{ site.baseurl }}/images/p14/gmail_spam.PNG" alt="Gmail Spam"/>
   <br>
 </p>
 
 Here are the delivery details:
 
 <p align="center">
-  <img style="max-height: 340px; max-width: 100%; margin: 10px" src="{{ site.baseurl }}/images/p14/gmail_summary.PNG" alt="Gmail summary"/>
+  <img style="max-height: 340px; max-width: 100%; margin: 10px 0" src="{{ site.baseurl }}/images/p14/gmail_summary.PNG" alt="Gmail summary"/>
   <br>
 </p>
 
@@ -366,7 +366,7 @@ Notice that standard encryption (TLS) was used for delivering the message, so th
 What about SPF authentication and DKIM signature, did they work? Using Gmail's "show original" feature allows us to inspect the received message details quite easily:
 
 <p align="center">
-  <img style="max-height: 240px; max-width: 100%; margin: 10px" src="{{ site.baseurl }}/images/p14/gmail_headers.PNG" alt="Gmail headers"/>
+  <img style="max-height: 240px; max-width: 100%; margin: 10px 0" src="{{ site.baseurl }}/images/p14/gmail_headers.PNG" alt="Gmail headers"/>
   <br>
 </p>
 

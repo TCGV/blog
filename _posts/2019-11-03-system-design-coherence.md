@@ -60,7 +60,7 @@ Cons:
 * <b>Scalability</b>: You cannot scale components separately due to interdependencies, only the whole application.
 
 <p align="center">
-  <img style="max-height: 250px; max-width: 100%; margin: 10px" src="{{ site.baseurl }}/images/p10/monolith.PNG" alt="Monolith"/>
+  <img style="max-height: 250px; max-width: 100%; margin: 10px 0" src="{{ site.baseurl }}/images/p10/monolith.PNG" alt="Monolith"/>
   <br>
   <label style="font-size: 12px;">figure 1. The Monolith</label>
 </p>
@@ -78,7 +78,7 @@ Cons:
 * <b>Testing</b>: You can effectively test a single microservice, but testing a distributed operation involving multiple microservices is more challenging.
 
 <p align="center">
-  <img style="max-height: 250px; max-width: 100%; margin: 10px" src="{{ site.baseurl }}/images/p10/microservices.PNG" alt="Microservices"/>
+  <img style="max-height: 250px; max-width: 100%; margin: 10px 0" src="{{ site.baseurl }}/images/p10/microservices.PNG" alt="Microservices"/>
   <br>
   <label style="font-size: 12px;">figure 2. Microservices Architecture</label>
 </p>
@@ -128,7 +128,7 @@ By preserving your system design you're also preserving the validity of your tea
 The challenge here is being open to improve your system design knowing that it can be exceptionally expensive to conduct a large system refactor up to completion. An approach I have used in a similar situation was to isolate refactored services behind an integration interface. The result was two independent system designs seamlessly working alongside each other, rather than having them mixed together:
 
 <p align="center">
-  <img style="max-height: 250px; max-width: 100%; margin: 10px" src="{{ site.baseurl }}/images/p10/integrated-designs.PNG" alt="integrated-designs"/>
+  <img style="max-height: 250px; max-width: 100%; margin: 10px 0" src="{{ site.baseurl }}/images/p10/integrated-designs.PNG" alt="integrated-designs"/>
   <br>
   <label style="font-size: 12px;">figure 3. Integrated designs</label>
 </p>

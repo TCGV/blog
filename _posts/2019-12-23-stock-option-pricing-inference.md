@@ -77,7 +77,7 @@ ggplotly(p)
 ```
 
 <p align="center">
-  <img style="max-height: 400px; max-width: 100%; margin: 10px" src="{{ site.baseurl }}/images/p12/petr4_density.png" alt="PETR4 desnity"/>
+  <img style="max-height: 400px; max-width: 100%; margin: 10px 0" src="{{ site.baseurl }}/images/p12/petr4_density.png" alt="PETR4 desnity"/>
   <br>
 </p>
 
@@ -154,7 +154,7 @@ ggplotly(p)
 ```
 
 <p align="center">
-  <img style="max-height: 400px; max-width: 100%; margin: 10px" src="{{ site.baseurl }}/images/p12/gaussian_density.png" alt="Gaussian density"/>
+  <img style="max-height: 400px; max-width: 100%; margin: 10px 0" src="{{ site.baseurl }}/images/p12/gaussian_density.png" alt="Gaussian density"/>
   <br>
 </p>
 
@@ -210,7 +210,7 @@ ggplotly(p)
 ```
 
 <p align="center">
-  <img style="max-height: 400px; max-width: 100%; margin: 10px" src="{{ site.baseurl }}/images/p12/cauchy_density.png" alt="Cauchy density"/>
+  <img style="max-height: 400px; max-width: 100%; margin: 10px 0" src="{{ site.baseurl }}/images/p12/cauchy_density.png" alt="Cauchy density"/>
   <br>
 </p>
 
@@ -296,7 +296,7 @@ ggplotly(p)
 ```
 
 <p align="center">
-  <img style="max-height: 400px; max-width: 100%; margin: 10px" src="{{ site.baseurl }}/images/p12/pricing_models.png" alt="Pricing models"/>
+  <img style="max-height: 400px; max-width: 100%; margin: 10px 0" src="{{ site.baseurl }}/images/p12/pricing_models.png" alt="Pricing models"/>
   <br>
 </p>
 
@@ -328,7 +328,7 @@ ggplotly(p)
 ```
 
 <p align="center">
-  <img style="max-height: 400px; max-width: 100%; margin: 10px" src="{{ site.baseurl }}/images/p12/empirical_model.png" alt="Empirical model"/>
+  <img style="max-height: 400px; max-width: 100%; margin: 10px 0" src="{{ site.baseurl }}/images/p12/empirical_model.png" alt="Empirical model"/>
   <br>
 </p>
 

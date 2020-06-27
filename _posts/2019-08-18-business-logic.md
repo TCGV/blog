@@ -112,7 +112,7 @@ Layered Architecture
 The business logic layer has no knowledge of infrastructure and operational details, such as which specific web server, message broker or database system are chosen for deploying the application. For greater flexibility and cohesion, all of these decisions are made at the outermost layer of the application, and required functionality is injected into the business logic layer with the assistance of a [dependency injection strategy]({{ site.baseurl }}/2019/07/integrating-third-party-modules).
 
 <p align="center">
-  <img style="max-height: 300px; max-width: 100%; margin: 10px" src="{{ site.baseurl }}/images/p6/clean-architecture.JPG" alt="clean-architecture"/>
+  <img style="max-height: 300px; max-width: 100%; margin: 10px 0" src="{{ site.baseurl }}/images/p6/clean-architecture.JPG" alt="clean-architecture"/>
   <br><label style="font-size: 12px;">figure 1</label>
 </p>
 

@@ -63,7 +63,7 @@ The database schema is being loosely defined since it's not the central point he
 Based on these two procedures, we might define the following modules for the Scheduling Calendar:
 
 <p align="center">
-  <img style="max-height: 124px; max-width: 100%; margin: 10px" src="{{ site.baseurl }}/images/p16/procedural-modules.PNG" alt="Procedural Modularization"/>
+  <img style="max-height: 124px; max-width: 100%; margin: 10px 0" src="{{ site.baseurl }}/images/p16/procedural-modules.PNG" alt="Procedural Modularization"/>
   <br>
 </p>
 
@@ -86,7 +86,7 @@ Hopefully most of them will make sense, but it's always a good idea to involve a
 Now the challenge is to define a system structure that isolates these possible changes to individual modules. Here's a proposition:
 
 <p align="center">
-  <img style="max-height: 367px; max-width: 100%; margin: 10px" src="{{ site.baseurl }}/images/p16/information-hiding-modules.PNG" alt="Information Hiding Modularization"/>
+  <img style="max-height: 367px; max-width: 100%; margin: 10px 0" src="{{ site.baseurl }}/images/p16/information-hiding-modules.PNG" alt="Information Hiding Modularization"/>
   <br>
 </p>
 
@@ -116,7 +116,7 @@ The proposed strategy for effective system modularization is then to:
 The first two steps will help visualize what the system design decisions are, upon which the information hiding criterion (third and fourth steps) is applied. Depending on the scale of enlisted design decisions susceptible to change a prioritization step may come in handy for directing development efforts and maximizing value:
 
 <p align="center">
-  <img style="max-height: 240px; max-width: 100%; margin: 10px" src="{{ site.baseurl }}/images/p16/prioritization-matrix.PNG" alt="Prioritization matrix"/>
+  <img style="max-height: 240px; max-width: 100%; margin: 10px 0" src="{{ site.baseurl }}/images/p16/prioritization-matrix.PNG" alt="Prioritization matrix"/>
   <br>
 </p>
 

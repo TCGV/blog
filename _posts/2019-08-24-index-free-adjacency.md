@@ -15,7 +15,7 @@ Relational Databases
 Consider a social application in which users can follow each other, and its simplified database schema presented below:
 
 <p align="center">
-  <img style="max-height: 300px; max-width: 100%; margin: 10px" src="{{ site.baseurl }}/images/p7/relational-indexing.JPG" alt="relational-indexing"/>
+  <img style="max-height: 300px; max-width: 100%; margin: 10px 0" src="{{ site.baseurl }}/images/p7/relational-indexing.JPG" alt="relational-indexing"/>
   <br><label style="font-size: 12px;">figure 1</label>
 </p>
 
@@ -103,7 +103,7 @@ Graph Databases
 As I've said at the beginning of this article graph databases take advantage of index-free adjacency for traversing data more efficiently. **Figure 2** presents a logical representation of how data from **figure 1** would be organized in a graph database:
 
 <p align="center">
-  <img style="max-height: 400px; max-width: 100%; margin: 10px" src="{{ site.baseurl }}/images/p7/index-free-adjacency.JPG" alt="index-free-adjacency"/>
+  <img style="max-height: 400px; max-width: 100%; margin: 10px 0" src="{{ site.baseurl }}/images/p7/index-free-adjacency.JPG" alt="index-free-adjacency"/>
   <br><label style="font-size: 12px;">figure 2</label>
 </p>
 

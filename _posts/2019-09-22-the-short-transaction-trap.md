@@ -19,14 +19,14 @@ Tasks are delivered to mobile users in a single batch, causing spikes in the num
 
 <p align="center">
   <label style="font-size: 12px;">Online Users</label><br>
-  <img style="max-height: 300px; max-width: 100%; margin: 10px" src="{{ site.baseurl }}/images/p8/online-users.PNG" alt="online-users"/>
+  <img style="max-height: 300px; max-width: 100%; margin: 10px 0" src="{{ site.baseurl }}/images/p8/online-users.PNG" alt="online-users"/>
 </p>
 
 Notice three major activity spikes at 2:25 PM, 3:28 PM and 9:11 PM regarding three tasks that were submitted to our userbase. Now let's analyze the chart of active database connections for that server on the same day:
 
 <p align="center">
   <label style="font-size: 12px;">Active Database Connections</label><br>
-  <img style="max-height: 300px; max-width: 100%; margin: 10px" src="{{ site.baseurl }}/images/p8/database-connections.PNG" alt="database-connections"/>
+  <img style="max-height: 300px; max-width: 100%; margin: 10px 0" src="{{ site.baseurl }}/images/p8/database-connections.PNG" alt="database-connections"/>
 </p>
 
 There were two worrying active database connection spikes right before the first two user activity spikes, one at 2:05 PM and the other at 3:12 PM.
@@ -39,7 +39,7 @@ Investigation
 From the database adminstration logs it was easy to spot that this was a locking escalation problem. There are at least three database tables relevant for delivering tasks to our mobile users. A simplified representation is provided below:
 
 <p align="center">
-  <img style="max-height: 300px; max-width: 100%; margin: 10px" src="{{ site.baseurl }}/images/p8/tasks-schema.PNG" alt="tasks-schema"/>
+  <img style="max-height: 300px; max-width: 100%; margin: 10px 0" src="{{ site.baseurl }}/images/p8/tasks-schema.PNG" alt="tasks-schema"/>
   <br><label style="font-size: 12px;">figure 1</label>
 </p>
 
@@ -66,7 +66,7 @@ Wrong! Well, at least for my specific use case 🧐. Even though staging tests s
 
 <p align="center">
   <label style="font-size: 12px;">Active Database Connections</label><br>
-  <img style="max-height: 300px; max-width: 100%; margin: 10px" src="{{ site.baseurl }}/images/p8/database-connections-wrong-solution.PNG" alt="database-connections-wrong-solution"/>
+  <img style="max-height: 300px; max-width: 100%; margin: 10px 0" src="{{ site.baseurl }}/images/p8/database-connections-wrong-solution.PNG" alt="database-connections-wrong-solution"/>
 </p>
 
 Spikes became much more frequent and "taller". Needless to say that I had to revert this deployment shortly after applying it. Somehow splitting the longer transaction into several short transactions resulted in more frequent and vigorous locking.
@@ -79,7 +79,7 @@ What I missed to realize while investigating this problem was that locking was e
 In short, the task resubmission acquired a lock for all "TaskStatues" rows for that task, the same rows that are updated when users individually submit their answers to the task:
 
 <p align="center">
-  <img style="max-height: 400px; max-width: 100%; margin: 10px" src="{{ site.baseurl }}/images/p8/tasks-schema-locks.PNG" alt="tasks-schema-locks"/>
+  <img style="max-height: 400px; max-width: 100%; margin: 10px 0" src="{{ site.baseurl }}/images/p8/tasks-schema-locks.PNG" alt="tasks-schema-locks"/>
   <br><label style="font-size: 12px;">figure 2</label>
 </p>
 
@@ -132,7 +132,7 @@ This solution proved quite successful, reducing experienced active database conn
 
 <p align="center">
   <label style="font-size: 12px;">Active Database Connections</label><br>
-  <img style="max-height: 300px; max-width: 100%; margin: 10px" src="{{ site.baseurl }}/images/p8/database-connections-right-solution.PNG" alt="database-connections-right-solution"/>
+  <img style="max-height: 300px; max-width: 100%; margin: 10px 0" src="{{ site.baseurl }}/images/p8/database-connections-right-solution.PNG" alt="database-connections-right-solution"/>
 </p>
 
 ---

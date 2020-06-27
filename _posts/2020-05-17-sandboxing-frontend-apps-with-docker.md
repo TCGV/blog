@@ -58,7 +58,7 @@ docker exec -it <CONTAINER_ID> sh
 ```	
 
 <p align="center">
-  <img style="max-width: 100%; margin: 10px" src="{{ site.baseurl }}/images/p18/compiled-successfully-screen.png" alt="compiled-successfully-screen"/>
+  <img style="max-width: 100%; margin: 10px 0" src="{{ site.baseurl }}/images/p18/compiled-successfully-screen.png" alt="compiled-successfully-screen"/>
 </p>
 
 (In order to leave the secondary screen back to the container primary shell, type CTRL + A + D.)

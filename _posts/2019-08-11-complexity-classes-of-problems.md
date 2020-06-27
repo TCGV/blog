@@ -28,7 +28,7 @@ Defines decision problems that can be solved by a deterministic Turing machine (
 To put it briefly, a DTM executes algorithms the same way our modern computers do. It follows a set of pre-defined instructions (program), executing one instruction at a time, changing state and resolving the next instruction. We can imagine that at any given point in time there will be a history of executed operations and a set of predictable operations to follow based solely on the machine's current state:
 
 <p align="center">
-  <img style="max-height: 200px; max-width: 100%; margin: 10px" src="{{ site.baseurl }}/images/p5/deterministic-machine.JPG" alt="deterministic-machine"/>
+  <img style="max-height: 200px; max-width: 100%; margin: 10px 0" src="{{ site.baseurl }}/images/p5/deterministic-machine.JPG" alt="deterministic-machine"/>
   <br><label style="font-size: 12px;">figure 1</label>
 </p>
 
@@ -50,7 +50,7 @@ It's easy to see that this algorithm has time complexity `O(k ^ n) * O(w)`, wher
 Here we introduce the non-deterministic Turing machine (NTM), a theoretical computer that can take this naive algorithm and run it in a polynomial amount of time:
 
 <p align="center">
-  <img style="max-height: 270px; max-width: 100%; margin: 10px" src="{{ site.baseurl }}/images/p5/non-deterministic-machine.JPG" alt="non-deterministic-machine"/>
+  <img style="max-height: 270px; max-width: 100%; margin: 10px 0" src="{{ site.baseurl }}/images/p5/non-deterministic-machine.JPG" alt="non-deterministic-machine"/>
   <br><label style="font-size: 12px;">figure 2</label>
 </p>
 
@@ -64,7 +64,7 @@ Reduces any NP problem in polynomial time
 Defines decision problems whose algorithms for solving them can be used to solve any NP problem after a polynomial time translation step. For instance, if we have a solver for a NP-hard problem, we can then build a solver for a NP problem as follows:
 
 <p align="center">
-  <img style="max-height: 200px; max-width: 100%; margin: 10px" src="{{ site.baseurl }}/images/p5/np-solver.JPG" alt="np-solver"/>
+  <img style="max-height: 200px; max-width: 100%; margin: 10px 0" src="{{ site.baseurl }}/images/p5/np-solver.JPG" alt="np-solver"/>
   <br><label style="font-size: 12px;">figure 3</label>
 </p>
 

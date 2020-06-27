@@ -241,7 +241,7 @@ Saving the best for last, I will now introduce the [Deutsch Oracle algorithm](ht
 Its quantum circuit diagram is presented below:
 
 <p align="center">
-  <img style="max-height: 250px; max-width: 100%; margin: 10px" src="{{ site.baseurl }}/images/p11/deutsch_circuit.png" alt="Deutsch circuit"/>
+  <img style="max-height: 250px; max-width: 100%; margin: 10px 0" src="{{ site.baseurl }}/images/p11/deutsch_circuit.png" alt="Deutsch circuit"/>
   <br>
   <label style="font-size: 12px;">figure 1. Deutsch algorithm circuit diagram</label>
 </p>

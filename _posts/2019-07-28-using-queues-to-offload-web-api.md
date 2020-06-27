@@ -17,14 +17,14 @@ A great deal of backend services are composed of a web API module on top of a da
 This model can be pushed really far, as long as the API constraints itself to light weight operations with simple interactions. However, if there's a need to implement more complex and demanding operations sticking to this model will result in longer processing times and degraded performance. The diagrams below helps understand why:
 
 <p align="center">
-  <img style="max-height: 300px; max-width: 100%; margin: 10px" src="{{ site.baseurl }}/images/p2/light-web-request.JPG" alt="light-web-request"/>
+  <img style="max-height: 300px; max-width: 100%; margin: 10px 0" src="{{ site.baseurl }}/images/p2/light-web-request.JPG" alt="light-web-request"/>
   <br><label style="font-size: 12px;">figure 1</label>
 </p>
 
 In light weight web API requests calls arrive at the endpoint, are routed to the application, business logic is executed, perhaps fetching or persisting some data, and finally a response is produced and returned to the client. Operations are mostly short in duration and everything runs within the application boundaries.
 
 <p align="center">
-  <img style="max-height: 385px; max-width: 100%; margin: 10px" src="{{ site.baseurl }}/images/p2/heavy-web-request.JPG" alt="heavy-web-request"/>
+  <img style="max-height: 385px; max-width: 100%; margin: 10px 0" src="{{ site.baseurl }}/images/p2/heavy-web-request.JPG" alt="heavy-web-request"/>
   <br><label style="font-size: 12px;">figure 2</label>
 </p>
 
@@ -43,7 +43,7 @@ A typical queuing system is composed of a message broker program which provides 
 * <b>Acknowledgement notification</b>: the broker may wait an acknowledgement from the subscriber before committing a message queue removal
 
 <p align="center">
-  <img style="max-height: 250px; max-width: 100%; margin: 10px" src="{{ site.baseurl }}/images/p2/message-broker.JPG" alt="message-broker"/>
+  <img style="max-height: 250px; max-width: 100%; margin: 10px 0" src="{{ site.baseurl }}/images/p2/message-broker.JPG" alt="message-broker"/>
   <br><label style="font-size: 12px;">figure 3</label>
 </p>
 
@@ -83,7 +83,7 @@ The third step above enqueues a message into the queue, which will eventually tr
 The resulting operation is presented below:
 
 <p align="center">
-  <img style="max-height: 385px; max-width: 100%; margin: 10px" src="{{ site.baseurl }}/images/p2/queue-sequence.JPG" alt="queue-sequence"/>
+  <img style="max-height: 385px; max-width: 100%; margin: 10px 0" src="{{ site.baseurl }}/images/p2/queue-sequence.JPG" alt="queue-sequence"/>
   <br><label style="font-size: 12px;">figure 4</label>
 </p>
 

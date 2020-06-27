@@ -21,7 +21,7 @@ In practice this is seldom the case. Backlog refinement is an important but ofte
 It can be regarded as a specification process somewhat perpendicular to the software development process, i.e., backlog refinement is driven by the product vision, fit to technical constraints and performed concurrently and in anticipation of development:
 
 <p align="center">
-  <img style="max-height: 380px; max-width: 100%; margin: 10px" src="{{ site.baseurl }}/images/p15/product_backlog.PNG" alt="Product Backlog"/>
+  <img style="max-height: 380px; max-width: 100%; margin: 10px 0" src="{{ site.baseurl }}/images/p15/product_backlog.PNG" alt="Product Backlog"/>
   <br>
 </p>
 
@@ -42,7 +42,7 @@ The Consultant Mindset
 A consultant-minded developer is expected to work collaboratively within the organization taking part not only of a software project's technical scope, but also getting involved in its business scope as well. He/she is genuinely interested in helping people understand problems and solve them, acting as more than merely an executor of technical tasks. 
 
 <p align="center">
-  <img style="width: 652px; max-width: 100%; margin: 10px" src="{{ site.baseurl }}/images/p15/product_scopes.PNG" alt="Product Scopes"/>
+  <img style="width: 652px; max-width: 100%; margin: 10px 0" src="{{ site.baseurl }}/images/p15/product_scopes.PNG" alt="Product Scopes"/>
   <br>
 </p>
 

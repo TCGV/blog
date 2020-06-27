@@ -17,7 +17,7 @@ Definition
 A regular graph is a graph where each vertex has the same number of neighbors; i.e. every vertex has the same degree or valency. The image below shows a few examples:
 
 <p align="center">
-  <img style="max-width: 100%; max-height: 250px; margin: 10px" src="{{ site.baseurl }}/images/p19/regular-graphs.png" alt="regular-graphs"/>
+  <img style="max-width: 100%; max-height: 250px; margin: 10px 0" src="{{ site.baseurl }}/images/p19/regular-graphs.png" alt="regular-graphs"/>
 </p>
 
 These sample graphs are regular since we can confirm that every vertex has exactly the same number of edges. The first one is 2-regular (two edges per vertex) and the following two are 3-regular (three edges per vertex).
@@ -119,7 +119,7 @@ This maximum shortest path length method receives an `expectedVerticesCount` int
 So after implementing this method I ran it against random regular graphs of varying sizes and degrees. The results are plotted below:
 
 <p align="center">
-  <img style="max-width: 100%; margin: 10px" src="{{ site.baseurl }}/images/p19/diameters.png" alt="diameters"/>
+  <img style="max-width: 100%; margin: 10px 0" src="{{ site.baseurl }}/images/p19/diameters.png" alt="diameters"/>
 </p>
 
 We can clearly confirm that the graph's diameter flattens somewhat logarithmically as we increase the graph's size and degree.
@@ -170,7 +170,7 @@ private static void SimulateReplications(int n, int r)
 The results for running it with parameters `n = 1000` and `r = [4, 8, 12]` are given in the chart that follows:
 
 <p align="center">
-  <img style="max-width: 100%; margin: 10px" src="{{ site.baseurl }}/images/p19/simulation-iterations.png" alt="simulation iterations"/>
+  <img style="max-width: 100%; margin: 10px 0" src="{{ site.baseurl }}/images/p19/simulation-iterations.png" alt="simulation iterations"/>
 </p>
 
 We can verify that the larger the graph's degree, the less significant the effects of disruption levels are, which makes sense since intuitively there are much more path options available for the information to replicate.
@@ -184,7 +184,7 @@ After some consideration, I realized that the spike in the number of iterations 
 The following contour plot displays these probability estimates for graphs of size `n=1000` for given disruption levels and graph degrees:
 
 <p align="center">
-  <img style="max-width: 100%; margin: 10px" src="{{ site.baseurl }}/images/p19/disruption-contour.png" alt="disruption contour"/>
+  <img style="max-width: 100%; margin: 10px 0" src="{{ site.baseurl }}/images/p19/disruption-contour.png" alt="disruption contour"/>
 </p>
 
 Now by analyzing the simulation iteration spikes on top of these probabilities we find that they started occurring when <b>p</b> neared `0.9`. It's important to highlight that as the probability of cutting off graph vertices increases, the number of simulation iterations required for reaching the totality of graph vertices becomes more volatile since, the way my code was devised, a new random regular graph is sampled and the current disruption level is randomly applied at each retrial. Nonetheless, as <b>p</b> nears `1.0`, we are certain to end up with at least one disconnected vertex, meaning that we won't be able to assess a valid number of simulation iterations for the replication to reach the entire graph.

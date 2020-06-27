@@ -8,7 +8,7 @@ tags: statistical-computing finance
 The standard rule for calculating a stock returns monthly volatility is to multiply the daily volatility by the square root of the number of business days in that month, for instance:
 
 <p align="center">
-  <img style="max-height: 40px; max-width: 100%; margin: 10px" src="{{ site.baseurl }}/images/p13/monthly_vol.PNG" alt="Monlthly volatility"/>
+  <img style="max-height: 40px; max-width: 100%; margin: 10px 0" src="{{ site.baseurl }}/images/p13/monthly_vol.PNG" alt="Monlthly volatility"/>
   <br>
 </p>
 
@@ -37,7 +37,7 @@ The Autoregressive (AR) Model
 Our AR model is defined as:
 
 <p align="center">
-  <img style="max-height: 60px; max-width: 100%; margin: 10px" src="{{ site.baseurl }}/images/p13/ar_model.PNG" alt="AR model"/>
+  <img style="max-height: 60px; max-width: 100%; margin: 10px 0" src="{{ site.baseurl }}/images/p13/ar_model.PNG" alt="AR model"/>
   <br>
 </p>
 
@@ -108,7 +108,7 @@ ggplotly(p)
 ```
 
 <p align="center">
-  <img style="max-height: 400px; max-width: 100%; margin: 10px" src="{{ site.baseurl }}/images/p13/p_analysis.png" alt="p analysis"/>
+  <img style="max-height: 400px; max-width: 100%; margin: 10px 0" src="{{ site.baseurl }}/images/p13/p_analysis.png" alt="p analysis"/>
   <br>
 </p>
 
@@ -179,7 +179,7 @@ ggplot(df, aes(x=period, y=ratio)) +
 ```
 
 <p align="center">
-  <img style="max-height: 400px; max-width: 100%; margin: 10px" src="{{ site.baseurl }}/images/p13/control_process_likelihood.png" alt="control process likelihood"/>
+  <img style="max-height: 400px; max-width: 100%; margin: 10px 0" src="{{ site.baseurl }}/images/p13/control_process_likelihood.png" alt="control process likelihood"/>
   <br>
 </p>
 
