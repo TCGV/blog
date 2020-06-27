@@ -1,24 +1,28 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
-  {% if site.tags != "" %}
+    {% if site.tags != "" %}
     {% include collect-tags.html %}
-  {% endif %}
+    {% endif %}
     <meta charset="UTF-8">
     {% if page.title %}
-      <title>{{ page.title }}</title>
+    <title>{{ page.title }}</title>
     {% else %}
-      <title>{{ site.name }}'s blog</title>
+    <title>{{ site.name }}'s blog</title>
     {% endif %}
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="/resources/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/resources/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/resources/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/resources/favicon/site.webmanifest">
     <script src="{{ site.baseurl }}/js/jquery.min.js"></script>
     <script src="{{ site.baseurl }}/js/bootstrap.min.js"></script>
     <script src="{{ site.baseurl }}/js/theme.js"></script>
     <link href="{{ site.baseurl }}/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="{{ site.baseurl }}/css/theme.css" rel="stylesheet" type="text/css">
     <link href="{{ site.baseurl }}/css/syntax.css" rel="stylesheet" type="text/css">
-  {% include isso-comments.html %}
+    {% include isso-comments.html %}
 </head>
 
 <body>
