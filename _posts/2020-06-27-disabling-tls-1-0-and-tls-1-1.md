@@ -57,7 +57,36 @@ Overall, the following table shows for each browser the percentage of connection
 | Safari/Webkit         | 0.36%                                 |
 | SSL Pulse Nov. 2018<sup>6</sup> | 5.84%                       |
 
-These figures are from two years ago and by now we can expect them to be even lower, meaning it should be quite painless for web applications to make the transition.
+These figures are from two years ago and by now we can expect them to be even lower, meaning the transition should be transparent to most web application users on the internet.
+
+Third-Party Integrations
+============
+
+Moving forward, I checked all of my web application's third-party integrations in order to confirm that they also supported TLS 1.2, just to name a few:
+
+* Amazon DynamoDB (data storage)
+* Amazon Elasticsearch Service (text indexing and search)
+* SendGrid (e-mail delivery)
+
+During testing I experienced the following error in some of them, which apparently was caused due to having TLS protocol versions 1.0 and 1.1 enabled in the source code (C#) and at the same time disabled at the Web Server level:
+
+> 'ConnectionError' ---> The client and server cannot communicate, because they do not possess a common algorithm.
+
+This error was easily solvable by forcing the TLS 1.2 version in my application source code, replacing this:
+
+```csharp
+ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
+```
+
+By this:
+
+```csharp
+ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+```
+
+With this configuration in place I rebuilt my application and ran integration tests for each external service to guarantee the issue had been solved.
+
+Luckily all of my application's integrations supported TLS 1.2. If that's not your case and your Web Server doesn't give you the option to make exceptions for these external services you'll have to reach out their technical support and possibly open a request ticket for adding TLS 1.2 support. Another (less secure) option is to create a proxy between your application and the external service that will talk TLS 1.2 with your app and TLS 1.1 or TLS 1.0 with the external service. 
 
 Remote Connection
 ============
@@ -71,6 +100,7 @@ To be on the safe side besides confirming that the RDP Host in the server was co
 </p>
 
 This result gave me enough confidence to proceed, knowing that I was indeed connecting using TLS 1.2 and I'd not lose access to the remote server.
+
 
 Disabling the Protocol
 ============
