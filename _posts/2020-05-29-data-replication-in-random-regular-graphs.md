@@ -26,7 +26,7 @@ Even though 0-regular (disconnected), 1-regular (two vertices connected by singl
 
 More broadly we can denote <i>G<sub>n,r</sub></i> as the probability space of all r-regular graphs on <b>n</b> vertices, where <i>3 ≤ r < n</i>. Then, we define a random r-regular graph as the result of randomly sampling <i>G<sub>n,r</sub></i>.
 
-<b>Properties of random regular graphs</b>
+<h2>Properties of random regular graphs</h2>
 
 There are at least two main properties that are worth exploring in this article. It is possible to prove that as the size of the graph grows the following holds asymptotically almost surely:
 
@@ -54,7 +54,7 @@ You can find my implementation of this algorithm in the following source file: [
 
 Now that the algorithm is implemented, let's evaluate that the properties described earlier truly hold.
 
-<b>Evaluating graph connectivity</b>
+<h2>Evaluating graph connectivity</h2>
 
 In order to calculate a graph's connectivity we need to ask for the minimum number of elements (vertices or edges) that need to be removed to separate the remaining vertices into isolated subgraphs.
 
@@ -101,7 +101,7 @@ public void RRG_Connectivity_Test()
 
 This unit test is defined in the [RandomRegularGraphBuilderTests.cs](https://github.com/TCGV/DataReplication/blob/master/Tcgv.DataReplicationTests/Builders/RandomRegularGraphBuilderTests.cs) source file and, as theorized, it passes ✓
 
-<b>Evaluating graph diameter</b>
+<h2>Evaluating graph diameter</h2>
 
 The algorithm for calculating the diameter is much easier, particularly in the case of unweighted graphs. It boils down to calculating the maximum shortest path length from all vertices, and then taking the maximum value among them:
 

@@ -63,6 +63,12 @@ body {
     font-size: 1.3em;
 }
 
+.sidebar h2 {
+    color: black;
+    font-weight: bold;
+    font-size: 1em;
+}
+
 .sidebar a {
     color: #428bca;
 }
@@ -90,6 +96,12 @@ body {
     .well h1 {
         color: #ee4444;
         font-size: 1.3em;
+    }
+
+    .well h2 {
+        color: black;
+        font-weight: bold;
+        font-size: 1em;
     }
 
 .author {

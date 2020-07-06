@@ -34,7 +34,7 @@ Integrating with external modules can be treacherous, since it's easy to fall in
 
 Hence, there's a need for a module dependency management approach that protects business logic from coupling with external code, improving application's flexibility and overall architecture. This is achieved by applying the Dependency Inversion principle, which dictates that <i>"one should depend on abstractions, not concretions"</i>.
 
-<b>What's an abstraction?</b>
+<h2>What's an abstraction?</h2>
 
 Simply put, an abstraction is a contract describing how a functionality is served, it's an internal API. High level programming languages even have a keyword for defining `abstract` classes, which will not be covered in this article. Instead, we will focus on interfaces, which also allow for the abstraction of functionality implementation.
 
@@ -70,7 +70,7 @@ public interface BankAccountFactory
 
 It may seem counter intuitive now how a factory class can create an objetc whose type is still not known, but the next section will shed some light into this.
 
-<b>What's a concrete implementation?</b>
+<h2>What's a concrete implementation?</h2>
 
 In this context a concrete implementation is the defacto class implementation of an interface. From the example above it's reasonable to imagine `BankAccount` implementations for various banks:
 
@@ -118,7 +118,7 @@ public class USABankAccountFactory : BankAccountFactory
 }
 ```
 
-<b>How to resolve business logic abstract dependencies?</b>
+<h2>How to resolve business logic abstract dependencies?</h2>
 
 Now the dependency inversion principle kicks in. The interfaces concrete implementations are injected into business logic objects with the help of a dependency injection (DI) framework. The DI framework will incorporate all dependencies into itself, using them to construct application services, which aren't dependent on any external module:
 

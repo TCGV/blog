@@ -42,7 +42,7 @@ Consider a Scheduling Calendar system that implements the following features:
 
 Let's exercise both criteria for sketching this system's modularized structure. Notice that I will not be using class diagrams as not to induce an OOP bias in this exercise.
 
-<b>Using the procedural criterion</b>
+<h2>Using the procedural criterion</h2>
 
 A straightforward procedure for implementing the event creation feature is:
 
@@ -69,7 +69,7 @@ Based on these two procedures, we might define the following modules for the Sch
 
 Naturally, following this criterion leads to modules with several responsibilities. The scheduler module is parsing the input, validating data, querying the database and inserting new entries. The notifier module is also querying the database, modifying entries, preparing and sending e-mail messages.
 
-<b>Using Information Hiding as a criterion</b>
+<h2>Using Information Hiding as a criterion</h2>
 
 Information hiding is the principle of segregation of the design decisions in a system that are most likely to change, thus protecting other parts of the system from extensive modification if a design decision is indeed changed. The protection involves providing a stable interface which isolates the remainder of the system from the implementation.
 

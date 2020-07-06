@@ -72,7 +72,7 @@ Hence, we are effectively reducing the NP-problem into the NP-hard problem for s
 
 As a consequence, if we were to find a polynomial time algorithm for solving a NP-hard problem (which is unlikely), then we could use it to solve any NP problem in polynomial time as well, implying that `P = NP` and solving the `P versus NP` problem.
 
-**Demonstration**
+<h2>Demonstration</h2>
 
 For this demonstration we will use two well-known NP-complete problems:
 * [Knapsack problem](https://en.wikipedia.org/wiki/Knapsack_problem): Given a set of items, each with a weight and a value, determine the number of each item to include in a collection so that the total weight is less than or equal to a given limit and the total value is as large as possible.

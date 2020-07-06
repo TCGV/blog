@@ -61,7 +61,7 @@ Then, as a fourth rule you should:
 
 There are at least two lines of monitoring which are effective for closing the feedback loop in the deployment process: health monitoring and error monitoring.
 
-**Health Monitoring**
+<h2>Health Monitoring</h2>
 
 In this line of monitoring we are interested in assuring that our application is performing as expected. First we define a set of system and business metrics that adequately represents the application behaviors. Then we start tracking these metrics, triggering an alert whenever one of them falls outside of its expected operational range.
 
@@ -77,7 +77,7 @@ As for business metrics, a few examples are:
 * Image upload rate (for media sharing application)
 * Content like rate (for a social application)
 
-**Error  Monitoring**
+<h2>Error  Monitoring</h2>
 
 Errors are continuously occurring in applications, but most of them are known and expected errors, such as authentication token expiration errors, or database query timeout errors. In this line of monitoring we are interested in discovering deviations, or anomalies, from the expected occurrence of application errors, triggering an alert when that happens. An anomaly can be identified as:
 * A significant and unexpected increase (or decrease) in the rate of a known error
