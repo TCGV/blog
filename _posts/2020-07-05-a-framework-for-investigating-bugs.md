@@ -42,7 +42,7 @@ The first step is to describe the problem, or bug in our case, clearly so to rem
 * What should have happened?
 * What happened instead?
 
-Junior developers are more prone to take this step for granted and jump right into the next steps without making sure all parties involved share the same definition of the problem as he/she does. Senior developers, however, will only proceed after reaching out all parties involved to ensure everyone is on the same page in regards to what the problem is.
+Junior developers are more prone to take this step for granted and jump right into the next steps without making sure all parties involved share the same definition of the problem as he/she does. Senior developers, however, will only proceed after reaching out all parties involved to ensure everyone is on the same page in regard to what the problem is.
 
 By not performing this simple step appropriately a developer is risking spending valuable hours solving the wrong problem, and over the past ten years I can say that I've seem this happen several times.
 
@@ -102,15 +102,14 @@ Again, Junior developers often rush into coding a bug solution before properly c
 Conclusion
 ============
 
-Wrapping up, the framework proposed in this article tries to capture an effective mental model for investigating a problem's root cause. Key characteristics seem to differentiate senior developers from junior developers in regard to their speed in determining the root cause of bugs, namely:
+Wrapping up, the framework proposed in this article tries to capture a functional mental model for investigating a problem's root cause. Key characteristics seem to differentiate senior developers from junior developers in regard to their speed in determining the root cause of bugs, namely:
 
-* Meticulousness upon which each step is carried out
-* The ability to propose highly likely hypotheses
 * Extensive knowledge of the product and technology stack
-* Skeptical, critical thinking mindset
+* The ability to produce highly likely hypotheses
+* Critical thinking mindset for seeking and evaluating evidence
+* Meticulousness upon which each step is carried out
 
-One can improve himself in these matters up to a point by simply becoming aware of their role and importance. Proper guidance can take a developer even further. Nevertheless, only practice will eventually lead to 
-proficiency.
+One can improve himself in these matters up to a point by simply becoming aware of their role and importance. Proper guidance can take a developer even further. However, only years of practice solving a generous amount of bugs will eventually lead to proficiency.
 
 ---
 
