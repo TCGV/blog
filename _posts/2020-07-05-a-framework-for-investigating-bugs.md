@@ -67,7 +67,7 @@ In this step Senior developers have a clear advantage usually due to having **i)
 
 <h2>3. Gather Evidence</h2>
 
-Evidence should be gathered with the goal of invalidating hypotheses, including: system logs, system metrics, analytics, screenshots, debugging sessions, etc. An skeptical mindset for gathering evidence helps us overcome common cognitive biases and being more effective in this process. Below I list a few cognitive biases that may affect our judgement on what evidence to seek for validiting a bug's root cause hypothesis:
+Evidence should be gathered with the goal of invalidating hypotheses, including: system logs, system metrics, analytics, screenshots, debugging sessions, etc. A skeptical mindset for gathering evidence helps us overcome common cognitive biases and being more effective in this process. Below I list a few cognitive biases that may affect our judgement on what evidence to seek for validiting a bug's root cause hypothesis:
 
 * <b>Availability bias</b>: the tendency to think that examples of things that come readily to mind are more representative than they actually are.
 * <b>Confirmation bias</b>: the tendency to search for, interpret, favor, and recall information that confirms or supports one's prior personal beliefs or values.
