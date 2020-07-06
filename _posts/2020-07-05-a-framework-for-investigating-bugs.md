@@ -42,7 +42,7 @@ The first step is to describe the problem, or bug in our case, clearly so to rem
 * What should have happened?
 * What happened instead?
 
-Junior developers are more prone to take this step for granted and jump right into the next steps without making sure all parties involved share the same definition of the problem as he/she does. Senior developers, however, will only proceed after reaching out all parties involved to ensure everyone is on the same page in regard to what the problem is.
+Junior developers are more prone to take this step for granted and jump right into the next steps without making sure all parties involved share the same definition of the problem as he/she does. Senior developers, however, will only proceed after reaching out all parties involved to ensure everyone is on the same page in regard to what the problem is and how to reproduce it.
 
 By not performing this simple step appropriately a developer is risking spending valuable hours solving the wrong problem, and over the past ten years I can say that I've seem this happen several times.
 
