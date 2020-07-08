@@ -50,6 +50,8 @@ By not performing this simple step appropriately a developer is risking spending
 
 Once everyone agrees on what the problem is it's time to brainstorm hypotheses on why it's happened, i.e., what's causing the bug. Based solely on a clear problem definition and technical knowledge of a product it's already possible to come up with several candidate hypotheses.
 
+Tougher bugs generally yield to less specific hypotheses at first, but as we iterate over the framework's steps and our comprehension of the problem improves we'll be able to refine them for narrowing down a probable root cause. 
+
 Let's use an example to illustrate this step, suppose we are dealing with a bug in a GPS navigation application:
 
 * <i>Route calculation from address A to address B produces a non-optimal more costly route when using the "find cheapest route" feature</i>
@@ -74,7 +76,7 @@ Evidence should be gathered with the goal of invalidating hypotheses, including:
 * <b>Information bias</b>: the tendency to seek information even when it cannot affect action.
 * <b>Illusion of validity</b>: the tendency to overestimate one's ability to interpret and predict accurately the outcome when analyzing a set of data, in particular when the data analyzed show a very consistent pattern.
 
-Besides being more susceptible to cognitive biases, it's not uncommon for Junior developers to not use all available information sources for collecting evidence, eventually leaving out key evidence in a first iteration, only to come back to it again in future iterations, wasting valuable time. Senior developers, however, will in general know where to look for evidence, and what to look for, hardly leaving anything important out of the analysis.
+Besides being more susceptible to cognitive biases, it's not uncommon for Junior developers to not use all available information sources for collecting evidence, eventually leaving out key evidence in a first iteration, only to come back to it again in future iterations, misspending valuable time. Senior developers, however, will in general know where to look for evidence, and what to look for, hardly leaving anything important out of the analysis.
 
 <h2>4. Evaluate Hypotheses</h2>
 
