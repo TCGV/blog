@@ -97,7 +97,7 @@ Finally, when there's a single hypothesis left it goes through a confirmation st
 1. <b>The tracing strategy</b>: Since the problem is clarified and a probable root cause established, in this strategy we employ tracing techniques and verbose logging to create a track record that will allow for confirmation upon reproducing the bug.
 1. <b>The exploitation strategy</b>: Complementary to the first, in this strategy we exploit the probable root cause for defining new test cases whose outcomes shall be consistent with said root cause, corroborating it.
 
-It's possible that while trying to confirm the hypothesis we end up invalidating it, and if that's the case we'll have to go back to step "2".
+It's possible that while trying to confirm the hypothesis we end up invalidating it or discovering it's not yet actionable, i.e., not specific enough for a developer to start working in a solution, and if that's the case we'll have to go back to step "2".
 
 Again, Junior developers often rush into coding a bug solution before properly confirming it's root cause. More experienced developers know that it's much cheaper in the long run to always confirm the root cause before starting to code a fix.
 
