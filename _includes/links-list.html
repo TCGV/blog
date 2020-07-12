@@ -1,12 +1,14 @@
 <h1>Tags</h1>
-{% capture temptags %}
-  {% for tag in site.tags %}
-    {{ tag[1].size | plus: 1000 }}#{{ tag[0] }}#{{ tag[1].size }}
-  {% endfor %}
-{% endcapture %}
-{% assign sortedtemptags = temptags | split:' ' | sort | reverse %}
-{% for temptag in sortedtemptags %}
-  {% assign tagitems = temptag | split: '#' %}
-  {% capture tagname %}{{ tagitems[1] }}{% endcapture %}
-  <a href="{{ site.baseurl }}/tag/{{ tagname }}"><code class="highligher-rouge"><nobr>{{ tagname }}</nobr></code></a>
-{% endfor %}
+<div class="tag-list">
+    {% capture temptags %}
+      {% for tag in site.tags %}
+        {{ tag[1].size | plus: 1000 }}#{{ tag[0] }}#{{ tag[1].size }}
+      {% endfor %}
+    {% endcapture %}
+    {% assign sortedtemptags = temptags | split:' ' | sort | reverse %}
+    {% for temptag in sortedtemptags %}
+      {% assign tagitems = temptag | split: '#' %}
+      {% capture tagname %}{{ tagitems[1] }}{% endcapture %}
+      <a class="tag" href="{{ site.baseurl }}/tag/{{ tagname }}"><code class="highligher-rouge"><nobr>{{ tagname }}</nobr></code></a>
+    {% endfor %}
+</div>

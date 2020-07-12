@@ -149,3 +149,12 @@ table.w60 th {
     width: 60px;
     max-width: 100%;
 }
+
+.tag-list {
+    margin: -4px -2px;
+}
+
+    .tag-list a.tag {
+        display: inline-block;
+        margin: 4px 2PX;
+    }
