@@ -202,21 +202,22 @@ Because it lacks a decider for solving tie-break situations, Ben-Or is only capa
 The algorithm works in phases within instances and is resilient up to <b>f</b> crashing processes among a total of <b>n</b> processes given that <b>n > 2f</b>. Here are the actions performed by every process in an instance:
 
 1. Assign the process initial preference value <b>x</b> (0 or 1)
-1. Increment the current phase number <b>k</b>, starting at zero.
-1. Send (R, x, k) to all processes
-1. Wait for messages of the form (R, k, *) from <b>n − f</b> processes ("∗" can be 0 or 1)
-    * If received more than <b>n/2</b> (R, k, v) with the same <b>v</b> then
-        * Send (P, k, v) to all processes
-    * Else
-        * Send (P, k, ?) to all processes
-1. Wait for messages of the form (P, k, ∗) from <b>n − f</b> processes ("∗" can be 0, 1 or ?)
-    * If received at least <b>f + 1</b> (P, k, v) with the same <b>v ≠ ?</b> then
-        * Decide(v) and terminate execution
-    * Else if at least one (P, k, v) with <b>v ≠ ?</b> then
-        * Set <b>x</b> to <b>v</b>
-    * Else
-        * Set <b>x</b> to 0 or 1 randomly
-1. Go back to step (2)
+1. Assing the phase number <b>k</b> to zero
+1. Loop:
+    1. Increment the current phase number <b>k</b>
+    1. Send (R, x, k) to all processes
+    1. Wait for messages of the form (R, k, *) from <b>n − f</b> processes ("∗" can be 0 or 1)
+        * If received more than <b>n/2</b> (R, k, v) with the same <b>v</b> Then
+            * Send (P, k, v) to all processes
+        * Else
+            * Send (P, k, ?) to all processes
+    1. Wait for messages of the form (P, k, ∗) from <b>n − f</b> processes ("∗" can be 0, 1 or ?)
+        * If received at least <b>f + 1</b> (P, k, v) with the same <b>v ≠ ?</b> Then
+            * Decide(v) and terminate execution
+        * Else if at least one (P, k, v) with <b>v ≠ ?</b> Then
+            * Set <b>x</b> to <b>v</b>
+        * Else
+            * Set <b>x</b> to 0 or 1 randomly
 
 It's essentially a loop that ends when the process is able to decide on a value, otherwise it keeps going on, where each loop iteration  is a new phase consisting of two asynchronous rounds.
 
