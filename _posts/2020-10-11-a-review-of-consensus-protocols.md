@@ -277,6 +277,8 @@ The basic Paxos algorithm is briefly presented below:
 1. The proposer waits (possibly forever) to receive ack from a majority of accepters. If any ack contained a value, it sets <b>v</b> to the most recent (in proposal number ordering) value that it received. It then sends accept(n, v) to all accepters (or just a majority).
 1. Upon receiving accept(n, v), an accepter accepts <b>v</b> unless it has already received prepare(n') for some <b>n' > n</b>. If a majority of acceptors accept the value of a given proposal, that value becomes the decision value of the protocol.
 
+Note that acceptance is a purely local phenomenon, so I'll be including an additional message passing step in my implementation intended to detect which if any proposals have been accepted by a majority of accepters before processes can reliably decide on a value.
+
 Now let's look at the code implementation starting with the the proposer role behavior:
 
 ```csharp
@@ -332,9 +334,9 @@ private void BindAsProposer(Instance r)
 
 You can see that in this case the `Process.Propose` method was overridden to implement the Paxos protocol proposal numbering logic, and that I've used the `MessageType.Propose` enum member to represent the "prepare" message.
 
-After broadcasting its proposal number the process will wait for either `MessageType.Ack` or `MessageType.Nack` responses. In case it receives a negative response this means its proposal number is outdated, so the process will update it and submit a new proposal (after a random interval that I added for debugging purposes). However, in case it receives enough positive responses to form a quorum the process will broadcast a `MessageType.Select` message with the highest numbered value it's seen so far, or it's own preferred value if it hasn't seen one yet.
+After broadcasting its proposal number the process will wait for either `MessageType.Ack` or `MessageType.Nack` responses. In case it receives a negative response this means its proposal number is outdated, so the process will update it and submit a new proposal (after a random interval added for debugging purposes). However, in case it receives enough positive responses to form a quorum the process will broadcast a `MessageType.Select` message representing the proposer's accept vote (the algorithm's third step) for the highest numbered value it's seen so far, or it's own preferred value if it hasn't seen one yet.
 
-Lastly, the proposer will be waiting for a quorum of consistent `MessageType.Accept` messages, in which case it decides on that value and terminates.
+Lastly, the proposer will be waiting for a quorum of consistent `MessageType.Accept` messages from accepters to learn which value has been accepted by a majority of them, in which case it decides on that value and terminates.
 
 On the other side of the picture we have accepters, whose behavior code is presented below:
 
@@ -382,8 +384,6 @@ Upon receiving `MessageType.Propose` messages the accepter will "ack" as long as
 Then it waits for `MessageType.Select` messages and accepts it as long as the proposal number is greater than or equal `minNumber`, in which case it updates its lastly accepted value and sends a `MessageType.Accept` message back to the proposer.
 
 In closing, the accepter simply waits for a `MessageType.Decide` to decide on its value and terminate execution.
-
-But... there's a catch in my implementation, have you noticed it? In its current form it's incomplete, processes don't know if consensus was in fact reached! From the Instance perspective it's possible to check whether there's a majority decision on a value, but from the Process perspective it isn't. That's because I haven't (yet) implemented the learner role which would be responsible for informing everybody else of chosen values.
 
 4) Nakamoto Consensus
 ============
@@ -454,6 +454,10 @@ Alternatives to improve the current achitecture and proceed with this study incl
 This exercise has been extremely helpful to me to better understand the consensus problem and have a glimpse into different approaches for solving it. I hope it may serve as a starting point for others interested in learning the basics of consensus protocols in a more practical way.
 
 ---
+
+<b>Notes</b>
+
+* Revised on Oct 29, 2020. For reference you can find the original article [here](https://github.com/TCGV/blog/blob/3dadb0ca37ea534ead89837b19f194815c7ae8a9/_posts/2020-10-11-a-review-of-consensus-protocols.md).
 
 <b>Sources</b>
 
