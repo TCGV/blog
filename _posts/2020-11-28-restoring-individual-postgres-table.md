@@ -45,7 +45,7 @@ Some tips:
 pg_restore.exe -U postgres --data-only -d "my_database_restored" -t "my_table" "my_database.dump"
 ```
 
-That's it, this after the command completes all table data will be available in your single table database for querying.
+That's it, after the command completes all table data will be available in your single table database for querying.
 
 ---
 
