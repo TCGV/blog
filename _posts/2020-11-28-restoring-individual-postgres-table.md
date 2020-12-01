@@ -3,6 +3,8 @@ layout: post
 title: "Restoring individual postgres table"
 date: 2020-11-28 15:30:00 -0300
 tags: database system-administration
+redirect_from:
+  - /2020/11/restore-single-postgres-table
 ---
 
 In a scenario where a production database backup becomes too large to be handled nimbly selective database restoration becomes quite useful for recovering pre-determined sets of data.
