@@ -13,6 +13,8 @@ First, let me confirm what you already know and probably experienced yourself co
 
 From my point of view this phenomenon is mainly a consequence of a lower code fluency level among young developers, i.e. the ability to read and write code with speed, accuracy, and proper expression, which as with any language (or idiom) comes with constant practice and not necessarily indicates that a person doesn't have what it takes to be a software developer or isn't fit for the software industry.
 
+At this point we can raise some questions: are colleges in general providing enough practical programming classes? what exactly makes some candidates more fluent in code than others?
+
 One trivial observation I made was that there's a strong correlation between recent graduates who perform well and those that actively code in their free time. It could be a hobby project, coding katas, or learning new languages and frameworks. Of course, by practicing more they become better prepared to solve problems at interviews, and more fluent in code, but more than that it's also an indication that they enjoy coding and are willing invest their free time (which recent graduates early in their lives more often than not have plenty) to improve their skills.
 
 Another, more problematic, thing I noticed is that besides not being able to code problems most young developers aren't able to read code properly as well. Take the following snippet, which I regularly bring up at entry level interviews:
