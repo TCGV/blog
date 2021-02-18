@@ -9,38 +9,38 @@ Decentralized finance (a.k.a. DeFi) is a relatively recent and fast growing fiel
 
 I first came across DeFi about six months ago while browsing a hacker news thread on the subject, and became especially interested on the topic. Not much later major financial news portals reported that DeFi had already grown tenfold during the course of 2020, surpassing US$ 11 billion in deposited value with still a few months left to year end<sup>1,2</sup>, nothing less than staggering.
 
-This context motivated me to invest my free time for studying this field more deeply, and since I learn better when I get my hands dirty I ended up developing a personal project of a **decentralized options exchange** on ethereum which I describe briefly in this post. Also, feel free to browse it's source code on GitHub, which includes a short technical documentation: [DeFiOptions](https://github.com/TCGV/DeFiOptions).
+This context motivated me to invest my free time for studying this field more deeply, and since I learn better when I get my hands dirty I ended up developing an experimental project of a **decentralized options exchange** on ethereum which I describe briefly in this post. Also, feel free to browse the project's source code on GitHub, which includes a short technical documentation: [DeFiOptions](https://github.com/TCGV/DeFiOptions).
 
-I will start with a general overview of the project, and then get into more details on key DeFi concepts. So don't go away yet if you feel overwhelmed. However, if you're not familiar with traditional options and how they are traded in stock exchanges, I suggest you take a look [here](https://en.wikipedia.org/wiki/Option_(finance)) before proceeding.
+I start with a general overview of the project's structure, features and goals, and then I get into more details on key DeFi concepts related to this venture. So don't go away just yet if you feel overwhelmed by the vocabulary. Nonetheless, if you're not familiar with options trading in traditional stock exchanges, I suggest you take a look [here](https://en.wikipedia.org/wiki/Option_(finance)) before proceeding.
 
 Overview
 ============
 
-So my experimental DeFi options exchange was implemented as a collection of smart contracts written in the [solidity](https://en.wikipedia.org/wiki/Solidity) programming language. They enable trading of long and short positions for cash settable call and put european style options. The diagram below gives a glimpse on how traders interact with the exchange, and how components interact with one another.
+So this experimental DeFi options exchange was implemented as a collection of smart contracts written in the [solidity](https://en.wikipedia.org/wiki/Solidity) programming language. They enable trading of long and short positions for cash settable call and put european style options. The diagram below gives a glimpse on how traders interact with the exchange, and how components interact with one another.
 
 <p align="center">
   <img style="max-width: 100%; max-height: 360px; margin: 10px 0" src="{{ site.baseurl }}/images/p25/diagram.png" alt="regular-graphs"/>
   <br><label style="font-size: 12px;">Figure 1. Options Exchange Diagram</label>
 </p>
 
-The exchange accepts stablecoin deposits as collateral for writing tokenized (ERC20) options, and a dynamic approach was implemented for ensuring collateral, making use of favorable writer's open option positions for decreasing total required balance provided as collateral.
+The exchange accepts stablecoin deposits as collateral for writing tokenized (ERC20) options, and a dynamic approach has been implemented for ensuring collateral in a more capital efficient way, making use of favorable writer's open option positions for decreasing total required balance provided as collateral.
 
 Decentralized price feeds provide the exchange on-chain underlying price and volatility updates, which is crucial for properly calculating options intrinsic values, collateral requirements, and performing settlements.
 
-Upon maturity each option contract is liquidated, cash settled by the credit provider contract and destroyed to prevent anyone from trading an expired asset. In case any option writer happens to be short on funds during settlement the credit provider will register a debt and cover payment obligations, essentially performing a lending operation.
+Because options are tokenized they can be freely traded/transferred between any two parties. Upon maturity each option contract is liquidated, cash settled by the credit provider contract and destroyed to prevent anyone from trading an expired asset. In case any option writer happens to be short on funds during settlement the credit provider will register a debt and cover payment obligations, essentially performing a lending operation.
 
-Registered debt will accrue interest until it's repaid by the borrower. Payment occurs either automatically when any of the borrower's open option positions matures and is cash settled (pending debt will be discounted from profits) or manually if the borrower makes a new stablecoin deposit.
+Registered debt will accrue interest until it's repaid by the borrower. Payment occurs either implicitly when any of the borrower's open option positions matures and is cash settled (pending debt will be discounted from profits) or explicitly if the borrower makes a new stablecoin deposit in the exchange.
 
-Exchange's balances not allocated as collateral can be withdrawn by respective owners in the form of stablecoins. If there aren't enough stablecoins available the solicitant will receive ERC20 credit tokens issued by the credit provider.
+Exchange's balances not allocated as collateral can be withdrawn by respective owners in the form of stablecoins. If there aren't enough stablecoins available at the moment of the request due to operational reasons the solicitant will receive ERC20 credit tokens issued by the credit provider instead. These credit tokens are a promise of future payment, serving as a proxy for stablecoins since it can be redeemed for stablecoins at a 1:1 value conversion ratio, and are essential for keeping the exchange afloat during episodes of high withdrawal demand.
 
 Holders of credit tokens can request to withdraw (and burn) their balance for stablecoins as long as there are sufficient funds available in the exchange to process the operation, otherwise the withdraw request will be FIFO-queued while the exchange gathers funds, accruing interest until it's finally processed to compensate for the delay.
 
-Phew, that's it! While implementing the options exchange I came across several challenges, tried different approaches, reverted back and tried again until coming up with this solution. There's still work to be done (see "next steps" section), but I'm confident this foundation is solid enough to support further developments.
+Phew, that's it! While implementing the options exchange I came across several challenges, tried different approaches, reverted back and tried again until coming up with this solution. There's still work to be done (see "next steps" section below), but I'm confident this foundation is solid enough to support further developments.
 
 DeFi concepts
 ============
 
-Now, let's look at some key concepts that form the basis of DeFi and play an important role in this project.
+Now, let's look at some key concepts that play an important role in this project and form the basis of DeFi. Feel free to jump ahead some of them if they seem too basic for you, they are included to offer newcomers a more complete introduction into this field.
 
 <h2>Smart contracts</h2>
 
