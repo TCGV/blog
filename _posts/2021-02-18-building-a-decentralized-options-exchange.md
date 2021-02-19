@@ -35,7 +35,7 @@ Exchange's balances not allocated as collateral can be withdrawn by respective o
 
 Holders of credit tokens can request to withdraw (and burn) their balance for stablecoins as long as there are sufficient funds available in the exchange to process the operation, otherwise the withdraw request will be FIFO-queued while the exchange gathers funds, accruing interest until it's finally processed to compensate for the delay.
 
-Phew, that's it! While implementing the options exchange I came across several challenges, tried different approaches, reverted back and tried again until coming up with this solution. There's still work to be done (see "next steps" section below), but I'm confident this foundation is solid enough to support further developments.
+Phew, that's it! While implementing the options exchange I came across several challenges, tried different approaches, reverted back and tried again until coming up with this solution. There's still work to be done (see "Status & next steps" section below), but I'm confident this foundation is solid enough to support further developments.
 
 DeFi glossary
 ============
@@ -95,7 +95,7 @@ This project adopts stablecoins pegged to the US dollar. Traders can deposit any
 | **Binance USD**          | BUSD    | $ 1.83B	  |
 | **Paxos Standard**       | PAX     | $ 681.87M  |
 
-I've decided to adopt stablecoins instead of other cryptocurrencies (such as ether itself) in the hopes of making the options exchange more palpable and appealing to traders that may not be insterested in being exposed to non stable cryptocurrencies while trading options.
+I've decided to adopt stablecoins instead of other cryptocurrencies (such as ether itself) in the hopes of making the options exchange more palpable and appealing to traders that may not be insterested in being exposed to non stable cryptocurrencies while trading options. Also, this decision has helped to reduce code complexity by eliminating the need to constantly perform currencies value conversions between one another.
 
 <h2>Collateralization</h2>
 
@@ -103,13 +103,13 @@ Collateralization is the use of a valuable asset to secure a liability. It is a 
 
 In this project every option is backed by a stablecoin deposit provided as collateral, and if an option writer defaults on his liability, the option holder may seize the asset to offset the loss. Collateralization of assets gives holders a sufficient level of reassurance against default risk.
 
-You can get more details on the exchange's collateralization requirements in the [collateral allocation section](https://github.com/TCGV/DeFiOptions#collateral-allocation) of the repository documentation. An ad-hoc formula is being used to achieve improved capital efficiency.
+You can get more details on the exchange's collateralization requirements in the [collateral allocation section](https://github.com/TCGV/DeFiOptions#collateral-allocation) of the repository documentation, in which I present the ad-hoc formula that's being used to achieve improved capital efficiency.
 
 <h2>Decentralized price feeds</h2>
 
 One of the drawbacks of dapps is that they are isolated from the real-world and are only able to read data that is already persisted in the blockchain. Relying on off-chain data would break the chain of trust, since it would be impossible for other network participants to audit such data to make sure it wasn't forged.
 
-Fortunately there are decentralized price feeds available on ethereum that employ on-chain consensus protocols for providing trustworthy price readings.
+Fortunately there's a solution to this impediment! Decentralized price feeds are available on ethereum that employ on-chain consensus protocols for providing trustworthy price readings.
 
 <p align="center">
   <img style="max-width: 100%; max-height: 360px; margin: 10px 0" src="{{ site.baseurl }}/images/p25/consensus.PNG" alt="regular-graphs"/>
@@ -122,9 +122,9 @@ The options exchange takes advantage of these decentralized price feeds for fetc
 
 A liquidity pool is a collection of funds locked in a smart contract that is used to facilitate decentralized trading.
 
-The options exchange itself is meaningless unless there's enough liquidity to make options trading feasible. For instance, why would a trader write options if there's no one to buy them? and why would another trader buy options if his/hers strategy is dependant on selling these options on a short notice but there's a chance of not finding someone to sell them to? That's why in the absence of organic liquidity there's a need to deploy a liquidity pool.
+The options exchange itself is meaningless unless there's enough liquidity to make options trading feasible. For instance, why would a trader write options if there were no one to buy them? and why would another trader buy options if his/hers strategy is dependant on selling these options on a short notice if there were a chance of not finding someone to sell them to? That's why in the absence of organic liquidity there's a need to deploy a liquidity pool to promote the exchange.
 
-A liquidity pool should be designed to slightly favor its providers, as to incentivize traders to allocate capital into the pool for increasing the supply and circulation of options in the market.
+A liquidity pool should be designed to slightly favor its providers, as to incentivize them to allocate capital into the pool for increasing the supply and circulation of options in the market.
 
 Particularly in the case of options trading the liquidity pool smart contract is required to implement a robust option pricing model in order to perform successfully and generate profits for its providers.
 
@@ -144,10 +144,10 @@ As of the time of this writing a linear model liquidity pool is being implemente
 
 The options exchange project's governance functionality is still incipient. Upon deployment it will be a dictatorship with a plan to distribute governance tokens to early adopters to shift towards a council as quickly as possible.
 
-Next steps
+Status & next steps
 ============
 
-This project is available on kovan testnet for evaluation (browse the [documentation](https://github.com/TCGV/DeFiOptions) for more info on how to interact with it), but there are a few major technical challenges that still need to get dealt with for this project to be ready for deployment to mainnet:
+This project is in alpha phase, and available on kovan testnet for evaluation (browse the [documentation](https://github.com/TCGV/DeFiOptions) for more info on how to interact with it). There are a few major technical challenges that still need to get dealt with for this project to enter the beta phase and eventually be ready for deployment to mainnet:
 
 * Development of a dapp front-end application to make the exchange accessible to non-developers (collaborator commited)
 * Design and implementation of a liquidity pool, which will involve knowledge in finance and option pricing models (in progress)
