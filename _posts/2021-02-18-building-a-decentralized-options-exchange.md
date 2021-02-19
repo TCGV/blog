@@ -11,9 +11,9 @@ I first came across DeFi about six months ago while browsing a hacker news threa
 
 This context motivated me to invest my free time for studying this field more deeply, and since I learn better when I get my hands dirty I ended up developing an experimental project of a **decentralized options exchange** on ethereum which I describe briefly in this post. Also, feel free to browse the project's source code on GitHub, which includes a short technical documentation: [DeFiOptions](https://github.com/TCGV/DeFiOptions).
 
-I start with a general overview of the project's structure, features and goals, and then I get into more details on key DeFi concepts related to this venture. So don't go away just yet if you feel overwhelmed by the vocabulary. Nonetheless, if you're not familiar with options trading in traditional stock exchanges, I suggest you take a look [here](https://en.wikipedia.org/wiki/Option_(finance)) before proceeding.
+I start with a functional overview of the project and then I get into more details on key DeFi concepts related to it. So don't go away just yet if you feel overwhelmed by the vocabulary. Nonetheless, if you're not familiar with options trading in traditional stock exchanges, I suggest you take a look [here](https://en.wikipedia.org/wiki/Option_(finance)) before proceeding.
 
-Overview
+Functional overview
 ============
 
 So this experimental DeFi options exchange was implemented as a collection of smart contracts written in the [solidity](https://en.wikipedia.org/wiki/Solidity) programming language. They enable trading of long and short positions for cash settable call and put european style options. The diagram below gives a glimpse on how traders interact with the exchange, and how components interact with one another.
@@ -37,14 +37,14 @@ Holders of credit tokens can request to withdraw (and burn) their balance for st
 
 Phew, that's it! While implementing the options exchange I came across several challenges, tried different approaches, reverted back and tried again until coming up with this solution. There's still work to be done (see "next steps" section below), but I'm confident this foundation is solid enough to support further developments.
 
-DeFi concepts
+DeFi glossary
 ============
 
-Now, let's look at some key concepts that play an important role in this project and form the basis of DeFi. Feel free to jump ahead some of them if they seem too basic for you, they are included to offer newcomers a more complete introduction into this field.
+Now, let's look at some (not alphabetically ordered) key DeFi concepts that play an important role in this project. Feel free to jump ahead some of them if they seem too basic for you, they are included to offer newcomers a more complete introduction.
 
 <h2>Smart contracts</h2>
 
-If you're new to ethereum development you must know that smart contracts constitute the source code of decentralized applications (dapp). It's solidity (programming language) code, simply put. As I've pointed out above feel free to browse the options exchange smart contracts source code in the [project's GitHub repository](https://github.com/TCGV/DeFiOptions) at any time.
+If you're new to ethereum development you must know that smart contracts constitute the source code of decentralized applications (dapp). It's solidity code, simply put.
 
 A smart contract defines functions with varying degrees of visibility that perform calculations, modify blockchain state and emit logs. <u>External and public functions are the API of a dapp</u> and can be called by any participant of the ethereum network. Internal and private functions on the other hand can only be called by the smart contract itself or its derivations in the case of the former.
 
@@ -52,70 +52,33 @@ Dapps live in the blockchain, i.e., their source code is stored in its blocks an
 
 When smart contract functions are executed they potentially alter state. If so changes are definitive, persisted into the blockchain and available to be audited by any node in the network. Without getting into too much detail this model of execution is what gives ethereum its decentralized quality, anyone can execute code and anyone can audit executed code.
 
+As I've pointed out before feel free to browse the options exchange source code in the [project's GitHub repository](https://github.com/TCGV/DeFiOptions) at any time for evaluating a range of smart contracts examples.
+
 <h2>Tokenization</h2>
 
-Tokenization is the process of converting physical and non-physical assets into digital tokens on the blockchain. Typically it's done by implementing the [ERC20 interface](https://eips.ethereum.org/EIPS/eip-20) which is nothing more than a definition of functions and events that once implemented allow any network participant to interact with such token for querying total token supply, querying an account's token balance, transfering tokens between accounts, and so forth:
+Tokenization is the process of converting physical and non-physical assets into digital tokens on the blockchain. It's notably done by implementing the [ERC20 interface](https://eips.ethereum.org/EIPS/eip-20) which is nothing more than a definition of functions and events that once implemented allow any network participant to interact with such token for querying total token supply, querying an account's token balance, transfering tokens between accounts, and approving token allowances.
 
-```sol
-interface ERC20 {
+By following the ERC20 standard newly created tokens can take advantage of numerous DeFi primitives already available in the blockchain. With that in mind I've implemented the options exchange to adopt tokenized options, allowing option writers to easily manage them, for instance for transfering options to a third-party willing to purchase them.
 
-	event Transfer(
-		address indexed _from,
-		address indexed _to,
-		uint256 _value
-	);
+My take on tokenization was to incorporate a base ERC20 implementation into the project's repository and make all smart contracts that I needed tokenized to inherit from it:
 
-	event Approval(
-		address indexed _owner,
-		address indexed _spender,
-		uint256 _value
-	);
+```
+import "../utils/ERC20.sol";
 
-	function totalSupply()
-		public
-		view
-		returns (uint256);
+contract OptionToken is ERC20 {
 
-	function balanceOf(
-		address _owner
-	)
-		public
-		view
-		returns (uint256 balance);
+	// contract source code
+	
+}
 
-	function transfer(
-		address _to,
-		uint256 _value
-	)
-		public
-		returns (bool success);
+contract CreditToken is ManagedContract, ERC20 {
 
-	function transferFrom(
-		address _from,
-		address _to,
-		uint256 _value
-	)
-		public
-		returns (bool success);
-
-	function approve(
-		address _spender,
-		uint256 _value
-	)
-		public
-		returns (bool success);
-
-	function allowance(
-		address _owner,
-		address _spender
-	)
-		public
-		view
-		returns (uint256 remaining);
+	// contract source code
+	
 }
 ```
 
-By following the ERC20 standard newly created tokens can take advantage of numerous DeFi primitives already available in the blockchain. With that in mind I've implemented the options exchange adopting tokenized options, allowing option writers to easily manage them, for instance to transfer them to a third-party willing to purchase them.
+The base implementation allows derived contracts to override base functions definitions for implementing specific behavior such as the credit token interest rate accrual mechanism.
 
 <h2>Stablecoins</h2>
 
@@ -198,7 +161,7 @@ DeFi is a very innovative field. What I find most appealing is that some popular
 
 I believe the advent of stablecoins and ingenious DeFi protocols are laying the foundations upon which more accessible and efficient solutions will be built, and its amazing that anyone with a software development and financial background can take part in this transformation.
 
-My options exchange hobby project has been an edifying adventure, helping me get familiar with the solidity programming model and the overall DeFi ecosystem. There's still a lot to learn, and I believe the best way will continue to be getting my hands dirty and keep improving this project, stay tuned.
+My options exchange experimental project has been an edifying adventure, helping me get familiar with the solidity programming model and the overall DeFi ecosystem. There's still a lot to learn, and I believe the best way will continue to be getting my hands dirty and keep improving this project, stay tuned.
 
 ---
 
