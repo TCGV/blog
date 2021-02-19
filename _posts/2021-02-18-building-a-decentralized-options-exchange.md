@@ -147,6 +147,8 @@ The options exchange project's governance functionality is still incipient. Upon
 Status & next steps
 ============
 
+We have gone through a functional overview of my decentralized options exchange project and cleared important DeFi concepts pertinent to better understanding it. Now you may be wondering what's the current status of the project and possible next steps? see below for an answer.
+
 This project is in alpha phase, and available on kovan testnet for evaluation (browse the [documentation](https://github.com/TCGV/DeFiOptions) for more info on how to interact with it). There are a few major technical challenges that still need to get dealt with for this project to enter the beta phase and eventually be ready for deployment to mainnet:
 
 * Design and implementation of a liquidity pool, which will involve knowledge in finance and option pricing models (in progress)
