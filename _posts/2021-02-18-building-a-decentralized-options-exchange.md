@@ -149,8 +149,8 @@ Status & next steps
 
 This project is in alpha phase, and available on kovan testnet for evaluation (browse the [documentation](https://github.com/TCGV/DeFiOptions) for more info on how to interact with it). There are a few major technical challenges that still need to get dealt with for this project to enter the beta phase and eventually be ready for deployment to mainnet:
 
-* Development of a dapp front-end application to make the exchange accessible to non-developers (collaborator commited)
 * Design and implementation of a liquidity pool, which will involve knowledge in finance and option pricing models (in progress)
+* Development of a dapp front-end application to make the exchange accessible to non-developers
 * Allow deposit/withdraw of underlying assets (ex: ETH, BTC) so they can be provided as collateral for writing options against them
 * Improvement of the incipient governance functionality
 
