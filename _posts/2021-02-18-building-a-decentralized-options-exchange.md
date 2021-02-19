@@ -105,11 +105,11 @@ In this project every option is backed by a stablecoin deposit provided as colla
 
 You can get more details on the exchange's collateralization requirements in the [collateral allocation section](https://github.com/TCGV/DeFiOptions#collateral-allocation) of the repository documentation, in which I present the ad-hoc formula that's being used to achieve improved capital efficiency.
 
-<h2>Decentralized price feeds</h2>
+<h2>Oracles</h2>
 
 One of the drawbacks of dapps is that they are isolated from the real-world and are only able to read data that is already persisted in the blockchain. Relying on off-chain data would break the chain of trust, since it would be impossible for other network participants to audit such data to make sure it wasn't forged.
 
-Fortunately there's a solution to this impediment! Decentralized price feeds are available on ethereum that employ on-chain consensus protocols for providing trustworthy price readings.
+Fortunately there's a solution to this impediment, Oracles! An oracle is a third-party blockchain component that allows smart contracts within ethereum to receive external data from outside of their ecosystem. For this project decentralized price feed oracles are being used, which employ on-chain consensus protocols for providing tamper-resistant, high-quality, and up-to-date price readings.
 
 <p align="center">
   <img style="max-width: 100%; max-height: 360px; margin: 10px 0" src="{{ site.baseurl }}/images/p25/consensus.PNG" alt="regular-graphs"/>
@@ -120,15 +120,15 @@ The options exchange takes advantage of these decentralized price feeds for fetc
 
 <h2>Liquidity pools</h2>
 
-A liquidity pool is a collection of funds locked in a smart contract that is used to facilitate decentralized trading.
+A liquidity pool is a collection of funds locked in a smart contract that is used to facilitate decentralized trading. It's one of the foundational technologies behind the current DeFi ecosystem
 
-The options exchange itself is meaningless unless there's enough liquidity to make options trading feasible. For instance, why would a trader write options if there were no one to buy them? and why would another trader buy options if his/hers strategy is dependant on selling these options on a short notice if there were a chance of not finding someone to sell them to? That's why in the absence of organic liquidity there's a need to deploy a liquidity pool to promote the exchange.
+The options exchange itself is meaningless unless there's enough liquidity to make options trading feasible. For instance, why would a trader write options if there were no one to buy them from him/her? and why would another trader buy options if his/hers strategy is dependant on selling these options on a short notice if there were a chance of not finding someone to sell them to? The answer is simple, there's little reason to trade options in non-liquid markets. That's why in the absence of organic liquidity there's a need to deploy a liquidity pool to promote the exchange.
 
 A liquidity pool should be designed to slightly favor its providers, as to incentivize them to allocate capital into the pool for increasing the supply and circulation of options in the market.
 
 Particularly in the case of options trading the liquidity pool smart contract is required to implement a robust option pricing model in order to perform successfully and generate profits for its providers.
 
-As of the time of this writing a linear model liquidity pool is being implemented for the options exchange.
+As of the time of this writing a linear interpolation model liquidity pool is being implemented for the options exchange that will be fed with parameters calculated from an [empirical options pricing model](https://thomasvilhena.com/2019/12/stock-option-pricing-inference) I described in this blog a while ago.
 
 <h2>Governance</h2>
 
