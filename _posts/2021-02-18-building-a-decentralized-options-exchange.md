@@ -2,7 +2,7 @@
 layout: post
 title: "Building a decentralized options exchange on ethereum"
 date: 2021-02-18 01:10:00 -0300
-tags: finance system-design
+tags: crypto finance system-design
 ---
 
 Decentralized finance (a.k.a. DeFi) is a relatively recent and fast growing field in the crypto space that is providing innovative implementations for financial instruments that rely on "smart contracts" (actual code files) instead of being subject to control by central financial intermediaries such as brokerages, exchanges, or banks.
@@ -120,7 +120,7 @@ The options exchange takes advantage of these decentralized price feeds for fetc
 
 <h2>Liquidity pools</h2>
 
-A liquidity pool is a collection of funds locked in a smart contract that is used to facilitate decentralized trading.
+A liquidity pool is a smart contract that gathers funds from individuals denominated liquidity providers which are then used to facilitate decentralized trading. As the name suggests liquidity pools provide "liquidity" to the market, i.e., they make it possible for traders to quickly purchase or sell an asset without causing a drastic change in the asset's price, and without subjecting traders to unfair prices, which would be one of the consequences of lack of liquidity.
 
 The options exchange itself is meaningless unless there's enough liquidity to make options trading feasible. For instance, why would a trader write options if there were no one to buy them? and why would another trader buy options if his/hers strategy is dependant on selling these options on a short notice if there were a chance of not finding someone to sell them to? That's why in the absence of organic liquidity there's a need to deploy a liquidity pool to promote the exchange.
 
