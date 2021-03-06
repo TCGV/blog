@@ -101,14 +101,14 @@ x = [1350, 1400, 1450, 1500, 1550, 1600, 1650];
 
 y = [
      // option price points for "t0" (US$)
-    183, 147, 114, 87, 65, 47, 34,
+    27, 42, 62, 87, 118, 152, 191,
     
     // option price points for "t1" (US$)
-    179, 141, 108, 81, 58, 41, 28
+    22, 36, 56, 81, 111, 146, 185
 ];
 ```
 
-This example snippet results in the pricing surface plotted below:
+This example snippet defines price points for a hypothetical ETH call option with strike price of US$ 1.500 and an interpolation period starting at 7 days to maturity and ending at 6 days to maturity, resulting in the pricing surface plotted below:
 
 <p align="center">
   <img style="max-width: 100%; max-height: 360px; margin: 10px 0" src="{{ site.baseurl }}/images/p26/surface.PNG" alt="surface"/>
