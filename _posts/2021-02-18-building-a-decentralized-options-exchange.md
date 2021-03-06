@@ -105,11 +105,11 @@ In this project every option is backed by a stablecoin deposit provided as colla
 
 You can get more details on the exchange's collateralization requirements in the [collateral allocation section](https://github.com/TCGV/DeFiOptions#collateral-allocation) of the repository documentation, in which I present the ad-hoc formula that's being used to achieve improved capital efficiency.
 
-<h2>Decentralized price feeds</h2>
+<h2>Oracles</h2>
 
 One of the drawbacks of dapps is that they are isolated from the real-world and are only able to read data that is already persisted in the blockchain. Relying on off-chain data would break the chain of trust, since it would be impossible for other network participants to audit such data to make sure it wasn't forged.
 
-Fortunately there's a solution to this impediment! Decentralized price feeds are available on ethereum that employ on-chain consensus protocols for providing trustworthy price readings.
+Fortunately there's a solution to this impediment, Oracles! An oracle is a third-party blockchain component that allows smart contracts within ethereum to receive external data from outside of their ecosystem. For this project decentralized price feed oracles are being used, which employ on-chain consensus protocols for providing tamper-resistant, high-quality, and up-to-date price readings.
 
 <p align="center">
   <img style="max-width: 100%; max-height: 360px; margin: 10px 0" src="{{ site.baseurl }}/images/p25/consensus.PNG" alt="regular-graphs"/>
@@ -122,13 +122,13 @@ The options exchange takes advantage of these decentralized price feeds for fetc
 
 A liquidity pool is a smart contract that gathers funds from individuals denominated liquidity providers which are then used to facilitate decentralized trading. As the name suggests liquidity pools provide "liquidity" to the market, i.e., they make it possible for traders to quickly purchase or sell an asset without causing a drastic change in the asset's price, and without subjecting traders to unfair prices, which would be one of the consequences of lack of liquidity.
 
-The options exchange itself is meaningless unless there's enough liquidity to make options trading feasible. For instance, why would a trader write options if there were no one to buy them? and why would another trader buy options if his/hers strategy is dependant on selling these options on a short notice if there were a chance of not finding someone to sell them to? That's why in the absence of organic liquidity there's a need to deploy a liquidity pool to promote the exchange.
+The options exchange itself is meaningless unless there's enough liquidity to make options trading feasible. For instance, why would a trader write options if there were no one to buy them from him/her? and why would another trader buy options if his/hers strategy is dependant on selling these options on a short notice if there were a chance of not finding someone to sell them to? The answer is simple, there's little reason to trade options in non-liquid markets. That's why in the absence of organic liquidity there's a need to deploy a liquidity pool to promote the exchange.
 
 A liquidity pool should be designed to slightly favor its providers, as to incentivize them to allocate capital into the pool for increasing the supply and circulation of options in the market.
 
 Particularly in the case of options trading the liquidity pool smart contract is required to implement a robust option pricing model in order to perform successfully and generate profits for its providers.
 
-As of the time of this writing a linear model liquidity pool is being implemented for the options exchange.
+As of the time of this writing a linear interpolation model liquidity pool is being implemented for the options exchange that will be fed with parameters calculated from an [empirical options pricing model](https://thomasvilhena.com/2019/12/stock-option-pricing-inference) I described in this blog a while ago.
 
 <h2>Governance</h2>
 
@@ -147,10 +147,12 @@ The options exchange project's governance functionality is still incipient. Upon
 Status & next steps
 ============
 
+We have gone through a functional overview of my decentralized options exchange project and cleared important DeFi concepts pertinent to better understanding it. Now you may be wondering what's the current status of the project and possible next steps? see below for an answer.
+
 This project is in alpha phase, and available on kovan testnet for evaluation (browse the [documentation](https://github.com/TCGV/DeFiOptions) for more info on how to interact with it). There are a few major technical challenges that still need to get dealt with for this project to enter the beta phase and eventually be ready for deployment to mainnet:
 
-* Development of a dapp front-end application to make the exchange accessible to non-developers (collaborator commited)
 * Design and implementation of a liquidity pool, which will involve knowledge in finance and option pricing models (in progress)
+* Development of a dapp front-end application to make the exchange accessible to non-developers
 * Allow deposit/withdraw of underlying assets (ex: ETH, BTC) so they can be provided as collateral for writing options against them
 * Improvement of the incipient governance functionality
 
