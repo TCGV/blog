@@ -26,7 +26,7 @@ One could say that achieving efficient pricing is among the biggest challenges f
 
 Several models have been proposed and are being used in DeFi to address this challenge. [Uniswap](https://en.wikipedia.org/wiki/Uniswap) liquidity pools famously use the constant product formula to automatically adjust cryptocurrencies exchange prices upon each processed transaction. In this case market participants are resposible for driving exchange rates up/down by taking advantage of short-lived arbitrage opportunities that appear when prices distantiate from their ideal values.
 
-Nonetheless a supply/demand based pricing model, such as Uniswap's, is in my opinion unfit for pricing options, since an option price is not entirely the result of supply and demand pressures, but rather a direct reflection of its underlying's price. This observation motivated me to propose a linear interpolation based liquidity pool model, as we'll see in the next section.
+Nonetheless a supply/demand based pricing model, such as Uniswap's, is in my opinion unfit for pricing options, since an option price is not entirely the result of supply and demand pressures, but rather directly dependent on its underlying's price. This observation motivated me to propose a linear interpolation based liquidity pool model, as we'll see in the next section.
 
 The linear interpolation liquidity pool
 ============
@@ -96,17 +96,23 @@ struct PricingParameters {
 Notice the `t0` and `t1` parameters, which define, respectively, the starting and ending timestamps for the interpolation. Also notice the `x` vector, which contains the underlying price points, and the `y` vector, which contains the pre-computed option price points for both the starting timestamp `t0` and the ending timestamp `t1` (see example snippet below). These four variables define the two-dimensional surface that the pool contract uses to calculate option prices. 
 
 ```
- // underlying price points
-x = [400e8, 450e8, 500e8, 550e8, 600e8, 650e8, 700e8];
+ // underlying price points (US$)
+x = [1350, 1400, 1450, 1500, 1550, 1600, 1650];
 
 y = [
-     // option price points for "t0"
-    30e8,  40e8,  50e8,  50e8, 110e8, 170e8, 230e8,
+     // option price points for "t0" (US$)
+    183, 147, 114, 87, 65, 47, 34,
     
-    // option price points for "t1"
-    25e8,  35e8,  45e8,  45e8, 105e8, 165e8, 225e8
+    // option price points for "t1" (US$)
+    179, 141, 108, 81, 58, 41, 28
 ];
 ```
+
+This example snippet results in the pricing surface plotted below:
+
+<p align="center">
+  <img style="max-width: 100%; max-height: 360px; margin: 10px 0" src="{{ site.baseurl }}/images/p26/surface.PNG" alt="surface"/>
+</p>
 
 By following this approach the more heavy math is performed off-chain, since it would be unfeasible/too damn expensive to run a Monte Carlo simulation or any other option pricing method on ethereum, and actually a waste of capital, as interpolating a preprocessed discretized curve achieves similar end results with much less on-chain computational effort.
 
@@ -122,7 +128,7 @@ Below I provide a couple of reasons of why I believe this approach will appeal t
 
 I also see some operational/structural disadvantages of this design:
 
-* Necessity to update pricing parameters in a regular basis, possibly daily, to prevent pool prices from being calculated using an outdated pricing curve that would result in pricing inefficiencies.
+* Necessity to update pricing parameters on a regular basis, possibly daily, to prevent pool prices from being calculated using an outdated pricing curve that would result in pricing inefficiencies.
 * Dependence on underlying price feed oracles. While the option price itself isn't subject to direct manipulation one could try manipulating the underlying price feed instead, hence the importance of adopting trustworthy oracles.
 * Requirement of an operator for overseeing pool operations such as registering tradable options, updating pricing parameters and defining buy-sell spreads.
 
