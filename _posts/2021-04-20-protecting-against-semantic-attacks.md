@@ -9,7 +9,7 @@ The semantic URL attack is one of the most popular attack types aimed at web app
 
 In it an attacker client manually adjusts the parameters of an HTTP request by maintaining the URL's syntax but altering its semantic meaning. If the web application is not protected against this kind of attack then it's only a matter of the attacker rightly guessing request parameters for potentially gaining access to sensitive information.
 
-Let's take a look at a simple example. Consider you're accessing your registered profile in a web application through the following URL:
+Let's take a look at a simple example. Consider you're an authenticated user accessing your registered profile in a web application through the following URL:
 
 > https://domain.com/account/profile?id=982354
 
@@ -18,7 +18,7 @@ By looking at this request URL we can easily spot the "id" parameter and make an
 
 > https://domain.com/account/profile?id=982355
 
-If the web application isn't properly implementing a protection against this type of attack then its users data will be susceptible to leakage. The attacker could even make use of brute force for iterating a large number of "id" guesses and potentializing his outcome.
+If the web application isn't properly implementing a protection against this type of attack (i.e. checking the authenticated user is authorized to access resources) then its users data will be susceptible to leakage. The attacker could even make use of brute force for iterating a large number of "id" guesses and potentializing his outcome.
 
 Two valid countermeasures for minimizing risks in this situation are:
 
@@ -27,7 +27,7 @@ Two valid countermeasures for minimizing risks in this situation are:
 
 The first one makes guessing valid users (or other resources) IDs much harder, and the second one prevents brute force attacks from going through by limiting the amount of requests individual users can make to the application. However, <b>none of these measures solve the real problem</b>, they're only mitigating it! It will still be possible to access or modify thrid parties sensitive data by making the right guess for the request parameters.
 
-So what's the solution to this problem? As we'll see in the next section one strategy is for the web application to verify the requesting users permissions for every HTTP request that a client makes, without exception, for properly protecting against semantic attacks.
+So what's the solution to this problem? As we'll see in the next section one strategy is for the web application to verify the requesting users permissions for every HTTP request he/she makes, without exception, for properly protecting against semantic attacks.
 
 Filtering Requests
 ============
@@ -38,7 +38,7 @@ In essence a web application that's susceptible to semantic URL attacks isn't fi
   <img style="max-width: 100%; max-height: 480px; margin: 10px 0 10px -40px" src="{{ site.baseurl }}/images/p27/semantic-attack-filter.PNG" alt="surface"/>
 </p>
 
-An HTTP request arrives at the endpoint and is routed for processing. Without filtering ("unsafe pipeline") the request goes directly to the application UI / business logic for processing, accessing its storage, and returns unverified data to the caller. With filtering ("safe pipeline") before the request is actually executed a verification is performed for making sure it's authorized to execute in the first place.
+An authenticated HTTP request arrives at the endpoint and is routed for processing. Without filtering ("unsafe pipeline") the request goes directly to the application UI / business logic for processing, accessing its storage, and returns unverified data to the caller. With filtering ("safe pipeline") before the request is actually executed a verification is performed for making sure it's authorized to execute in the first place.
 
 The semantic URL attack filter will be responsible for decoding the request's URL, its parameters, and performing necessary verifications on whether or not the requesting user is allowed to access the resources mapped by these parameters. A typical design includes an "access control" module that implements resource specific verification rules for querying the request caller's permissions on the set of affected resources. These rules can be independent of each other in the case of non related components, but they can also be constructed as a combination of lower level rules for more elaborate resources. For successfully validating a web request the semantic URL attack filter must execute all pertinent access control rules based on the decoded web request.
 
