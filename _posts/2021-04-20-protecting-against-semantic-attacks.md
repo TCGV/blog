@@ -18,16 +18,16 @@ By looking at this request URL we can easily spot the "id" parameter and make an
 
 > https://domain.com/account/profile?id=982355
 
-If the web application isn't properly implementing a protection against this type of attack (i.e. checking the authenticated user is authorized to access resources) then its users data will be susceptible to leakage. The attacker could even make use of brute force for iterating a large number of "id" guesses and potentializing his outcome.
+If the web application isn't properly implementing a protection against this type of attack through <u>access control</u> then its users data will be susceptible to leakage. The attacker could even make use of brute force for iterating a large number of "id" guesses and potentializing his outcome.
 
-Two valid countermeasures for minimizing risks in this situation are:
+Two frequently adopted (but insufficient!) countermeasures for minimizing risks in this situation are:
 
 1. Use of non sequential IDs for identifying users
 1. Throttle users web requests to the application
 
 The first one makes guessing valid users (or other resources) IDs much harder, and the second one prevents brute force attacks from going through by limiting the amount of requests individual users can make to the application. However, <b>none of these measures solve the real problem</b>, they're only mitigating it! It will still be possible to access or modify thrid parties sensitive data by making the right guess for the request parameters.
 
-So what's the solution to this problem? As we'll see in the next section one strategy is for the web application to verify the requesting users permissions for every HTTP request he/she makes, without exception, for properly protecting against semantic attacks.
+So what's the definitive solution to this problem? As we'll see in the next section one strategy is for the web application to implement an access control module for verifying the requesting users permissions for every HTTP request he/she makes, without exception, for properly protecting against semantic attacks.
 
 Filtering Requests
 ============
