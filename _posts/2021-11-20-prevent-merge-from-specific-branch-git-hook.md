@@ -13,8 +13,6 @@ I recently had to implement one for preventing developers from accidentally merg
 
 > This hook is invoked by `git-merge`, and can be bypassed with the `--no-verify option`. It takes no parameters, and is invoked after the merge has been carried out successfully and before obtaining the proposed commit log message to make a commit. Exiting with a non-zero status from this script causes the `git merge` command to abort before creating a commit.
 
-I confess it was a bit hard to find information on how to use this hook for my specific use case due to lack of documentation and examples. For instance, it took me a while to find out the environment variables available to the hook script.
-
 So without further ado here's the end result, which was based in [this gist](https://gist.github.com/mwise/69ec35b646b52d98050d):
 
 ```sh
@@ -41,11 +39,13 @@ if [[ $GIT_REFLOG_ACTION == *merge* ]]; then
 fi
 ```
 
-It's a really simple bash script that checks if the `merge` action is being executed and if the name of the forbidden branch is contained in the command. If both conditions are met then the merge action is prevented from being carried out by exiting the script with a non zero return code. 
+It's a really simple bash script that confirms the `merge` action is being executed and checks if the name of the forbidden branch is contained in the command. If both conditions are met then the merge action is prevented from being carried out by exiting the script with a non zero return code. 
 
 One downside of Git hooks is that they live in the `.git/hooks` subdirectory of the Git directory which is not under source control, so they need to be manually distributed and installed in each developer's local repository.
 
 Nonetheless you can also use Git's template directory feature to automate the distribution of the hook for newcomers, since it allows for the copy of files and directories to the Git directory when cloning a repository (`git clone`).
+
+---
 
 <b>Further Reference</b>
 
