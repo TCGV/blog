@@ -9,7 +9,9 @@ redirect_from:
 
 Git Hooks are a little known but incredibly flexible feature of Git. They allow for the execution of arbitrary snippets of code during the several stages of the source code development workflow, for instance: `pre-commit`, `pre-rebase`, `pre-merge-commit`, `post-merge`, among others.
 
-I recently had to implement one for preventing developers from accidentally merging from a specific branch, let's call it "Sandbox", into feature branches of a project. At first I didn't know that I was going to use a Git Hook, but after reading a bit about it seemed the right tool for the job, and the `pre-merge-commit` hook introduced in Git `2.24` fit like a glove to my needs.
+I recently had to implement one for preventing developers from accidentally merging from a specific branch, let's call it "Sandbox", into feature branches of a project. At first I didn't know that I was going to use a Git Hook, but after reading a bit about it seemed the right tool for the job, and the `pre-merge-commit` hook introduced in Git `2.24` fit like a glove to my needs. Here's how it works:
+
+> This hook is invoked by `git-merge`, and can be bypassed with the `--no-verify option`. It takes no parameters, and is invoked after the merge has been carried out successfully and before obtaining the proposed commit log message to make a commit. Exiting with a non-zero status from this script causes the `git merge` command to abort before creating a commit.
 
 I confess it was a bit hard to find information on how to use this hook for my specific use case due to lack of documentation and examples. For instance, it took me a while to find out the environment variables available to the hook script.
 
@@ -48,4 +50,4 @@ Nonetheless you can also use Git's template directory feature to automate the di
 <b>Further Reference</b>
 
 * [Git Hooks](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks)
-* [Teamplte Directory](http://git-scm.com/docs/git-init#_template_directory)
+* [Teamplate Directory](http://git-scm.com/docs/git-init#_template_directory)
