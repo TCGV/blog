@@ -49,7 +49,7 @@ Rumours that the project’s Cloudflare account was compromised have been circul
 Strategies for protecting yourself
 ============
 
-There are three main strategies to protect your assets in situations like this, which I detail below:
+There are three main strategies to protect your assets in situations like this when interacting with dapps that don't support [EIP-2612](https://eips.ethereum.org/EIPS/eip-2612), which I detail below:
 
 <b>1) Always use limited approval</b>: This is the trivial strategy, never grant unlimited allowance, always use two transactions, the first one for approving the protocol a limited allowance and the second one for interacting with the protocol. Some dapps allow you to disable the default setting of unlimited allowance in their UI. For the ones that don't you can edit the allowance approval value in your wallet (ex: MetaMask) before sending the transaction through.
 
