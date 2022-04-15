@@ -3,8 +3,6 @@ layout: post
 title: "Prevent merge from a specific branch using Git Hooks"
 date: 2021-11-20 15:30:00 -0300
 tags: automation collaboration
-redirect_from:
-  - /2020/11/restore-single-postgres-table
 ---
 
 Git Hooks are a little known but incredibly flexible feature of Git. They allow for the execution of arbitrary snippets of code during the several stages of the source code development workflow, for instance: `pre-commit`, `pre-rebase`, `pre-merge-commit`, `post-merge`, among others.

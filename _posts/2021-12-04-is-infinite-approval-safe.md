@@ -3,8 +3,6 @@ layout: post
 title: "Is infinite token approval safe?"
 date: 2021-12-04 09:00:00 -0300
 tags: crypto finance security
-redirect_from:
-  - /2020/11/restore-single-postgres-table
 ---
 
 Is has become common  practice for DeFi protocols to use infinite token allowance approval to improve end users experience. From the user's perspective it's indeed very convenient and even appealing, once they grant a dapp (decentralized app) infinite allowance they will be able to interact with such dapp mostly using single transactions instead of having to perform a token spending approval transaction prior to every interaction with the dapp.
