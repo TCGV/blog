@@ -60,7 +60,7 @@ Trade details:
 * Effective Ex. Rate of 45300
 * Resulting BTC/USDC pair Ex. Rate of 45602
 
-This new price will be in disbalance in regards to the other pairs, triggering an arbitrage opportunity since a trader holding USDC could now buy ETH in the ETH/USDC pair, exchange ETH for BTC in the BTC/ETH pair and finally sell BTC for stablecoins in the BTC/USDC pair making a profit.
+This new price will be unbalanced in regards to the other pairs, triggering an arbitrage opportunity since a trader holding USDC could now buy ETH in the ETH/USDC pair, exchange ETH for BTC in the BTC/ETH pair and finally sell BTC for stablecoins in the BTC/USDC pair making a profit.
 
 <p align="center">
   <img style="max-width: 100%; max-height: 280px; margin: 10px 0 10px -40px" src="{{ site.baseurl }}/images/p30/arbitrage-opportunity.png" alt="surface"/>
@@ -71,7 +71,7 @@ Now let's consider that a trader took advantage of this arbitrage opporutnity to
 
 <p align="center">
   <img style="max-width: 100%; max-height: 280px; margin: 10px 0 10px -40px" src="{{ site.baseurl }}/images/p30/3-pairs-system-equilibrium.png" alt="surface"/>
-  <br><label style="font-size: 12px;">Figure 5. The system reaches equilibrium</label>
+  <br><label style="font-size: 12px;">Figure 6. The system reaches equilibrium</label>
 </p>
 
 So, comparing to the initial state of the system, the US$ 1M trade to buy BTC had the effect of:
@@ -90,4 +90,8 @@ As of the time of this writing Uniswap alone holds <b>US$ 4.77b of TVL</b> in hu
 
 ---
 
-The simulation results presented in this post were based in Uniswap's V2 protocol. Similar results should hold for the more complex and recent V3 implementation which adopts the concept of virtual supplies.
+<b>Notes</b>
+
+* The simulation whose results are presented in this post was based in Uniswap's V2 protocol implementation. Similar results should hold for the more complex and recent V3 implementation which adopts the concept of virtual supplies.
+
+* The complete source code for running this simulation is provided on [GitHub](https://github.com/TCGV/CryptoCorrelation). The routine used for generating the results presented in this post can be found in [this code file](https://github.com/TCGV/CryptoCorrelation/blob/0f23b80e677489ca4997cb2b45a0b8114f1c7fb9/Tcgv.CryptoCorrelation.App/Program.cs).
