@@ -84,7 +84,7 @@ As you can see, <u>the initial rise in the BTC price</u> opened up an arbitrage 
 Conclusion
 ============
 
-In this qualitative analysis we've seen how a system of DEX pairs builds-up correlation between crypto assets as a result of exploring arbitrage between these pairs. Even though the analysis was based on a fictional US$ 1M trade to buy BTC, similar and consistent results will hold for selling BTC, or buying/selling ETH.
+In this qualitative analysis we've seen how a system of DEX pairs builds-up correlation between crypto assets as a result of exploring arbitrage between these pairs. Even though the analysis was based on a simulated US$ 1M trade to buy BTC, similar and consistent results hold for selling BTC, as well as for buying/selling ETH, within this closed system.
 
 As of the time of this writing Uniswap alone holds <b>US$ 4.77b of TVL</b> in hundreds of DEX pairs, creating an entangled net of relationships between crypto assets and contributing to the correlation among them.
 
