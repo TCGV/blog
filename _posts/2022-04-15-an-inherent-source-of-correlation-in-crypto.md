@@ -17,7 +17,7 @@ Have you ever asked yourself why is it so? One straightforward answer is that la
 DEX pairs
 ============
 
-A DEX pair, popularized by Uniswap, can be viewed as a component in the blockchain that provides liquidity to the crypto market and allows wallets to trade between one asset and another in a decentralized way. For instance, the BTC/ETH pair allows traders to swap between these two currencies in either direction. Likewise, the BTC/USDC pair allows traders to exchange bitcoin for stablecoins, and vice-versa.
+A DEX pair, popularized by [Uniswap](https://uniswap.org/), can be viewed as a component in the blockchain that provides liquidity to the crypto market and allows wallets to trade between one asset and another in a decentralized way. For instance, the BTC/ETH pair allows traders to swap between these two currencies in either direction. Likewise, the BTC/USDC pair allows traders to exchange bitcoin for stablecoins, and vice-versa.
 
 And how do DEX pairs build-up correlation between cryptocurrencies? To answer this we need to dive a bit into how DEX pairs work:
 
@@ -86,7 +86,7 @@ Conclusion
 
 In this qualitative analysis we've seen how a system of DEX pairs builds-up correlation between crypto assets as a result of exploring arbitrage between these pairs. Even though the analysis was based on a simulated US$ 1M trade to buy BTC, similar and consistent results hold for selling BTC, as well as for buying/selling ETH, within this closed system.
 
-As of the time of this writing Uniswap alone holds <b>US$ 4.77b of TVL</b> in hundreds of DEX pairs, creating an entangled net of relationships between crypto assets and contributing to the correlation among them.
+As of the time of this writing Uniswap on Ethereum mainnet alone holds <b>US$ 4.77b of TVL</b> in hundreds of DEX pairs, creating an entangled net of relationships between crypto assets and contributing to the correlation among them.
 
 ---
 
