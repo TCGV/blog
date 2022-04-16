@@ -77,6 +77,7 @@ Now let's consider that a trader took advantage of this arbitrage opporutnity to
 So, comparing to the initial state of the system, the US$ 1M trade to buy BTC had the effect of:
 * Rising the price of BTC by <b>0.89%</b> (from US$ 45,000.00 to US$ 45,400.00)
 * Rising the price of ETH by <b>0.44%</b> (from US$ 3,200.00 to US$ 3,214.20)
+* Inflating the TVL in the system by <b>0.44%</b> (from US$ 900M to US$ 904M)
 
 As you can see, <u>the initial rise in the BTC price</u> opened up an arbitrage opportunity that once explored to exhaustion <u>had the effect of rising the price of ETH</u> as well. To put it simply, this closed system created an inherent correlation between ETH and BTC prices.
 
