@@ -1,7 +1,7 @@
 ﻿---
 layout: post
 title: "The burden of complexity"
-date: 2023-10-04 13:30:00 -0300
+date: 2023-04-10 13:30:00 -0300
 tags: collaboration project-management
 ---
 
