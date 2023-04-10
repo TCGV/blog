@@ -24,7 +24,7 @@ First, some definitions:
 
 * The <b style="color:gray">Team's Capacity</b> line is the maximum amount of effort the team is able to provide, which varies over time and can be influenced by factors such as changes in the product development process, team size, and efforts to eliminate toil [1]. Additionally, reductions in the complexity burden of a project can unlock productivity, influencing the team's capacity as well.
 
-* The <b style="color:gray">Complexity Threshold</b> represents the point where the team's capacity becomes equal to the complexity burden. In this theoretical situation, the team can only allocate capacity towards servicing the complexity. Value delivery is compromised.
+* The <b style="color:gray">Complexity Threshold</b> represents the point where the team's capacity becomes equal to the complexity burden. In this theoretical situation, the team can only allocate capacity towards servicing complexity. Value delivery is compromised.
 
 Now that we have these definitions in place, let's review the two colored zones depicted in the diagram.
 
@@ -34,7 +34,7 @@ This is the ideal place to be. <u>The team has more than enough capacity for ser
 
 <h2>The Degradation Zone</h2>
 
-A project enters the degradation zone when <u>the team's capacity is inferior than the required maintenance effort</u>, leading to a difficult situation. The team's inability for servicing the complexity burden may result in added pressure on an already strangled project. The team will constantly be putting out fires, new features will take longer to ship, developers may suggest rewriting the application, and customers may not be satisfied. The only viable ways out of this situation are to significantly reduce complexity or to increase capacity. Other efforts will be mostly fruitless.
+A project enters the degradation zone when <u>the team's capacity is insufficient for adequately servicing complexity</u>, adding pressure on an already strangled project. The team will constantly be putting out fires, availability may be impaired, new features will take longer to ship, developers may suggest rewriting the application, and customers may not be satisfied. The viable ways out of this situation are to significantly reduce complexity or to increase capacity. Other efforts will be mostly fruitless.
 
 Closing Thoughts
 ============
@@ -43,7 +43,7 @@ The concept of complexity burden can be a valuable tool for enriching discussion
 
 It's worth pointing out that if the free capacity of a team is narrow, meaning if the proportion of effort allocated towards managing the complexity burden is already too high, the team will find itself in a situation where continuing to innovate may be too risky. The wise decision then will be to prioritize paying off technical debt and investing in tasks that mitigate risk.
 
-Finally, a project is a dynamic endeavor, and a team may find itself in the "degradation" zone in one sprint and in the "improvement" zone in the next. What matters most is to be aware of the current context and plan next steps while viewing the bigger picture.
+Finally, a project is a dynamic endeavor, and a team may find itself in the "degradation" zone in one sprint and in the "improvement" zone in the next, and that's fine. What matters most is to be aware of the current context and plan next steps preemptively, aiming to maintain the complexity burden at a healty level.
 
 ---
 
