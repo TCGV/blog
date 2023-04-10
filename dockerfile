@@ -1,4 +1,4 @@
-FROM alpine:latest
+FROM alpine:3.13
 # Docker image for Jekyll to build github-pages
 #
 # docker build -t "jekyll-github-pages" .
@@ -22,14 +22,22 @@ RUN gem install html-pipeline --version=2.11.1
 RUN gem install bundler --version=2.0.2
 RUN gem install rubyzip --version=1.2.3
 RUN gem install github-pages --version=198
+RUN gem install minitest --version=5.14.1
+RUN gem install tzinfo --version=1.2.7
+RUN gem install ffi --version=1.12.2
+RUN gem install faraday --version=1.0.1
+RUN gem install octokit --version=4.18.0
+RUN gem install rb-inotify --version=0.10.0
+RUN gem install unicode-display_width --version=1.7.0
+RUN gem install concurrent-ruby --version=1.1.6
+RUN gem install execjs --version=2.7.0
+RUN gem install ruby-enum --version=0.8.0
+RUN gem install http_parser.rb --version=0.6.0
+RUN gem install em-websocket --version=0.5.1
+RUN gem install ethon --version=0.12.0
+RUN gem install multipart-post --version=2.1.1
+RUN gem install rb-fsevent --version=0.10.4
 RUN gem install jekyll
 RUN gem install jekyll-remote-theme --version=0.3.1
-RUN gem install minitest --version=5.11.3
-RUN gem install tzinfo --version=1.2.5
-RUN gem install ffi --version=1.11.1
-RUN gem install faraday --version=0.15.4
-RUN gem install octokit --version=4.14.0
-RUN gem install rb-inotify --version=0.10.0
-RUN gem install unicode-display_width --version=1.6.0
 RUN gem install jekyll-redirect-from --version=0.16.0
 RUN mkdir /home/mypage

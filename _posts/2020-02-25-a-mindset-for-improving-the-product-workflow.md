@@ -2,7 +2,7 @@
 layout: post
 title: "A mindset for improving the product development workflow"
 date: 2020-02-25 16:00:00 -0300
-tags: collaboration
+tags: collaboration project-management
 redirect_from:
   - /2020/02/the-consultant-developer
 ---
