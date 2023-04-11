@@ -18,15 +18,15 @@ So I propose the following qualitative diagram that regards complexity as an inh
   <br><label style="font-size: 12px;">Figure 1. The Complexity Burden Diagram</label>
 </p>
 
-First, some definitions:
+From the diagram:
 
-* The <b style="color:blue">Complexity Burden</b> curve represents the theoretical amount of effort spent servicing complexity, as oposed to productive work. This is an inevitable aspect of software development and can manifest in various forms, including spending time understanding and working with complex code, encountering more intricate bugs and errors, struggling to onboard new team members due to excessively elaborate designs, amog others.
+* The <b style="color:blue">Complexity Burden</b> curve represents the theoretical amount of necessary effort spent servicing complexity, as oposed to productive work. This is an inevitable aspect of software development and can manifest in various forms, including spending time understanding and working with complex code, encountering more intricate bugs and errors, struggling to onboard new team members due to excessively elaborate designs, among others.
 
 * The <b style="color:gray">Team's Capacity</b> line is the maximum amount of effort the team is able to provide, which varies over time and can be influenced by factors such as changes in the product development process, team size, and efforts to eliminate toil [1]. Additionally, reductions in the complexity burden of a project can unlock productivity, influencing the team's capacity as well.
 
 * The <b style="color:gray">Complexity Threshold</b> represents the point where the team's capacity becomes equal to the complexity burden. In this theoretical situation, the team is only allocating capacity towards servicing complexity. Value delivery is compromised.
 
-Now that we have these definitions in place, let's review the two colored zones depicted in the diagram.
+With these definitions in place, let's review the two colored zones depicted in the diagram.
 
 <h2>The Improvment Zone</h2>
 
@@ -43,7 +43,7 @@ The concept of complexity burden can be a valuable tool for enriching discussion
 
 It's worth pointing out that if the productive capacity of a team is narrow, meaning if the proportion of the team's capacity allocated towards the complexity burden is already too high, the team will find itself in a situation where continuing to innovate may be too risky. The wise decision then will be to prioritize paying off technical debt and investing in tasks to alleviate the complexity burden.
 
-Even though they are related, it's crucial to distinguish between the Complexity Burden and Technical Debt. The former is a general measure of effort spent on non-productive work, while the latter results from choosing an easy but limited solution over a better approach that may take more time [2]. A project can become highly complex even with low technical debt.
+Even though they are related, it's crucial to distinguish between the complexity burden and technical debt. The former materializes as the amount of (mostly) non-productive work a team is encumbered by, while the latter is a liability that arises from design or implementation choices that prioritize short-term gains over long-term sustainability [2]. A project can become highly complex even with low technical debt.
 
 Finally, a project is a dynamic endeavor, and a team may find itself momentarily in the "degradation" zone in one cycle and in the "improvement" zone in the next. What matters most is to be aware of the technical context and plan next steps preemptively, aiming to maintain the complexity burden at a healty level.
 
