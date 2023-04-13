@@ -20,7 +20,7 @@ So I propose the following qualitative diagram that regards complexity as an inh
 
 From the diagram:
 
-* The <b style="color:blue">Complexity Burden</b> curve represents the theoretical amount of necessary effort spent servicing complexity, as oposed to productive work. This is an inevitable aspect of software development and can manifest in various forms, including spending time understanding and working with complex code, encountering more intricate bugs and errors, struggling to onboard new team members due to excessively elaborate designs, among others.
+* The <b style="color:blue">Complexity Burden</b> curve represents the theoretical amount of effort necessarily spent servicing complexity, as oposed to productive work. This is an inevitable aspect of software development and can manifest in various forms, including spending time understanding and working with complex code, encountering more intricate bugs and errors, updating depencencies, struggling to onboard new team members due to excessively elaborate designs, among others.
 
 * The <b style="color:gray">Team's Capacity</b> line is the maximum amount of effort the team is able to provide, which varies over time and can be influenced by factors such as changes in the product development process, team size, and efforts to eliminate toil [1]. Additionally, reductions in the complexity burden of a project can unlock productivity, influencing the team's capacity as well.
 
@@ -34,7 +34,7 @@ Projects are typically in the improvement zone, which means that <u>the team has
 
 <h2>The Degradation Zone</h2>
 
-A project enters the degradation zone when <u>the team's capacity is insufficient for adequately servicing complexity</u>, adding pressure on an already strangled project. The team will constantly be putting out fires, new features will take longer to ship, developers may suggest rewriting the application, availability may be impaired, and customers may not be satisfied. The viable ways out of this situation are to significantly reduce complexity or to increase capacity. Other efforts will be mostly fruitless.
+A project enters the degradation zone when <u>the team's capacity is insufficient for adequately servicing complexity</u>, adding pressure on an already strangled project. The team will constantly be putting out fires, new features will take longer to ship, bugs will be more likely to be introduced, developers may suggest rewriting the application, availability may be impaired, and customers may not be satisfied. The viable ways out of this situation are to significantly reduce complexity or to increase capacity. Other efforts will be mostly fruitless.
 
 Closing Thoughts
 ============
