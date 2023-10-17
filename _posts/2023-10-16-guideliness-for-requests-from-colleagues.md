@@ -29,7 +29,7 @@ Notice I deliberately highlighted 'autonomy', since I believe it plays a central
 Seniority
 ============
 
-Before heading to examples, a quick note on how the seniority level our counterpart affects the way we communicate.
+Before heading to examples, a quick note on how the seniority level from our counterpart affects the way we communicate.
 
 Junior-level colleagues require more care and attention in communication, as they are in an early stage of professional development and need the consideration and support of more senior colleagues to help them grow. Positive and constructive feedback should be given frequently, and we should push them out of their comfort zone, but in a healthy and considerate way.
 
@@ -76,7 +76,7 @@ Here, we assume an honest oversight without passing judgment, recognizing that w
 
 At first glance, this response appears cooperative and results-oriented. However, it contradicts the autonomy guideline by depriving the individual who sought help of the opportunity to learn and grow from the challenge. This approach can inadvertently foster dependency, as the person may not acquire the skills to handle similar situations independently in the future.
 
-Unless there's a good reason to 'hijack' the problem, for instance due to a short deadline, the following approach is advised:
+Unless there's a good reason to 'hijack' the problem, for instance due to a short deadline, the following approach is recommended:
 
 > <div style="color: green">“Bob, this is a very interesting problem.  Let's discuss it, and I'll assist you in finding a solution. I anticipate it might arise in future scenarios, making it crucial to solidify this learning.”</div>
 
@@ -85,7 +85,9 @@ Now we see the clear mentoring approach, emphasizing the development of colleagu
 Closing Thoughts
 ======
 
-The more senior a team member becomes, the higher the expectation for them to have a positive impact on the team, inspiring and pushing their colleagues beyond their comfort zones, and thus earning recognition as a leader among peers.
+The more senior a team member becomes, the higher the expectation for them to have a positive impact on the team and subsequently in the business, inspiring and pushing their colleagues beyond their comfort zones, and thus earning recognition as a leader among peers.
 
-It's far from easy; in fact, it's quite challenging to assume the responsibilities of mentoring and a prominent role within the team. In doing so, we will experience a mix of successes and setbacks, navigate through rushed and overwhelming moments. Effective time management will be essential to strike a balance between safeguarding our personal time and remaining accessible to the team. The leadership challenge, whether in a managerial or technical role, is substantial, but the personal growth it brings is truly worth the effort.
+It's far from easy; in fact, it's quite challenging to assume the responsibilities of mentoring and take a prominent role within the team. Effective time management will be essential to strike a balance between safeguarding our personal time and remaining accessible to the team. This means prioritizing tasks, setting clear boundaries, and ensuring that our schedule allows for both focused work and availability to assist our colleagues. By efficiently managing our time, we can fulfill our leadership roles without becoming overwhelmed or unavailable when needed.
+
+The leadership challenge, whether in a managerial or technical role, is substantial, but the personal growth it brings is truly worth the effort.
 
