@@ -44,7 +44,7 @@ To illustrate below are examples of typical reponses we often give. The first se
 
 > <div style="color: red">“Hi Alice, I don't have time to help you, I'm too busy.”</div>
 
-A response like this lacks empathy by not demonstrating an interest in understanding the requester's situation and motivation for reaching out. It also hinders collaboration, creating the perception that the door to cooperation is closed. Autonomy and training opportunities are not promoted, leaving the requester without guidance. Ultimately, there is a lack of direction towards a resolution, as no effort was made to grasp the underlying problem.
+This is a cold response, if you reply like this a lot then you're not making yourself available to your colleagues, creating the perception that the door to collaboration is closed.
 
 > <div style="color: green">“Hi Alice, unfortunately I'm very short on time today due to a priority activity I need to finish by the day's end. Is this urgent, or can we come back to this topic tomorrow? You can also check if Bill is available. Please keep me informed either way.”</div>
 
