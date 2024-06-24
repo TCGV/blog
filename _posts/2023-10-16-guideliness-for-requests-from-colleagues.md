@@ -82,7 +82,7 @@ Unless there's a good reason to 'hijack' the problem, for instance due to a shor
 
 Now we see the clear mentoring approach, emphasizing the development of colleagues and a forward-looking perspective.
 
-Closing Thoughts
+Closing thoughts
 ======
 
 The more senior a team member becomes, the higher the expectation for them to have a positive impact on the team and subsequently in the business, inspiring and pushing their colleagues beyond their comfort zones, and thus earning recognition as a leader among peers.

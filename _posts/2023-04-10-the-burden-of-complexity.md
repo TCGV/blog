@@ -36,7 +36,7 @@ Projects are typically in the improvement zone, which means that <u>the team has
 
 A project enters the degradation zone when <u>the team's capacity is insufficient for adequately servicing complexity</u>, adding pressure on an already strangled project. The team will constantly be putting out fires, new features will take longer to ship, bugs will be more likely to be introduced, developers may suggest rewriting the application, availability may be impaired, and customers may not be satisfied. The viable ways out of this situation are to significantly reduce complexity or to increase capacity. Other efforts will be mostly fruitless.
 
-Closing Thoughts
+Closing thoughts
 ============
 
 The concept of complexity burden can be a valuable tool for enriching discussions around promoting long-term value delivery and preventing a project from becoming bogged down by complexity, leaving little room for new feature development. It's important to make decisions with a clear understanding of the complexity burden and how it may be affected.
