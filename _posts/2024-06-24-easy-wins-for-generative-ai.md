@@ -33,10 +33,10 @@ An easy win, also known as a "low-hanging fruit," can be defined as any product 
 
 This concept originates from the prioritization matrix, a tool that helps teams manage tasks more efficiently, reduce viability risks, and optimize delivered value.
 
-It may seem obvious to target easy wins, but more often thatn not we get carried away chasing shiny objects and commit to poorly assessed challenges.
+It may seem obvious to target easy wins, but more often that not we get carried away chasing shiny objects and commit to poorly assessed challenges.
 
 
-How to discover a gen AI easy-win?
+How to discover gen AI easy-wins?
 ======
 
 Considering that you may already have a working product that customers use (and love!), you should look for opportunities to improve your product's <b>existing</b> user flows to make them easier, faster, and more enjoyable.
@@ -51,7 +51,7 @@ Wrapping It Up:
 1. Target existing user flows
 1. Search for opportunities to make your users more productive
 1. Adopt gen AI for low-cognitive, narrowly scoped tasks
-1. Inexpensive review and regeneration cycles
+1. Design for inexpensive review and regeneration cycles
 
 
 A concrete example
@@ -59,7 +59,7 @@ A concrete example
 
 I believe it's important to provide a real world example to illustrate how these principles can be applied in practice. At [MindMiners](https://mindminers.com/en), we offer innovative web and mobile market research solutions. Our customers create surveys on our platform and collect responses from our proprietary respondents panel via a mobile app.
 
-One of the most time-consuming user flows on our platform is the questionnaire creation process, so we decided to focus on improving it. A common task for survey creators is listing options for multiple-choice questions based on the question text. To streamline this, we added a button for generating options.
+One of the most time-consuming user flows on our platform is the questionnaire creation process, so we decided to focus on improving it. A common low cognitive complexity task for survey creators is listing options for multiple-choice questions based on the question text. To streamline this, we added a button for generating options.
 
 Here's how it looks:
 
