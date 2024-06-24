@@ -7,14 +7,14 @@ tags: ai system-design project-management
 
 I will start this post with a direct question:
 
-* What are the most useful generative AI-powered product features you use regularly?
+> What are the most useful generative AI-powered product features you use regularly?
 
 Think about it, take your time. The answer usually includes [1]:
 1. Chat apps (e.g., ChatGPT, Google Gemini)
 1. Media generation tools (e.g., audio, image, video)
 1. Code generation extensions (e.g., GitHub Copilot, Code Whisperer)
 
-These are indeed very useful! But weren't we promised that generative AI would completely change every aspect of our lives? So why can't most of us think of more examples to answer this question? The logical answer is that either they don't exist or we don't know about them (ex: niche products).
+These are indeed very useful! But weren't we promised that generative AI would completely change every aspect of our lives? So why can't most of us think of more examples to answer this question? The logical answer is that they aren't that prevalent, yet.
 
 To add more context, it's not that no one is trying. We've all seen prominent companies investing significant resources to ride the generative AI bandwagon. However, many of them decided to chase home runs instead of easy-wins, and for that reason a lot of them failed [2].
 
@@ -57,21 +57,21 @@ Wrapping It Up:
 A concrete example
 ======
 
-Moving on, I think it's important to provide a concrete example. At [MindMiners](https://mindminers.com/en), we offer innovative web and mobile market research solutions. Our customers create surveys on our platform and collect responses from our proprietary respondents panel via a mobile app.
+I believe it's important to provide a real world example to illustrate how these principles can be applied in practice. At [MindMiners](https://mindminers.com/en), we offer innovative web and mobile market research solutions. Our customers create surveys on our platform and collect responses from our proprietary respondents panel via a mobile app.
 
 One of the most time-consuming user flows on our platform is the questionnaire creation process, so we decided to focus on improving it. A common task for survey creators is listing options for multiple-choice questions based on the question text. To streamline this, we added a button for generating options.
 
 Here's how it looks:
 
 <p align="center">
-  <img style="max-height: 240px; max-width: 100%; margin: 10px 0" src="{{ site.baseurl }}/images/p33/question-without-options.png" alt="Question without options"/>
+  <img style="max-height: 320px; max-width: 100%; margin: 10px 0" src="{{ site.baseurl }}/images/p33/question-without-options.png" alt="Question without options"/>
   <br><label style="font-size: 12px;">Figure 2. Question without options</label>
 </p>
 
 Upon clicking this button, the platform constructs a simple prompt using the question text and requests a suggestion of options from the generative AI REST API. Once a result is generated, it is inserted into the frontend:
 
 <p align="center">
-  <img style="max-height: 240px; max-width: 100%; margin: 10px 0" src="{{ site.baseurl }}/images/p33/question-with-options.png" alt="Question with AI generated options"/>
+  <img style="max-height: 484px; max-width: 100%; margin: 10px 0" src="{{ site.baseurl }}/images/p33/question-with-options.png" alt="Question with AI generated options"/>
   <br><label style="font-size: 12px;">Figure 3. Question with AI generated options</label>
 </p>
 
