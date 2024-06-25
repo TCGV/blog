@@ -7,14 +7,14 @@ tags: ai system-design project-management
 
 I will start this post with a direct question:
 
-> What are the most useful generative AI-powered product features you use regularly?
+> What are the most useful generative AI-powered product features you regularly use?
 
-Think about it, take your time. The answer usually includes [1]:
+Think about it for a while. The answer usually includes [1]:
 1. Chat apps (e.g., ChatGPT, Google Gemini)
 1. Media generation tools (e.g., audio, image, video)
 1. Code generation extensions (e.g., GitHub Copilot, Code Whisperer)
 
-These are indeed very useful! But weren't we promised that generative AI would completely change every aspect of our lives? So why can't most of us think of more examples to answer this question? The logical answer is that they aren't that prevalent, yet.
+These are indeed very useful! But weren't we promised that generative AI would completely change every aspect of our lives? So why can't most of us, specially non technical people, think of more examples to answer this question? The logical answer is that they aren't that prevalent, yet.
 
 To add more context, it's not that no one is trying. We've all seen prominent companies investing significant resources to ride the generative AI bandwagon. However, many of them decided to chase home runs instead of easy-wins, and for that reason a lot of them failed [2].
 
@@ -61,7 +61,7 @@ I believe it's important to provide a real world example to illustrate how these
 
 One of the most time-consuming user flows on our platform is the questionnaire creation process, so we decided to focus on improving it. A common low cognitive complexity task for survey creators is listing options for multiple-choice questions based on the question text. To streamline this, we added a button for generating options.
 
-Here's how it looks:
+Here's how it looks - And of course, we took the opportunity to add some marketing flair to the icon and label there 😉:
 
 <p align="center">
   <img style="max-height: 320px; max-width: 100%; margin: 10px 0" src="{{ site.baseurl }}/images/p33/question-without-options.png" alt="Question without options"/>
