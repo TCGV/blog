@@ -5,7 +5,7 @@ date: 2024-10-04 18:00:00 -0300
 tags: ai finance
 ---
 
-I recently watched an interesting video titled (How AI & LLMs are Shaping Financial Advice)[https://www.youtube.com/watch?v=ui7kRlJMqjM] by MIT Professor [Andrew W. Lo](https://mitsloan.mit.edu/faculty/directory/andrew-w-lo). In it, he discusses how LLMs could be used for tasks like analyzing financial reports and offering sound financial advice. He also touches on the challenges of oversight, trust and fiduciary duty, sharing his thoughts on how these issues might be addressed in the long run.
+I recently watched an interesting video titled [How AI & LLMs are Shaping Financial Advice](https://www.youtube.com/watch?v=ui7kRlJMqjM) by MIT Professor [Andrew W. Lo](https://mitsloan.mit.edu/faculty/directory/andrew-w-lo). In it, he discusses how LLMs could be used for tasks like analyzing financial reports and offering sound financial advice. He also touches on the challenges of oversight, trust and fiduciary duty, sharing his thoughts on how these issues might be addressed in the long run.
 
 Right after that, YouTube suggested a news report from BBC about the Israel conflict in the Middle East, and that gave me an idea for an experiment. You see, we might be on the verge of an escalation in that conflict, and if it happens (I hope it doesn't), I'm sure it'll have a significant impact on the financial markets. I'm also sure that I'm not prepared for it, and that (again, if it happens) I'll think in hindsight that I could have hedged against the real, though uncertain, possibility of escalation.
 
@@ -15,11 +15,15 @@ The prompt
 ======
 
 > If a conflict escalation occurs between Israel and Palestine in the Middle East, potentially involving Lebanon and possibly Iran...
-> 
+>
 > 1) What will happen to the global economy?
+>
 >    1.1) How might the global economy react if the conflict escalates further (e.g., involving the U.S.)?
+>
 > 2) Which currencies, commodities, bonds, and investments are likely to strengthen in this scenario, and which ones are likely to weaken?
+>
 > 3) How can I protect my capital in such a situation?
+>
 >    3.1) If the situation deescalates, what would be a balanced asset allocation strategy to hedge against both escalation and deescalation scenarios?
 
 
