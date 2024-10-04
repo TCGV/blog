@@ -14,19 +14,19 @@ So in this experiment, I prepared a simple CoT (Chain-of-Thought) prompt to enli
 The prompt
 ======
 
-<div style="background-color: #f0f0f0;" markdown="1">
+<div style="padding: 10px;background-color: #f8f8f8;margin: 20px 0;" markdown="1">
 
  If a conflict escalation occurs between Israel and Palestine in the Middle East, potentially involving Lebanon and possibly Iran...
 
  1) What will happen to the global economy?
 
-    1.1) How might the global economy react if the conflict escalates further (e.g., involving the U.S.)?
+  1.1) How might the global economy react if the conflict escalates further (e.g., involving the U.S.)?
 
  2) Which currencies, commodities, bonds, and investments are likely to strengthen in this scenario, and which ones are likely to weaken?
 
  3) How can I protect my capital in such a situation?
 
-    3.1) If the situation deescalates, what would be a balanced asset allocation strategy to hedge against both escalation and deescalation scenarios?
+  3.1) If the situation deescalates, what would be a balanced asset allocation strategy to hedge against both escalation and deescalation scenarios?
 
 </div>
 
@@ -38,7 +38,7 @@ I think with a little more effort, we could've made an even better prompt. But i
 The reply
 ======
 
-<div style="background-color: #f0f0f0;" markdown="1">
+<div style="padding: 10px;background-color: #f8f8f8;margin: 20px 0;" markdown="1">
 
 If the conflict between Israel and Palestine escalates, especially involving countries like Lebanon, Iran, and potentially drawing in global powers like the U.S., the global economy could be affected in several ways. Here’s an overview of what could happen, which investments might be impacted, and how you could protect your capital:
 
