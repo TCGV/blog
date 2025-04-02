@@ -14,7 +14,7 @@ So in this experiment, I prepared a simple CoT (Chain-of-Thought) prompt to enli
 The prompt
 ======
 
-<div style="padding: 10px;background-color: #f8f8f8;margin: 20px 0;" markdown="1">
+<div class="chat-message" markdown="1">
 
  If a conflict escalation occurs between Israel and Palestine in the Middle East, potentially involving Lebanon and possibly Iran...
 
@@ -38,7 +38,7 @@ I think with a little more effort, we could've made an even better prompt. But i
 The reply
 ======
 
-<div style="padding: 10px;background-color: #f8f8f8;margin: 20px 0;" markdown="1">
+<div class="chat-message" markdown="1">
 
 If the conflict between Israel and Palestine escalates, especially involving countries like Lebanon, Iran, and potentially drawing in global powers like the U.S., the global economy could be affected in several ways. Here’s an overview of what could happen, which investments might be impacted, and how you could protect your capital:
 

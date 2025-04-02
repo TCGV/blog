@@ -158,3 +158,20 @@ table.w60 th {
         display: inline-block;
         margin: 4px 2PX;
     }
+
+.chat-message {
+    padding: 10px;
+    background-color: #f8f8f8;
+    margin: 20px 0;
+}
+
+    .chat-message .badge {
+        float: right;
+        font-size: 0.8em;
+        background: #ffffff;
+        font-weight: bold;
+        padding: 2px 4px;
+        margin: -15px -4px 0 0;
+        color: black;
+        border: 1px solid #cfcfcf
+    }
