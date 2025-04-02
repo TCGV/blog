@@ -69,6 +69,8 @@ I want to compress PNG images into JPEG with high quality.
 
 In its response ChatGPT correctly produced the following method (I'm omitting additional information and the usage sample also returned by ChatGPT):
 
+<div style="padding: 10px;background-color: #f8f8f8;margin: 20px 0;" markdown="1">
+
 ```csharp
 public static Image CompressToJpeg(this Image image, long quality = 90L)
 {
@@ -91,6 +93,8 @@ public static Image CompressToJpeg(this Image image, long quality = 90L)
     }
 }
 ```
+
+</div>
 
 I skimmed through the code, and it seemed to implement everything I requested, so I continued by asking ChatGPT to use this code to adjust two of my application user flows:
 
@@ -126,6 +130,8 @@ As a result, both methods were modified as requested, and ChatGPT proposed a hel
 
 Here's the final code for one of the methods after the introduced changes:
 
+<div style="padding: 10px;background-color: #f8f8f8;margin: 20px 0;" markdown="1">
+
 ```csharp
 private string SaveIcon(string iconName, Stream iconStream)
 {
@@ -147,6 +153,8 @@ private string SaveIcon(string iconName, Stream iconStream)
     }
 }
 ```
+
+</div>
 
 Again, I reviewed the code and was happy with the proposed changes. After pasting it into my application code, everything compiled without any issues.
 
@@ -180,6 +188,8 @@ Don't save the compressed image to disk.
 
 And voilà, the unit test was correctly created according to my request:
 
+<div style="padding: 10px;background-color: #f8f8f8;margin: 20px 0;" markdown="1">
+
 ```csharp
 [TestMethod]
 public void CompressToJpegTest()
@@ -205,6 +215,8 @@ public void CompressToJpegTest()
 }
 ```
 
+</div>
+
 After pasting the new test method into my test class, I was able to quickly run it and confirm that it passed 🟢.
 
 Once I finished the code changes, I performed a manual test to validate that the task was completed:
@@ -225,4 +237,4 @@ As with anything, usage brings experience, and we become better at identifying t
 
 My complete conversation with ChatGPT can be accessed in the link below:
 
-* https://chatgpt.com/share/67ed2912-af88-800b-835c-c0e0703a617f
+* <a href="https://chatgpt.com/share/67ed2912-af88-800b-835c-c0e0703a617f>https://chatgpt.com/share/67ed2912-af88-800b-835c-c0e0703a617f</a>
