@@ -17,7 +17,7 @@ It took <b>25 minutes</b> from start to finish. If I hadn't used AI, I estimate 
 
 Here's a quick overview of how I structured my workflow using ChatGPT (GPT-4o model):
 
-1. <b>Define the Problem Clearly:</b> I started by clearly defining my task, which was to compress uploaded images automatically.
+1. <b>Define the Problem:</b> I started by clearly defining my task, which was to compress uploaded images automatically in two user flows.
 1. <b>Generate Code:</b> I asked ChatGPT to create a method for compressing images to high-quality JPEG, providing contextual code from my existing project.
 1. <b>Integrate Changes:</b> Next, I requested ChatGPT to modify two existing image upload methods, incorporating the new compression method.
 1. <b>Create Unit Tests:</b> Lastly, I asked ChatGPT to write a unit test for the new compression functionality following existing testing styles in the project.
@@ -27,7 +27,11 @@ Let's take a deep dive.
 The Workflow in Detail
 ======
 
-The first step was to check the source code, locate the image upload entry points, and find out whether the project defined a method to compress images to JPEG. I concluded that it didn't. So, my first prompt to ChatGPT was for it to create one, passing along additional contextual information so that the generated code would be compatible with my project:
+Initially, I reviewed the source code to understand the user flows I needed to change and to locate the image upload entry points.
+
+After getting familiar with the codebase, I concluded that the project didn’t yet define a method to compress images to JPEG. I also found an `ImageExtensions` class that contained several methods for performing operations on images (e.g., Rotate, Resize, Generate thumbnail, etc.), which I decided was the right place to define the new compression method.
+
+So, in my first prompt to ChatGPT, I asked it to create the compression method, passing along additional contextual information to ensure the generated code would be compatible with my project:
 
 <div style="padding: 10px;background-color: #f8f8f8;margin: 20px 0;" markdown="1">
 
@@ -96,7 +100,9 @@ public static Image CompressToJpeg(this Image image, long quality = 90L)
 
 </div>
 
-I skimmed through the code, and it seemed to implement everything I requested, so I continued by asking ChatGPT to use this code to adjust two of my application user flows:
+I skimmed through the code, and it seemed to implement everything I requested, so I copied and pasted the generated code into my project's `ImageExtensions` class.
+
+I continued by asking ChatGPT to adjust two of my application user flows to use the new method, with additional considerations:
 
 <div style="padding: 10px;background-color: #f8f8f8;margin: 20px 0;" markdown="1">
 
@@ -158,7 +164,7 @@ private string SaveIcon(string iconName, Stream iconStream)
 
 Again, I reviewed the code and was happy with the proposed changes. After pasting it into my application code, everything compiled without any issues.
 
-Finally, before closing the code changes, I wanted to create a unit test for the new `CompressToJpeg` method, so I sent another message to ChatGPT to create the test analogous to another test in my project:
+Finally, before closing the code changes, I wanted to create a unit test for the new `CompressToJpeg` method, so I sent another message to ChatGPT to create the test method analogous to another test in my project:
 
 <div style="padding: 10px;background-color: #f8f8f8;margin: 20px 0;" markdown="1">
 
@@ -226,8 +232,12 @@ Once I finished the code changes, I performed a manual test to validate that the
   <br><label style="font-size: 12px;">Figure 1. Upload request in Chrome's network tab</label>
 </p>
 
+Success!
+
 Wrapping Up
 ======
+
+This was just one of many examples where AI tools can turbocharge the time it takes to complete manual code structuring and fiddly tasks. This task was a great candidate because it was mostly digital plumbing, relying on high-level operations (like JPEG compression) already provided by the underlying framework.
 
 Several studies try to capture how much productivity AI tools can bring. At the end of the day, it all depends on how frequently and how well you use them in your workflows.
 
@@ -237,4 +247,4 @@ As with anything, usage brings experience, and we become better at identifying t
 
 My complete conversation with ChatGPT can be accessed in the link below:
 
-* <a href="https://chatgpt.com/share/67ed2912-af88-800b-835c-c0e0703a617f>https://chatgpt.com/share/67ed2912-af88-800b-835c-c0e0703a617f</a>
+* [https://chatgpt.com/share/67ed2912-af88-800b-835c-c0e0703a617f](https://chatgpt.com/share/67ed2912-af88-800b-835c-c0e0703a617f)
