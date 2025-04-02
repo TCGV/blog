@@ -173,5 +173,6 @@ table.w60 th {
         padding: 2px 4px;
         margin: -15px -4px 0 0;
         color: black;
-        border: 1px solid #cfcfcf
+        border: 1px solid #cfcfcf;
+        border-radius: 4px;
     }
