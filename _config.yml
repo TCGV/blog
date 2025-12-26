@@ -17,7 +17,7 @@ github: 'tcgv/blog'
 gitlab: ''
 
 # Set this to your UA-# value, or '' to disable the block completely
-# gaaccount: 'UA-37657299-16'
+gaaccount: 'UA-37657299-16'
 
 # The 'comments' setting enables comments. You'll need to select either
 # disqus or isso below to choose a comment system. Individual posts can
@@ -39,4 +39,4 @@ gems: ['jekyll-paginate', 'jekyll-redirect-from']
 
 exclude: ['README.md', 'LICENSE']
 
-future: true
+# future: true
