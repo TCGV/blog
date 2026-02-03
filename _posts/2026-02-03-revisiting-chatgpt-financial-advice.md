@@ -1,15 +1,15 @@
 ﻿---
 layout: post
-title: "Revisiting ChatGPT’s financial advice, 14 months later"
+title: "Revisiting ChatGPT’s financial advice, 15 months later"
 date: 2026-02-03 10:00:00 -0300
 tags: ai finance
 ---
 
-In Oct/2024 I asked ChatGPT for a portfolio that could survive a messy world (original post [here](https://thomasvilhena.com/2024/10/financial-advice-from-chatgpt)). I expected the Israel–Palestine conflict (on top of Russia–Ukraine) to be the main driver.
+In Oct/2024 I asked ChatGPT for a portfolio to endure a messy world (original post [here](https://thomasvilhena.com/2024/10/financial-advice-from-chatgpt)). At that time I expected the Israel–Palestine conflict (on top of Russia–Ukraine) to be the main driver of financial uncertainty in the coming months.
 
-Fourteen months later, the conflicts are still there, but the volatility came from a different menu: U.S. surprises, Trump’s tariff war, a U.S. strike on an Iranian nuclear facility, and most recently Maduro’s capture.
+Fifteen months later, the conflicts are still there, but the volatility came from a different menu: U.S. surprises, Trump’s tariff war, a U.S. strike on an Iranian nuclear facility, and most recently Maduro’s capture.
 
-This post is my promised check-in: I re-ran the original constraints using a 2024 model snapshot, converted the answer into a real ETF portfolio, and measured what happened.
+This post is my promised check-in: what would have happened if I'd followed ChatGPT's financial advice? I re-ran the original constraints using a 2024 model snapshot, translated the output into a real ETF portfolio, and measured the results.
 
 The portfolio setup
 ======
@@ -84,6 +84,7 @@ The results (Oct 4, 2024 → Jan 27, 2026)
 
 A couple of days ago I pulled the adjusted prices (dividends, splits, capital gains) from Yahoo Finance (e.g., [GLD history](https://finance.yahoo.com/quote/GLD/history/?period1=1728000000&period2=1728086400)) and calculated the ROI for each sleeve.
 
+{:.basic-table}
 | Asset | Weight | 2024-10-04 | 2026-01-27 | ROI |
 | --- | --- | --- | --- | --- |
 | SPDR S&P 500 ETF Trust (SPY) | 25% | 564.43 | 695.49 | 23.22% |
