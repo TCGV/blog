@@ -96,7 +96,7 @@ A couple of days ago I pulled the adjusted prices (dividends, splits, capital ga
 | United States Oil Fund (USO) | 5% | 76.35 | 75.66 | -0.90% |
 | Vanguard Real Estate ETF (VNQ) | 5% | 90.63 | 90.39 | -0.26% |
 
-**Portfolio result:** +23.74% over 14 months. Not bad.
+**Portfolio result:** +23.74% over 15 months. Not bad.
 
 Closing thoughts
 ======
