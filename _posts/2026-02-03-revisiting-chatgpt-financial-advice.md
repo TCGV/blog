@@ -16,7 +16,7 @@ The portfolio setup
 
 The original post suggested a broad allocation. To make it testable, I re-ran a prompt in the old GPT-4o model (via OpenAI's API, specifically `gpt-4o-2024-08-06` to avoid lookahead bias) to generate a concrete, investable portfolio, using the exact constraints from that post.
 
-<div class="chat-message" markdown="1">
+<div class="chat-message" markdown="1"><span class="badge">prompt</span>
 
 Construct a portfolio of stock indices, US bonds, corporate bond indices, and commodities, adhering to the following percentages:
 
@@ -32,7 +32,7 @@ Suggest only assets accessible to an individual investor via a US investment acc
 
 Here's the generated response:
 
-<div class="chat-message" markdown="1">
+<div class="chat-message" markdown="1"><span class="badge">response</span>
 
 Creating a diversified portfolio as per your specifications involves selecting specific ETFs and index funds that are accessible to retail investors. Here's a suggested portfolio:
 

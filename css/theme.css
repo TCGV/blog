@@ -165,6 +165,10 @@ table.w60 th {
     margin: 20px 0;
 }
 
+    .chat-message h3 {
+        font-size: 22px;
+    }
+
     .chat-message .badge {
         float: right;
         font-size: 0.8em;
