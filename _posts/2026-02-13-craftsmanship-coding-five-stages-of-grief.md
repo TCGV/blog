@@ -30,7 +30,8 @@ That's exactly where "agentic coding" is already meaningfully useful, because it
 
 But bear in mind: most tasks don't mean most value. So at a minimum treat agentic coding as a great tool to delegate lower-value tasks so that you can spend more time on higher-value work.
 
-## A practical ladder (most to least delegable)
+A practical ladder (most to least delegable)
+======
 
 {:.basic-table}
 | Work type                             | What agents are good at             | Your job stays                              |
@@ -42,9 +43,10 @@ But bear in mind: most tasks don't mean most value. So at a minimum treat agenti
 | Architecture                          | exploring options, drafting designs | making implicit constraints explicit        |
 | High-assurance software               | helping with review and test drafts | ownership, compliance, zero-tolerance gates |
 
-There are many levels of delegation; it isn't (and shouldn't be) all-or-nothing. The less complex, less sensitive, and more reversible a task is, the more you can delegate the bulk of the work and let the agent drive. At the other end of the spectrum—complex or high-stakes work where failures are costly and reversals are painful: you keep your hands on the wheel.
+There are many levels of delegation; it isn't (and shouldn't be) all-or-nothing. The less complex, less sensitive, and more reversible a task is, the more you can delegate the bulk of the work and let the agent drive. At the other end of the spectrum: complex or high-stakes work where failures are costly and reversals are painful, you keep your hands on the wheel.
 
-## What I've experienced in real projects
+What I've experienced in real projects
+======
 
 When the codebase has clear boundaries and coherent architecture, agents can be genuinely productive. When it's spaghetti code, agents degrade quickly and produce mediocre output, because the system itself has weak signals.
 
@@ -54,7 +56,8 @@ In other words, agents excel when scope is narrower, objectives are explicit, an
 
 That's where the efficiency gains are real.
 
-## How to stay ahead in an agentic world
+So, how to stay ahead in an agentic world
+======
 
 It isn't about typing faster. It's about moving craftsmanship upstream.
 
