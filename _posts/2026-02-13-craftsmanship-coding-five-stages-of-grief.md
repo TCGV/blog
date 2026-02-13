@@ -18,7 +18,7 @@ If we borrow the "five stages of grief" as a metaphor, it feels like part of our
 
 The next stage is **acceptance**.
 
-Not "AI will code everything," but "AI will code most of it"—and in many teams, it already does. But what does that mean? Simply put, software engineers will delegate most tasks to AI.
+Not "AI will code everything," but "AI will code most of it", and in many teams, it already does. But what does that mean? Simply put, software engineers will delegate most tasks to AI.
 
 Here's some truth about professional software:
 
@@ -28,7 +28,7 @@ Here's some truth about professional software:
 
 That's exactly where "agentic coding" is already meaningfully useful, because it's fast at the repetitive, low-cognition parts, and when you can verify outputs/diffs (with your own eyes) cheaply. So why not use it in this context?
 
-But bear in mind: most tasks doesn't mean most value. So at minimum treat agentic coding as a great tool to delegate lower-value tasks so that you can spend more time on higher-value work.
+But bear in mind: most tasks don't mean most value. So at a minimum treat agentic coding as a great tool to delegate lower-value tasks so that you can spend more time on higher-value work.
 
 ## A practical ladder (most to least delegable)
 
