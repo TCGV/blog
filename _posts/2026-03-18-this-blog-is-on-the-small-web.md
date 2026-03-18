@@ -5,9 +5,6 @@ date: 2026-03-18 13:00:00 -0300
 tags: ai blogging
 ---
 
-This blog is on the Small Web
-============
-
 I was browsing Hacker News yesterday and saw a post titled [Kagi Small Web](https://news.ycombinator.com/item?id=47410542) ranking high on the front page. Curiosity got the better of me, so I clicked through. I ended up spending some time there just jumping through random posts comprised of actually interesting stuff written by real people, not the usual SEO-optimized or AI "slop" we see everywhere now.
 
 Then I did a bit of digging. It turns out, this blog is on that list too 🙂
