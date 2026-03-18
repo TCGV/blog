@@ -20,7 +20,7 @@ If you're wondering how a site gets included, they have a [specific set of rules
 * **Recent-ish:** The blog needs at least one post in the last 12 months to stay in the index.
 * **Personal:** It favors personal diaries, niche technical deep-dives, and independent essays over corporate blogs or newsletters (Substack seems like a no-go).
 
-Turns out, these criteria favor both better content and a better experience—exactly what I value.
+Turns out, these criteria favor both better content and a better experience, exactly what I value.
 
 Seven years of "Zero Maintenance"
 ============
