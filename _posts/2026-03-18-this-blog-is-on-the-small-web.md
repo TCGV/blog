@@ -24,7 +24,7 @@ Turns out, these criteria favor both better content and a better experience, exa
 
 Seven years of "Zero Maintenance"
 ============
-I actually never submitted my blog to be included. It likely got picked up because I've been running this blog for seven years now. I use **Jekyll** - don't know if it's still a thing, but it works. 
+I actually never submitted my blog to be included. It likely got picked up because I've been running this blog for seven years now, since 2019. I use **Jekyll** - don't know if it's still a thing, but it works. 
 
 The best part? Jekyll generates an RSS feed out of the box, which turned out to be one of the requirements for getting indexed by Kagi. I host everything on [GitHub Pages](https://github.com/TCGV/blog), which I highly recommend. It's free, requires zero maintenance time, and it's surprisingly robust. It can handle a "Hacker News hug of death" without breaking a sweat whenever one of my posts accidentally hits the front page.
 
@@ -34,8 +34,8 @@ Is the small web actually useful?
 ============
 The [original HN thread](https://news.ycombinator.com/item?id=47410542) had some mixed feelings. A few people were underwhelmed by the current implementation, calling it "more like a curated blog ring than a discovery engine for the broader indie web." Others were more optimistic, acknowledging that it's a "good idea with a decent foundation."
 
-Personally, I just appreciate the small bit of recognition. In a world where every search result feels like it was written by a bot to sell me a mattress, it's nice to be officially part of the "Small Web", even more since even more ince I didn't subscribe myself to the list.
+Personally, I just appreciate the small bit of recognition. In a world where every search result feels like it was written by a bot to sell me a mattress, it's nice to be officially part of the "Small Web", even more since I didn't subscribe to be on the list myself.
 
 ---
 
-Cheers 🍻
+Cheers! 🍻
