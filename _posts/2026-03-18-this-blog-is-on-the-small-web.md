@@ -11,7 +11,7 @@ Then I did a bit of digging. It turns out, this blog is on that list too 🙂
 
 What is this list?
 ============
-I went over to their [GitHub repository](https://github.com/kagisearch/smallweb) to see what was going on. As of today, the `smallweb.txt` file is comprised of **34,492** blogs and personal websites. It's basically a very large, curated index of (a more?) "human" internet.
+I went over to their [GitHub repository](https://github.com/kagisearch/smallweb) to see what was going on. As of today, the `smallweb.txt` file is comprised of **34,492** blogs and personal websites. It's basically a very large, curated index of a (more?) "human" internet.
 
 If you're wondering how a site gets included, they have a [specific set of rules](https://github.com/kagisearch/smallweb?tab=readme-ov-file#%EF%B8%8F-guidelines-for-site-inclusion-to-the-list-%EF%B8%8F):
 * **Non-Commercial:** No intrusive ads, paywalls, or heavy affiliate marketing.
